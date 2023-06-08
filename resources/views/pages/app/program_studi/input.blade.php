@@ -64,7 +64,7 @@
                                 <trix-editor input="tujuan"></trix-editor>
                             </div>
                             <div class="col-6">
-                                <label class="required fw-semibold fs-6 mb-2">Link Program Studi</label>
+                                <label class="fw-semibold fs-6 mb-2">Link Program Studi</label>
                                 <input type="url" class="form-control form-control-solid mb-3" name="link" id="link" value="{{$data->link}}">
                             </div>
                         </div>

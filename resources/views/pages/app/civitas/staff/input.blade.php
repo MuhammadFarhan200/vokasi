@@ -35,10 +35,10 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="required fw-semibold fs-6 mb-2">Posisi</label>
-                                <select name="position" id="category" class="form-select form-select-solid">
+                                <select name="user_category_id" id="category" class="form-select form-select-solid">
                                     <option disabled selected>Pilih Posisi</option>
                                     @foreach ($category as $item)
-                                        <option value="{{$item->name}}" {{$data->position == $item->name ? 'selected' : ''}}>{{$item->name}}</option>
+                                        <option value="{{$item->id}}" {{$data->user_category_id == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

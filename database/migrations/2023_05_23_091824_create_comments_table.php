@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->longText('body')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

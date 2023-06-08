@@ -80,7 +80,7 @@
                 </div>
                 <!--end:Menu link-->
                 <!--begin:Menu link-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/appearance*')) ? 'here show' : ''}}">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{(request()->is(Str::lower('office/appearance*')) && !request()->is(Str::lower('office/appearance/carousel*')) && !request()->is(Str::lower('office/appearance/web-footer'))) ? 'here show' : ''}}">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -137,7 +137,7 @@
                     <!--begin:Menu link-->
                     <a class="menu-link {{request()->is(Str::lower('office/appearance/web-footer')) || request()->is(Str::lower('office/appearance/web-footer').'/*') ? 'active' : ''}}" href="{{route('office.appearance.web-footer.index')}}">
                         <span class="menu-icon">
-                            <i class="ki-outline ki-slider-vertical-2"></i>
+                            <i class="ki-outline ki-subtitle"></i>
                         </span>
                         <span class="menu-title">Web Footer</span>
                     </a>
@@ -168,7 +168,7 @@
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is('office/account/*') ? 'here show' : ''}}">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is('office/account/*') || request()->is('office/civitas/*') ? 'here show' : ''}}">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -221,8 +221,8 @@
                             <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/civitas')) || request()->is(Str::lower('office/civitas').'/*') ? 'here show' : ''}}">
                                 <!--begin:Menu link-->
                                 <span class="menu-link">
-                                    <span class="menu-icon">
-                                        <i class="ki-outline ki-people"></i>
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
                                     </span>
                                     <span class="menu-title">Civitas</span>
                                     <span class="menu-arrow"></span>
@@ -233,7 +233,7 @@
                                     <!--begin:Menu item-->
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
-                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/account/himpunan*')) || request()->is(Str::lower('office/account/category-himpunan*')) ? 'here show' : ''}}">
+                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/civitas/dosen*')) || request()->is(Str::lower('office/civitas/category-dosen*')) ? 'here show' : ''}}">
                                             <!--begin:Menu link-->
                                             <span class="menu-link">
                                                 <span class="menu-bullet">
@@ -442,51 +442,6 @@
                     <!--end:Menu link-->
                 </div>
                 <!--end:Menu item-->
-                <!--begin:Menu item-->
-                 {{-- <div class="menu-item pt-5">
-                    <!--begin:Menu content-->
-                    <div class="menu-content">
-                        <span class="menu-heading fw-bold text-uppercase fs-7">Kelola FRK/FED</span>
-                    </div>
-                    <!--end:Menu content-->
-                </div>
-                <!--end:Menu item-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a class="menu-link {{request()->is(Str::lower('office/subject')) || request()->is(Str::lower('office/subject').'/*') ? 'active' : ''}}" href="{{route('office.subject.index')}}">
-                        <span class="menu-icon">
-                            <i class="ki-outline ki-abstract-26"></i>
-                        </span>
-                        <span class="menu-title">Mata Kuliah</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--end:Menu link-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a class="menu-link" {{request()->is(Str::lower('office/tested-component*'))}} href="{{ route('office.tested-component.index') }}">
-                        <span class="menu-icon">
-                            <i class="ki-outline ki-abstract-18"></i>
-                        </span>
-                        <span class="menu-title">Komponen yang Dibimbing</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--end:Menu link-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a class="menu-link" {{request()->is(Str::lower('office/tester-position*'))}} href="{{ route('office.tester-position.index') }}">
-                        <span class="menu-icon">
-                            <i class="ki-outline ki-status"></i>
-                        </span>
-                        <span class="menu-title">Posisi Penguji</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div> --}}
-                <!--end:Menu link-->
                 <!--begin:Menu item-->
                  <div class="menu-item pt-5">
                     <!--begin:Menu content-->
@@ -740,7 +695,7 @@
                     <!--end:Menu sub-->
                 </div>
                 <!--end:Menu item-->
-                @elseif (auth()->user()->role == '6')
+                @elseif (auth()->user()->user_category->slug == 'himatek')
                 <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
@@ -753,7 +708,7 @@
                     <!--end:Menu link-->
                 </div>
                 <!--end:Menu item-->
-                @elseif (auth()->user()->role == '7')
+                @elseif (auth()->user()->user_category->slug == 'himatif')
                 <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
@@ -766,7 +721,7 @@
                     <!--end:Menu link-->
                 </div>
                 <!--end:Menu item-->
-                @elseif (auth()->user()->role == '8')
+                @elseif (auth()->user()->user_category->slug == 'himatera')
                 <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->

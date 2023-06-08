@@ -56,6 +56,17 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
+        Schema::create('researches', function (Blueprint $table) {
+            $table->id();
+            $table->integer('user_id')->default(0);
+            $table->longText('title');
+            $table->date('date');
+            $table->longText('published');
+            $table->longText('url');
+            $table->longText('desc')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -68,5 +79,8 @@ return new class extends Migration
         Schema::dropIfExists('backgrounds');
         Schema::dropIfExists('educational_backgrounds');
         Schema::dropIfExists('contacts');
+        Schema::dropIfExists('staff_activities');
+        Schema::dropIfExists('experiences');
+        Schema::dropIfExists('researches');
     }
 };

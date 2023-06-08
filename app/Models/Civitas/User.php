@@ -105,36 +105,6 @@ class User extends Authenticatable
         return $this->hasOne(Contact::class, 'user_id');
     }
 
-    public function teaching()
-    {
-        return $this->hasMany(Teaching::class, 'user_id');
-    }
-
-    public function scientific_work()
-    {
-        return $this->hasMany(ScientificWorks::class, 'user_id');
-    }
-
-    public function research_result()
-    {
-        return $this->hasMany(ResearchResults::class, 'user_id');
-    }
-
-    public function result_development()
-    {
-        return $this->hasMany(ResultDevelopments::class, 'user_id');
-    }
-
-    public function fpa()
-    {
-        return $this->hasMany(FinalProjectAdvisor::class, 'user_id');
-    }
-
-    public function fpt()
-    {
-        return $this->hasMany(FinalProjectTester::class, 'user_id');
-    }
-
     public function pendanaan() {
         return $this->hasMany(Funding::class, 'user_id');
     }
@@ -160,12 +130,6 @@ class User extends Authenticatable
         $this->background()->delete();
         $this->education()->delete();
         $this->contact()->delete();
-        $this->teaching()->delete();
-        $this->scientific_work()->delete();
-        $this->research_result()->delete();
-        $this->result_development()->delete();
-        $this->fpa()->delete();
-        $this->fpt()->delete();
         $this->pendanaan()->delete();
         $this->delete();
     }

@@ -47,13 +47,12 @@ class StaffController extends Controller
                 'message' => $validator->errors()->first(),
             ], 200);
         }
-
         $staff = new Staff();
         $staff->name = $request->name;
         $staff->email = $request->email;
-        $position = UserCategory::where('id', $request->user_category_id)->first();
-        $staff->position = $position->name;
         $staff->user_category_id = $request->user_category_id;
+        $position = UserCategory::where('id', $request->user_category_id)->first();
+        $staff->position = $position->name ? $position->name : '';
         $staff->password = Hash::make($request->password);
         $staff->role = '5';
         $staff->save();
@@ -101,9 +100,9 @@ class StaffController extends Controller
 
         $staff->name = $request->name;
         $staff->email = $request->email;
-        $position = UserCategory::where('id', $request->user_category_id)->first();
-        $staff->position = $position->name;
         $staff->user_category_id = $request->user_category_id;
+        $position = UserCategory::where('id', $request->user_category_id)->first();
+        $staff->position = $position->name ? $position->name : '';
         $staff->password = $request->password ? Hash::make($request->password) : $staff->password;
         $staff->update();
 

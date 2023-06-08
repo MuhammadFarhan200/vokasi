@@ -28,6 +28,7 @@ use App\Http\Controllers\Office\Civitas\Profile\EducationController;
 use App\Http\Controllers\Office\Civitas\Profile\ExperienceController;
 use App\Http\Controllers\Office\Civitas\Profile\FundingController;
 use App\Http\Controllers\Office\Civitas\Profile\PublicationController;
+use App\Http\Controllers\Office\Civitas\Profile\ResearchController;
 use App\Http\Controllers\Office\Civitas\Profile\StaffActivityController;
 use App\Http\Controllers\Office\Civitas\Profile\StaffEducationController;
 use App\Http\Controllers\Office\Civitas\Profile\StudiesController;
@@ -184,10 +185,10 @@ Route::group(['domain' => ''], function () {
             Route::prefix('himatek')->name('himatek.')->middleware('frole:6')->group(function () {
                 Route::resource('activity', OfficeHimatekController::class);
             });
-            Route::prefix('himatif')->name('himatif.')->middleware('frole:7')->group(function () {
+            Route::prefix('himatif')->name('himatif.')->middleware('frole:6')->group(function () {
                 Route::resource('activity', OfficeHimatifController::class);
             });
-            Route::prefix('himatera')->name('himatera.')->middleware('frole:8')->group(function () {
+            Route::prefix('himatera')->name('himatera.')->middleware('frole:6')->group(function () {
                 Route::resource('activity', OfficeHimateraController::class);
             });
             Route::prefix('about')->name('about.')->middleware('frole:1')->group(function () {
@@ -233,6 +234,11 @@ Route::group(['domain' => ''], function () {
                 Route::resource('dosen', DosenController::class);
                 Route::resource('category-dosen', DosenCategoryController::class);
                 Route::prefix('dosen')->name('dosen.')->group(function () {
+                    Route::resource('research', ResearchController::class);
+                    Route::get('{dosen}/research', [ResearchController::class, 'index'])->name('research.index');
+                    Route::get('{dosen}/research/create', [ResearchController::class, 'create'])->name('research.create');
+                    Route::get('{dosen}/{research}/edit-research', [ResearchController::class, 'edit'])->name('research.edit');
+
                     Route::resource('article', ArticleController::class);
                     Route::get('{dosen}/article', [ArticleController::class, 'index'])->name('article.index');
                     Route::get('{dosen}/article/create', [ArticleController::class, 'create'])->name('article.create');

@@ -6,9 +6,11 @@
                     <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_customers_table .form-check-input" value="1" />
                 </div>
             </th>
-            <th class="min-w-125px">Visi</th>
-            <th class="min-w-125px">Misi</th>
-            <th class="min-w-125px">Aktif/Non Aktif</th>
+            <th class="min-w-125px">Judul Penelitian</th>
+            <th class="min-w-125px">Tanggal</th>
+            <th class="min-w-125px">Tempat Publikasi</th>
+            <th class="min-w-125px">Url</th>
+            <th class="min-w-125px">Status</th>
             <th class="min-w-125px">Dibuat Tanggal</th>
             <th class="text-end min-w-70px">Aksi</th>
         </tr>
@@ -21,16 +23,10 @@
                     <input class="form-check-input" type="checkbox" value="1" />
                 </div>
             </td>
-            <td>
-                @php
-                    $visi = \Illuminate\Support\Str::limit($item->visi, 50, '...');
-                    $misi = \Illuminate\Support\Str::limit($item->misi, 50, '...');
-                @endphp
-                <a href="{{route('office.about.vision.edit',$item->id)}}" class="menu-link text-gray-600 text-hover-primary mb-1">{!! $visi !!}</a>
-            </td>
-            <td>
-                <a href="{{route('office.about.vision.edit',$item->id)}}" class="menu-link text-gray-600 text-hover-primary mb-1">{!! $misi !!}</a>
-            </td>
+            <td>{{ $item->title }}</td>
+            <td>{{ date('d M Y', strtotime($item->date)) }}</td>
+            <td>{{ $item->published }}</td>
+            <td>{{ $item->url }}</td>
             <td>
                 @if ($item->is_active == 1)
                 <span class="badge badge-light-success py-3 px-4 fs-7">Aktif</span>
@@ -40,11 +36,11 @@
             </td>
             <td>{{$item->created_at->format('d F Y, H:i A')}}</td>
             <td class="text-end text-nowrap">
-                <a href="{{route('office.about.vision.edit',$item->id)}}" class="menu-link btn btn-icon btn-warning"><i class="las la-edit text-black fs-2"></i></a>
+                <a href="{{route('office.civitas.dosen.research.edit', [$item->user_id, $item->id])}}" class="menu-link btn btn-icon btn-warning"><i class="las la-edit text-black fs-2"></i></a>
                 @if ($item->is_active == 1)
-                <button type="button" title="Non Aktifkan" id="tombol_non_aktif" data-redirect-url="{{route('office.about.vision.index')}}" onclick="handle_is_active('PATCH','{{route('office.about.vision.update',$item->id)}}','#tombol_non_aktif', 0);" class="btn btn-icon btn-danger"><i class="las la-times fs-2"></i></button>
+                <button type="button" title="Non Aktifkan" id="tombol_non_aktif" data-redirect-url="{{route('office.civitas.dosen.research.index', $dosen->id)}}" onclick="handle_is_active('PATCH','{{route('office.civitas.dosen.research.update',$item->id)}}','#tombol_non_aktif', 0);" class="btn btn-icon btn-danger"><i class="las la-times fs-2"></i></button>
                 @else
-                <button type="button" title="Aktifkan" id="tombol_aktif" data-redirect-url="{{route('office.about.vision.index')}}" onclick="handle_is_active('PATCH','{{route('office.about.vision.update',$item->id)}}','#tombol_aktif', 1);" class="btn btn-icon btn-success"><i class="las la-check fs-2"></i></button>
+                <button type="button" title="Aktifkan" id="tombol_aktif" data-redirect-url="{{route('office.civitas.dosen.research.index', $dosen->id)}}" onclick="handle_is_active('PATCH','{{route('office.civitas.dosen.research.update',$item->id)}}','#tombol_aktif', 1);" class="btn btn-icon btn-success"><i class="las la-check fs-2"></i></button>
                 @endif
             </td>
         </tr>
@@ -52,4 +48,3 @@
     </tbody>
 </table>
 {{$collection->links('themes.app.pagination')}}
-

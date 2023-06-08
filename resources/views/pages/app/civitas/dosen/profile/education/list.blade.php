@@ -31,7 +31,7 @@
                 <span class="badge badge-light-danger py-3 px-4 fs-7">Tidak Aktif</span>
                 @endif
             </td>
-            <td class="text-end">
+            <td class="text-end text-nowrap">
                 <a href="{{route('office.civitas.dosen.education.edit', [$dosen->id, $item->id])}}" class="menu-link btn btn-icon btn-warning"><i class="las la-edit text-black fs-2"></i></a>
                 @if ($item->is_active == 1)
                 <button type="button" title="Non Aktifkan" id="tombol_non_aktif" data-redirect-url="{{route('office.civitas.dosen.education.index', $dosen->id)}}" onclick="handle_is_active('PATCH','{{route('office.civitas.dosen.education.update',$item->id)}}','#tombol_non_aktif', 0);" class="btn btn-icon btn-danger"><i class="las la-times fs-2"></i></button>

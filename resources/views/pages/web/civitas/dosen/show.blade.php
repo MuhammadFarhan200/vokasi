@@ -39,10 +39,10 @@
                                     <h4 class="text-center fw-500 mb-3">{{ $dosen->name ?? '-' }}</h2>
                                 </div>
                                 <div class="text-center mt-2 border-bottom-dashed pb-2">
-                                    NIDN : {{ $dosen->nip ?? '-' }}
+                                    NIDN : {{ $dosen->nidn ?? '-' }}
                                 </div>
                                 <div class="text-start text-muted mt-2 border-bottom-dashed pb-3 pt-2 px-2">
-                                    <i class="fa-solid fa-building-columns me-3"></i>  {{ $dosen->position ?? '-' }}
+                                    <i class="fa-solid fa-building-columns me-3"></i>  {{ $dosen->user_category->name ?? '-' }}
                                 </div>
                                 <div class="text-start text-muted mt-2 border-bottom-dashed pb-3 pt-2 px-2">
                                     <i class="fa-solid fa-phone me-3"></i>  {{ $dosen->phone ?? '-' }}
@@ -192,27 +192,7 @@
                                     <div class="card my-card border-0">
                                         <div class="card-body px-4">
                                             <div class="card-title text-uppercase">Pengajaran & Pembimbingan</div>
-                                            @if ($teaching->count() > 0)
-                                                @foreach ($teaching as $item)
-                                                <div class="card rounded-6 my-shadow border-0 mt-3">
-                                                    <div class="card-body">
-                                                        @php
-                                                            $agreement = '';
-                                                            if ($item->agreement == 'KL') {
-                                                                $agreement = 'Kurang Lengkap';
-                                                            } else if ($item->agreement == 'DS') {
-                                                                $agreement = 'Disetujui';
-                                                            } else if ($item->agreement == 'TD') {
-                                                                $agreement = 'Tidak Disetujui';
-                                                            }
-                                                        @endphp
-                                                        <span class="text-uppercase fw-light" style="font-size: 12px">{{ $agreement }}</span>
-                                                        <div class="fw-semibold" style="font-size: 17px !important">{{ $item->subject->name }}</div>
-                                                        <div class="text-muted fw-light text-uppercase" style="font-size: 13px">Tahun Ajaran {{ $item->year . ' - Semester ' . $item->semester }}</div>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            @endif
+
                                         </div>
                                     </div>
                                 </div>

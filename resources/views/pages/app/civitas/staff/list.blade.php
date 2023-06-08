@@ -44,69 +44,59 @@
                     </span>
                 </button>
                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-700 menu-state-bg-light-primary py-4 fw-semibold w-200px text-start" data-kt-menu="true">
-                    <div class="menu-item px-3">
-                        <a href="{{ route('office.civitas.staff.personal.index', $item->id) }}" class="menu-link px-3">
+                    <div id="kt_menu" class="menu-item px-3" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-20px, 5px">
+                        <a href="#" class="menu-link px-3">
                             <span class="menu-icon">
                                 <i class="fa-solid fa-user"></i>
                             </span>
-                            <span class="menu-title">Identitas</span>
+                            <span class="menu-title">Profil</span>
+                            <span class="menu-arrow"></span>
                         </a>
+                        <div id="kt_menu_item" class="menu-sub menu-sub-dropdown w-200px py-4">
+                            <div class="menu-item px-3">
+                                <a href="{{ route('office.civitas.staff.personal.index', $item->id) }}" class="menu-link px-3">
+                                    <span class="menu-icon">
+                                        <i class="fa-solid fa-id-card-clip"></i>
+                                    </span>
+                                    Identitas
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="menu-item px-3">
-                        @if ($item->background)
-                        <a href="{{ route('office.civitas.staff.background.edit', $item->id) }}" class="menu-link px-3">
-                        @else
-                        <a href="{{ route('office.civitas.staff.background.index', $item->id) }}" class="menu-link px-3">
-                        @endif
-                            <span class="menu-icon" data-kt-element="icon">
-                                <i class="fa-solid fa-person"></i>
-                            </span>
-                            <span class="menu-title">Latar Belakang</span>
-                        </a>
-                    </div>
-                    <div class="menu-item px-3">
-                        <a href="{{ route('office.civitas.staff.staff_activity.index', $item->id) }}" class="menu-link px-3">
-                            <span class="menu-icon" data-kt-element="icon">
-                                <i class="fa-solid fa-calendar"></i>
-                            </span>
-                            <span class="menu-title">Kegiatan</span>
-                        </a>
-                    </div>
-                    <div class="menu-item px-3">
-                        <a href="{{ route('office.civitas.staff.experience.index', $item->id) }}" class="menu-link px-3">
-                            <span class="menu-icon" data-kt-element="icon">
+                    <div id="kt_menu_second" class="menu-item px-3" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="0px, 5px">
+                        <a href="#" class="menu-link px-3">
+                            <span class="menu-icon">
                                 <i class="fa-solid fa-star"></i>
                             </span>
-                            <span class="menu-title">Pengalaman</span>
+                            <span class="menu-title">Portofolio</span>
+                            <span class="menu-arrow"></span>
                         </a>
-                    </div>
-                    <div class="menu-item px-3">
-                        <a href="{{ route('office.civitas.staff.education.index', $item->id) }}" class="menu-link px-3">
-                            <span class="menu-icon" data-kt-element="icon">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </span>
-                            <span class="menu-title">Riwayat Pendidikan</span>
-                        </a>
-                    </div>
-                    <div class="menu-item px-3">
-                        @if ($item->contact)
-                        <a href="{{ route('office.civitas.staff.contact.edit', $item->id) }}" class="menu-link px-3">
-                        @else
-                        <a href="{{ route('office.civitas.staff.contact.index', $item->id) }}" class="menu-link px-3">
-                        @endif
-                            <span class="menu-icon" data-kt-element="icon">
-                                <i class="fa-solid fa-address-book"></i>
-                            </span>
-                            <span class="menu-title">Kontak</span>
-                        </a>
-                    </div>
-                    <div class="menu-item px-3">
-                        <a href="{{ route('office.civitas.staff.about.index', $item->id) }}" class="menu-link px-3">
-                            <span class="menu-icon" data-kt-element="icon">
-                                <i class="fa-solid fa-address-card"></i>
-                            </span>
-                            <span class="menu-title">Tentang</span>
-                        </a>
+                        <div id="kt_menu_item_second" class="menu-sub menu-sub-dropdown w-250px py-4">
+                            <div class="menu-item px-3">
+                                <a href="{{ route('office.civitas.staff.about.index', $item->id) }}" class="menu-link px-3">
+                                    <span class="menu-icon" data-kt-element="icon">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    </span>
+                                    <span class="menu-title">Tentang</span>
+                                </a>
+                            </div>
+                            <div class="menu-item px-3">
+                                <a href="{{ route('office.civitas.staff.education.index', $item->id) }}" class="menu-link px-3">
+                                    <span class="menu-icon" data-kt-element="icon">
+                                        <i class="fa-solid fa-graduation-cap"></i>
+                                    </span>
+                                    <span class="menu-title">Riwayat Pendidikan</span>
+                                </a>
+                            </div>
+                            <div class="menu-item px-3">
+                                <a href="#" class="menu-link px-3">
+                                    <span class="menu-icon" data-kt-element="icon">
+                                        <i class="fa-solid fa-school"></i>
+                                    </span>
+                                    <span class="menu-title">Pengajaran</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <a href="{{route('office.civitas.staff.edit',$item->id)}}" class="menu-link btn btn-icon btn-warning"><i class="las la-edit text-black fs-2"></i></a>
@@ -134,6 +124,7 @@
             menu.show(item);
         });
     });
-
+    var menuElementSecond = document.querySelector("#kt_menu_second");
+    var menuSecond = KTMenu.getInstance(menuElementSecond)
 </script>
 {{$collection->links('themes.app.pagination')}}

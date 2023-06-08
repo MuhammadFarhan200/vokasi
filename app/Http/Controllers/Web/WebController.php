@@ -177,9 +177,8 @@ class WebController extends Controller
         $studies = $dosen->studies()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
         $funding = $dosen->pendanaan()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
         $contact = $dosen->contact()->where('is_active', 1)->first();
-        $teaching = $dosen->teaching()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
         // dd($studies);
-        return view('pages.web.civitas.dosen.show', compact('dosen', 'article', 'books', 'publication', 'education', 'studies', 'contact', 'funding', 'teaching'));
+        return view('pages.web.civitas.dosen.show', compact('dosen', 'article', 'books', 'publication', 'education', 'studies', 'contact', 'funding'));
     }
 
     public function staf()

@@ -38,10 +38,11 @@ class AuthController extends Controller
         } else {
             if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
                 // toast()->success(null, 'Login berhasil!')->showCloseButton(true)->autoClose(5000)->width('300px');
-                return redirect()->route('web.home')->with('success', 'Login berhasil!');
+                return redirect()->route('office.dashboard.index')->with('success', 'Login berhasil!');
+            } else {
+                session('error', 'email atau password yang anda masukkan tidak sesuai, silahkan isi kembali.');
+                return redirect()->back()->withInput()->with('error', 'email atau password yang anda masukkan tidak sesuai, silahkan isi kembali.');
             }
-            session('error', 'email atau password yang anda masukkan tidak sesuai, silahkan isi kembali.');
-            return redirect()->back()->withInput()->with('error', 'email atau password yang anda masukkan tidak sesuai, silahkan isi kembali.');
         }
 
     }

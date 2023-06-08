@@ -37,12 +37,11 @@
             <td>{{date('d M Y H:i A', strtotime($item->created_at))}}</td>
             <td class="text-end text-nowrap">
                 <a href="{{route('office.about.history.edit',$item->id)}}" class="menu-link btn btn-icon btn-warning"><i class="las la-edit text-black fs-2"></i></a>
-                {{-- @if ($item->is_active == 1)
+                @if ($item->is_active == 1)
                 <button type="button" title="Non Aktifkan" id="tombol_non_aktif" data-redirect-url="{{route('office.about.history.index')}}" onclick="handle_is_active('PATCH','{{route('office.about.history.update',$item->id)}}','#tombol_non_aktif', 0);" class="btn btn-icon btn-danger"><i class="las la-times fs-2"></i></button>
                 @else
                 <button type="button" title="Aktifkan" id="tombol_aktif" data-redirect-url="{{route('office.about.history.index')}}" onclick="handle_is_active('PATCH','{{route('office.about.history.update',$item->id)}}','#tombol_aktif', 1);" class="btn btn-icon btn-success"><i class="las la-check fs-2"></i></button>
-                @endif --}}
-                <button type="button" title="Hapus" id="tombol_hapus" data-redirect-url="{{route('office.about.history.index')}}" onclick="handle_confirm('DELETE','{{route('office.about.history.destroy',$item->id)}}','#tombol_hapus');" class="btn btn-icon btn-danger"><i class="las la-trash fs-2"></i></button>
+                @endif
             </td>
         </tr>
         @endforeach

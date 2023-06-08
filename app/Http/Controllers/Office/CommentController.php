@@ -40,7 +40,18 @@ class CommentController extends Controller
 
     public function update(Request $request, Comment $comment)
     {
-        //
+        if ($request->is_active !== null) {
+            $comment->is_active = $request->is_active;
+            $message = 'Data berhasil diaktifkan';
+            if ($request->is_active == 0) {
+                $message = 'Data berhasil dinonaktifkan';
+            }
+            $comment->update();
+            return response()->json([
+                'alert' => 'success',
+                'message' => $message,
+            ]);
+        }
     }
 
     public function destroy(Comment $comment)

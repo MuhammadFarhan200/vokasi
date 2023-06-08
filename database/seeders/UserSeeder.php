@@ -25,14 +25,14 @@ class UserSeeder extends Seeder
             ['name' => 'Himatera', 'role' => '6', 'slug' => 'himatera', 'is_active' => true, 'created_at' => now(), 'updated_at' => now()],
         ]);
         DB::table('users')->insert([
-            ['name' => 'Administrator', 'email' => 'demo@admin.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '1', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Dekan', 'email' => 'demo@dekan.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '2', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'KA Prodi', 'email' => 'demo@kaprodi.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '3', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Dosen', 'email' => 'demo@dosen.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '4', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Staf', 'email' => 'demo@staf.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '5', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Himatek', 'email' => 'demo@himatek.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '6', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Himatif', 'email' => 'demo@himatif.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '6', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Himatera', 'email' => 'demo@himatera.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '6', 'created_at' => now(), 'updated_at' => now()],
+            ['user_category_id' => null, 'name' => 'Administrator', 'email' => 'demo@admin.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '1', 'created_at' => now(), 'updated_at' => now()],
+            ['user_category_id' => null, 'name' => 'Dekan', 'email' => 'demo@dekan.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '2', 'created_at' => now(), 'updated_at' => now()],
+            ['user_category_id' => null, 'name' => 'KA Prodi', 'email' => 'demo@kaprodi.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '3', 'created_at' => now(), 'updated_at' => now()],
+            ['user_category_id' => 4, 'name' => 'Dosen', 'email' => 'demo@dosen.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '4', 'created_at' => now(), 'updated_at' => now()],
+            ['user_category_id' => 7, 'name' => 'Staf', 'email' => 'demo@staf.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '5', 'created_at' => now(), 'updated_at' => now()],
+            ['user_category_id' => 9, 'name' => 'Himatek', 'email' => 'demo@himatek.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '6', 'created_at' => now(), 'updated_at' => now()],
+            ['user_category_id' => 10, 'name' => 'Himatif', 'email' => 'demo@himatif.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '6', 'created_at' => now(), 'updated_at' => now()],
+            ['user_category_id' => 11, 'name' => 'Himatera', 'email' => 'demo@himatera.com', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role' => '6', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }

@@ -39,7 +39,7 @@
                 @endif
             </td>
             <td>{{$item->created_at->format('d F Y, H:i A')}}</td>
-            <td class="text-end">
+            <td class="text-end text-nowrap">
                 <a href="{{route('office.appearance.web-footer.edit',$item->id)}}" class="menu-link btn btn-icon btn-warning"><i class="las la-edit text-black fs-2"></i></a>
                 @if ($item->is_active == 1)
                 <button type="button" title="Non Aktifkan" id="tombol_non_aktif" data-redirect-url="{{route('office.appearance.web-footer.index')}}" onclick="handle_is_active('PATCH','{{route('office.appearance.web-footer.update',$item->id)}}','#tombol_non_aktif', 0);" class="btn btn-icon btn-danger"><i class="las la-times fs-2"></i></button>

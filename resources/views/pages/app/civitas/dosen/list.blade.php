@@ -45,7 +45,7 @@
                     </span>
                 </button>
                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-700 menu-state-bg-light-primary py-4 fw-semibold w-200px text-start" data-kt-menu="true">
-                    <div id="kt_menu" class="menu-item px-3" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="30px, 5px">
+                    <div id="kt_menu" class="menu-item px-3" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-20px, 5px">
                         <a href="#" class="menu-link px-3">
                             <span class="menu-icon">
                                 <i class="fa-solid fa-user"></i>
@@ -56,91 +56,71 @@
                         <div id="kt_menu_item" class="menu-sub menu-sub-dropdown w-200px py-4">
                             <div class="menu-item px-3">
                                 <a href="{{ route('office.civitas.dosen.personal.index', $item->id) }}" class="menu-link px-3">
+                                    <span class="menu-icon">
+                                        <i class="fa-solid fa-id-card-clip"></i>
+                                    </span>
                                     Identitas
                                 </a>
                             </div>
+                        </div>
+                    </div>
+                    <div id="kt_menu_second" class="menu-item px-3" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="30px, 5px">
+                        <a href="#" class="menu-link px-3">
+                            <span class="menu-icon">
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                            <span class="menu-title">Portofolio</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div id="kt_menu_item_second" class="menu-sub menu-sub-dropdown w-280px py-4">
                             <div class="menu-item px-3">
-                                <a href="{{ route('office.civitas.dosen.overview.index', $item->id) }}" class="menu-link px-3">
-                                    Autobiografi Singkat
+                                <a href="{{ route('office.civitas.dosen.about.index', $item->id) }}" class="menu-link px-3">
+                                    <span class="menu-icon" data-kt-element="icon">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    </span>
+                                    <span class="menu-title">Tentang</span>
                                 </a>
                             </div>
                             <div class="menu-item px-3">
-                                @if ($item->background)
-                                <a href="{{ route('office.civitas.dosen.background.edit', $item->id) }}" class="menu-link px-3">
-                                    Latar Belakang
+                                <a href="{{ route('office.civitas.dosen.research.index', $item->id) }}" class="menu-link px-3">
+                                    <span class="menu-icon" data-kt-element="icon">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                    </span>
+                                    <span class="menu-title">Penelitian</span>
                                 </a>
-                                @else
-                                <a href="{{ route('office.civitas.dosen.background.index', $item->id) }}" class="menu-link px-3">
-                                    Latar Belakang
-                                </a>
-                                @endif
                             </div>
                             <div class="menu-item px-3">
-                                <a href="{{ route('office.civitas.dosen.ikhtisar.index', $item->id) }}" class="menu-link px-3">
-                                    Ikhtisar
+                                <a href="{{ route('office.civitas.dosen.funding.index', $item->id) }}" class="menu-link px-3">
+                                    <span class="menu-icon" data-kt-element="icon">
+                                        <i class="fa-solid fa-money-check-dollar"></i>
+                                    </span>
+                                    <span class="menu-title">Pendanaan</span>
                                 </a>
                             </div>
                             <div class="menu-item px-3">
                                 <a href="{{ route('office.civitas.dosen.education.index', $item->id) }}" class="menu-link px-3">
-                                    Riwayat Pendidikan
+                                    <span class="menu-icon" data-kt-element="icon">
+                                        <i class="fa-solid fa-graduation-cap"></i>
+                                    </span>
+                                    <span class="menu-title">Riwayat Pendidikan</span>
                                 </a>
                             </div>
                             <div class="menu-item px-3">
-                                @if ($item->contact)
-                                <a href="{{ route('office.civitas.dosen.contact.edit', $item->id) }}" class="menu-link px-3">
-                                    Kontak
-                                </a>
-                                @else
-                                <a href="{{ route('office.civitas.dosen.contact.index', $item->id) }}" class="menu-link px-3">
-                                    Kontak
-                                </a>
-                                @endif
-                            </div>
-                            <div class="menu-item px-3">
-                                <a href="{{ route('office.civitas.dosen.about.index', $item->id) }}" class="menu-link px-3">
-                                    Tentang
+                                <a href="{{ route('office.civitas.dosen.studies.index', $item->id) }}" class="menu-link px-3">
+                                    <span class="menu-icon" data-kt-element="icon">
+                                        <i class="fa-solid fa-school"></i>
+                                    </span>
+                                    <span class="menu-title">Pengajaran dan Pembimbingan</span>
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="menu-item px-3">
-                        <a href="{{ route('office.civitas.dosen.article.index', $item->id) }}" class="menu-link px-3">
+                        <a href="{{ route('office.civitas.dosen.about.index', $item->id) }}" class="menu-link px-3">
                             <span class="menu-icon" data-kt-element="icon">
-                                <i class="fa-solid fa-newspaper"></i>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </span>
-                            <span class="menu-title">Artikel</span>
-                        </a>
-                    </div>
-                    <div class="menu-item px-3">
-                        <a href="{{ route('office.civitas.dosen.book.index', $item->id) }}" class="menu-link px-3">
-                            <span class="menu-icon" data-kt-element="icon">
-                                <i class="fa-solid fa-book"></i>
-                            </span>
-                            <span class="menu-title">Buku</span>
-                        </a>
-                    </div>
-                    <div class="menu-item px-3">
-                        <a href="{{ route('office.civitas.dosen.funding.index', $item->id) }}" class="menu-link px-3">
-                            <span class="menu-icon" data-kt-element="icon">
-                                <i class="fa-solid fa-money-check-dollar"></i>
-                            </span>
-                            <span class="menu-title">Pendanaan</span>
-                        </a>
-                    </div>
-                    <div class="menu-item px-3">
-                        <a href="{{ route('office.civitas.dosen.publication.index', $item->id) }}" class="menu-link px-3">
-                            <span class="menu-icon" data-kt-element="icon">
-                                <i class="fa-solid fa-upload"></i>
-                            </span>
-                            <span class="menu-title">Publikasi Teratas</span>
-                        </a>
-                    </div>
-                    <div class="menu-item px-3">
-                        <a href="{{ route('office.civitas.dosen.studies.index', $item->id) }}" class="menu-link px-3">
-                            <span class="menu-icon" data-kt-element="icon">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </span>
-                            <span class="menu-title">Bidang Kajian</span>
+                            <span class="menu-title">Simulasi PAK</span>
                         </a>
                     </div>
                 </div>
@@ -169,5 +149,8 @@
             menu.show(item);
         });
     });
+
+    var menuElementSecond = document.querySelector("#kt_menu_second");
+    var menuSecond = KTMenu.getInstance(menuElementSecond)
 </script>
 {{$collection->links('themes.app.pagination')}}

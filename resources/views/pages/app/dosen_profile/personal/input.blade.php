@@ -32,16 +32,24 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="required fw-semibold fs-6 mb-2">Program Studi</label>
-                                <select name="position" id="dosen_position" class="form-select form-select-solid">
+                                <select name="user_category_id" id="dosen_position" class="form-select form-select-solid">
                                     <option disabled selected>Pilih Program Studi</option>
                                     @foreach ($category as $item)
-                                        <option value="{{$item->name}}" {{$data->position == $item->name ? 'selected' : ''}}>{{$item->name}}</option>
+                                        <option value="{{$item->id}}" {{$data->user_category_id == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label class="required fw-semibold fs-6 mb-2">NIDN</label>
-                                <input type="text" class="form-control form-control-solid mb-3" name="nip" id="nip" value="{{$data->nip}}">
+                                <input type="text" class="form-control form-control-solid mb-3" name="nidn" id="nidn" value="{{$data->nidn}}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold fs-6 mb-2">Posisi</label>
+                                <input type="text" class="form-control form-control-solid mb-3" name="position" id="position" value="{{$data->position}}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="required fw-semibold fs-6 mb-2">Sinta ID</label>
+                                <input type="text" class="form-control form-control-solid mb-3" name="sinta_id" id="sinta_id" value="{{$data->sinta_id}}">
                             </div>
                             <div class="col-md-6">
                                 <label class="required fw-semibold fs-6 mb-2">Tempat Lahir</label>
