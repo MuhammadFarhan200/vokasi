@@ -31,6 +31,11 @@ class BooksController extends Controller
             'year' => 'required',
             'published' => 'required',
             'desc' => 'required',
+        ],[
+            'title.required' => 'Judul tidak boleh kosong',
+            'year.required' => 'Tahun tidak boleh kosong',
+            'published.required' => 'Penerbit tidak boleh kosong',
+            'desc.required' => 'Deskripsi tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -84,6 +89,11 @@ class BooksController extends Controller
             'year' => 'required',
             'published' => 'required',
             'desc' => 'required',
+        ],[
+            'title.required' => 'Judul tidak boleh kosong',
+            'year.required' => 'Tahun tidak boleh kosong',
+            'published.required' => 'Penerbit tidak boleh kosong',
+            'desc.required' => 'Deskripsi tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {

@@ -33,6 +33,13 @@ class DosenController extends Controller
             'name' => 'required',
             'email' => 'required|unique:users',
             'password' => 'required',
+            'user_category_id' => 'required'
+        ],[
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'email.unique' => 'Email sudah terdaftar',
+            'password.required' => 'Password tidak boleh kosong',
+            'user_category_id.required' => 'Porgram Studi tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -45,8 +52,8 @@ class DosenController extends Controller
         $dosen = new Dosen;
         $dosen->name = $request->name;
         $dosen->email = $request->email;
-        $dosen->position = $request->position;
         $dosen->password = Hash::make($request->password);
+        $dosen->user_category_id = $request->user_category_id;
         $dosen->role = '4';
         $dosen->save();
 
@@ -84,6 +91,11 @@ class DosenController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
+            'user_category_id' => 'required'
+        ],[
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'user_category_id.required' => 'Porgram Studi tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -95,7 +107,7 @@ class DosenController extends Controller
 
         $dosen->name = $request->name;
         $dosen->email = $request->email;
-        $dosen->position = $request->position;
+        $dosen->user_category_id = $request->user_category_id;
         $dosen->password = $request->password ? Hash::make($request->password) : $dosen->password;
         $dosen->update();
 
@@ -150,6 +162,8 @@ class DosenController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'bio' => 'required',
+        ],[
+            'bio.required' => 'Kata Kunci tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -206,6 +220,15 @@ class DosenController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
+            'user_category_id' => 'required',
+            'nidn' => 'required',
+            'sinta_id' => 'required',
+        ],[
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'user_category_id.required' => 'Porgram Studi tidak boleh kosong',
+            'nidn.required' => 'NIDN tidak boleh kosong',
+            'sinta_id.required' => 'Sinta ID tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -216,13 +239,14 @@ class DosenController extends Controller
         }
 
         $dosen->name = $request->name;
+        $dosen->user_category_id = $request->user_category_id;
         $dosen->email = $request->email;
         $dosen->phone = $request->phone;
-        $dosen->nip = $request->nip;
+        $dosen->nidn = $request->nidn;
+        $dosen->sinta_id = $request->sinta_id;
         $dosen->place_birth = $request->place_birth;
         $dosen->date_birth = $request->date_birth;
         $dosen->skill = $request->skill;
-        $dosen->bio = $request->bio;
         $dosen->url = $request->url;
         $dosen->position = $request->position;
         if ($request->file('avatar')) {

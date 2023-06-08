@@ -31,6 +31,10 @@ class EducationController extends Controller
             'year' => 'required',
             'knowledge_field' => 'required',
             'university' => 'required',
+        ],[
+            'year.required' => 'Tahun tidak boleh kosong',
+            'knowledge_field.required' => 'Bidang ilmu tidak boleh kosong',
+            'university.required' => 'Universitas tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -76,6 +80,10 @@ class EducationController extends Controller
             'year' => 'required',
             'knowledge_field' => 'required',
             'university' => 'required',
+        ],[
+            'year.required' => 'Tahun tidak boleh kosong',
+            'knowledge_field.required' => 'Bidang ilmu tidak boleh kosong',
+            'university.required' => 'Universitas tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {

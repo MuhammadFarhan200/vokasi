@@ -32,6 +32,15 @@ class DosenProfileController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
+            'user_category_id' => 'required',
+            'nidn' => 'required',
+            'sinta_id' => 'required',
+        ],[
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'user_category_id.required' => 'Program Studi tidak boleh kosong',
+            'nidn.required' => 'NIDN tidak boleh kosong',
+            'sinta_id.required' => 'Sinta ID tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -43,9 +52,11 @@ class DosenProfileController extends Controller
 
         $dosen = Dosen::where('id', Auth::user()->id)->first();
         $dosen->name = $request->name;
+        $dosen->user_category_id = $request->user_category_id;
         $dosen->email = $request->email;
         $dosen->phone = $request->phone;
-        $dosen->nip = $request->nip;
+        $dosen->nidn = $request->nidn;
+        $dosen->sinta_id = $request->sinta_id;
         $dosen->place_birth = $request->place_birth;
         $dosen->date_birth = $request->date_birth;
         $dosen->skill = $request->skill;
@@ -259,6 +270,11 @@ class DosenProfileController extends Controller
             'year' => 'required|numeric',
             'knowledge_field' => 'required',
             'university' => 'required',
+        ],[
+            'year.required' => 'Tahun tidak boleh kosong',
+            'year.numeric' => 'Tahun harus berupa angka',
+            'knowledge_field.required' => 'Bidang ilmu tidak boleh kosong',
+            'university.required' => 'Universitas tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -305,6 +321,11 @@ class DosenProfileController extends Controller
             'year' => 'required|numeric',
             'knowledge_field' => 'required',
             'university' => 'required',
+        ],[
+            'year.required' => 'Tahun tidak boleh kosong',
+            'year.numeric' => 'Tahun harus berupa angka',
+            'knowledge_field.required' => 'Bidang ilmu tidak boleh kosong',
+            'university.required' => 'Universitas tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -358,6 +379,12 @@ class DosenProfileController extends Controller
             'year' => 'required|numeric',
             'published' => 'required',
             'desc' => 'required',
+        ],[
+            'title.required' => 'Judul tidak boleh kosong',
+            'year.required' => 'Tahun tidak boleh kosong',
+            'year.numeric' => 'Tahun harus berupa angka',
+            'published.required' => 'Tempat penerbitan tidak boleh kosong',
+            'desc.required' => 'Deskripsi tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -407,6 +434,12 @@ class DosenProfileController extends Controller
             'year' => 'required|numeric',
             'published' => 'required',
             'desc' => 'required',
+        ],[
+            'title.required' => 'Judul tidak boleh kosong',
+            'year.required' => 'Tahun tidak boleh kosong',
+            'year.numeric' => 'Tahun harus berupa angka',
+            'published.required' => 'Tempat penerbitan tidak boleh kosong',
+            'desc.required' => 'Deskripsi tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -462,6 +495,12 @@ class DosenProfileController extends Controller
             'year' => 'required|numeric',
             'published' => 'required',
             'desc' => 'required',
+        ],[
+            'title.required' => 'Judul tidak boleh kosong',
+            'year.required' => 'Tahun tidak boleh kosong',
+            'year.numeric' => 'Tahun harus berupa angka',
+            'published.required' => 'Penerbit tidak boleh kosong',
+            'desc.required' => 'Deskripsi tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -511,6 +550,12 @@ class DosenProfileController extends Controller
             'year' => 'required|numeric',
             'published' => 'required',
             'desc' => 'required',
+        ],[
+            'title.required' => 'Judul tidak boleh kosong',
+            'year.required' => 'Tahun tidak boleh kosong',
+            'year.numeric' => 'Tahun harus berupa angka',
+            'published.required' => 'Penerbit tidak boleh kosong',
+            'desc.required' => 'Deskripsi tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -756,6 +801,13 @@ class DosenProfileController extends Controller
             'working_time' => 'required',
             'working_area' => 'required',
             'type' => 'required',
+        ],[
+            'project_name.required' => 'Nama kegiatan tidak boleh kosong',
+            'organizer.required' => 'Penyelenggara tidak boleh kosong',
+            'involved_parties.required' => 'Sponsor tidak boleh kosong',
+            'working_time.required' => 'Waktu Pengerjaan tidak boleh kosong',
+            'working_area.required' => 'Tempat Penyelenggaraan tidak boleh kosong',
+            'type.required' => 'Jenis pendanaan tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -808,6 +860,13 @@ class DosenProfileController extends Controller
             'working_time' => 'required',
             'working_area' => 'required',
             'type' => 'required',
+        ],[
+            'project_name.required' => 'Nama kegiatan tidak boleh kosong',
+            'organizer.required' => 'Penyelenggara tidak boleh kosong',
+            'involved_parties.required' => 'Sponsor tidak boleh kosong',
+            'working_time.required' => 'Waktu Pengerjaan tidak boleh kosong',
+            'working_area.required' => 'Tempat Penyelenggaraan tidak boleh kosong',
+            'type.required' => 'Jenis pendanaan tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {

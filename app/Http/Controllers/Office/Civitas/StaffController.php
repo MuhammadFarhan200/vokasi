@@ -34,6 +34,11 @@ class StaffController extends Controller
             'name' => 'required',
             'email' => 'required|unique:users',
             'password' => 'required',
+        ],[
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'email.unique' => 'Email sudah terdaftar',
+            'password.required' => 'Password tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -46,7 +51,9 @@ class StaffController extends Controller
         $staff = new Staff();
         $staff->name = $request->name;
         $staff->email = $request->email;
-        $staff->position = $request->position;
+        $position = UserCategory::where('id', $request->user_category_id)->first();
+        $staff->position = $position->name;
+        $staff->user_category_id = $request->user_category_id;
         $staff->password = Hash::make($request->password);
         $staff->role = '5';
         $staff->save();
@@ -80,6 +87,9 @@ class StaffController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
+        ],[
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -91,7 +101,9 @@ class StaffController extends Controller
 
         $staff->name = $request->name;
         $staff->email = $request->email;
-        $staff->position = $request->position;
+        $position = UserCategory::where('id', $request->user_category_id)->first();
+        $staff->position = $position->name;
+        $staff->user_category_id = $request->user_category_id;
         $staff->password = $request->password ? Hash::make($request->password) : $staff->password;
         $staff->update();
 
@@ -120,6 +132,14 @@ class StaffController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
+            'email' => 'required',
+            'employee_id' => 'required',
+            'user_category_id' => 'required',
+        ],[
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'employee_id.required' => 'ID Karyawan tidak boleh kosong',
+            'user_category_id.required' => 'Posisi tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -131,12 +151,14 @@ class StaffController extends Controller
 
         $staff->name = $request->name;
         $staff->email = $request->email;
-        $staff->nip = $request->nip;
+        $staff->employee_id = $request->employee_id;
         $staff->phone = $request->phone;
         $staff->place_birth = $request->place_birth;
         $staff->date_birth = $request->date_birth;
         $staff->skill = $request->skill;
-        $staff->position = $request->position;
+        $position = UserCategory::where('id', $request->user_category_id)->first();
+        $staff->position = $position->name;
+        $staff->user_category_id = $request->user_category_id;
         if ($request->file('avatar')) {
             if ($staff->avatar != null){
                 Storage::delete($staff->avatar);
@@ -194,6 +216,17 @@ class StaffController extends Controller
     }
 
     public function update_tentang_staff(Request $request, Staff $staff) {
+        $validator = Validator::make($request->all(), [
+            'bio' => 'required',
+        ],[
+            'bio.required' => 'Kata Kunci tidak boleh kosong',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'alert' => 'error',
+                'message' => $validator->errors()->first(),
+            ], 200);
+        }
         $staff->bio = $request->bio;
         $staff->update();
 

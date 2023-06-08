@@ -27,6 +27,13 @@ class StaffProfileController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
+            'employee_id' => 'required',
+            'user_category_id' => 'required',
+        ],[
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'employee_id.required' => 'ID Karyawan tidak boleh kosong',
+            'user_category_id.required' => 'Posisi tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -40,11 +47,13 @@ class StaffProfileController extends Controller
         $staff->name = $request->name;
         $staff->email = $request->email;
         $staff->phone = $request->phone;
-        $staff->nip = $request->nip;
+        $staff->employee_id = $request->employee_id;
         $staff->place_birth = $request->place_birth;
         $staff->date_birth = $request->date_birth;
         $staff->skill = $request->skill;
-        $staff->position = $request->position;
+        $position = UserCategory::where('id', $request->user_category_id)->first();
+        $staff->position = $position->name;
+        $staff->user_category_id = $request->user_category_id;
         if ($request->file('avatar')) {
             if ($staff->avatar != null){
                 Storage::delete($staff->avatar);

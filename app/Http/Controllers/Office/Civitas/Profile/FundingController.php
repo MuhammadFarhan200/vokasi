@@ -33,6 +33,13 @@ class FundingController extends Controller
             'working_time' => 'required',
             'working_area' => 'required',
             'type' => 'required',
+        ],[
+            'project_name.required' => 'Nama Kegiatan tidak boleh kosong',
+            'organizer.required' => 'Penyelenggara tidak boleh kosong',
+            'involved_parties.required' => 'Sponsor tidak boleh kosong',
+            'working_time.required' => 'Waktu Pengerjaan tidak boleh kosong',
+            'working_area.required' => 'Tempat Penyelenggaraan boleh kosong',
+            'type.required' => 'Jenis Pendanaan tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
@@ -89,6 +96,13 @@ class FundingController extends Controller
             'working_time' => 'required',
             'working_area' => 'required',
             'type' => 'required',
+        ],[
+            'project_name.required' => 'Nama Kegiatan tidak boleh kosong',
+            'organizer.required' => 'Penyelenggara tidak boleh kosong',
+            'involved_parties.required' => 'Sponsor tidak boleh kosong',
+            'working_time.required' => 'Waktu Pengerjaan tidak boleh kosong',
+            'working_area.required' => 'Tempat Penyelenggaraan boleh kosong',
+            'type.required' => 'Jenis Pendanaan tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {

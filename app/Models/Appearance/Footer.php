@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\FRK;
+namespace App\Models\Appearance;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CollegeLeadershipPositions extends Model
+class Footer extends Model
 {
     use HasFactory;
-    protected $table = 'college_leadership_positions';
+    protected $table = 'web_footers';
 }

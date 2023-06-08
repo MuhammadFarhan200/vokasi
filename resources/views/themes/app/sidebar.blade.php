@@ -132,6 +132,18 @@
                     <!--end:Menu sub-->
                 </div>
                 <!--end:Menu item-->
+                <!--begin:Menu item-->
+                 <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a class="menu-link {{request()->is(Str::lower('office/appearance/web-footer')) || request()->is(Str::lower('office/appearance/web-footer').'/*') ? 'active' : ''}}" href="{{route('office.appearance.web-footer.index')}}">
+                        <span class="menu-icon">
+                            <i class="ki-outline ki-slider-vertical-2"></i>
+                        </span>
+                        <span class="menu-title">Web Footer</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Menu link-->
                 @endif
                 <!--begin:Menu item-->
                 <div class="menu-item pt-5">
@@ -170,47 +182,6 @@
                     <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
-                            {{-- <a class="menu-link {{request()->is(Str::lower('office/account/dekan')) || request()->is(Str::lower('office/account/dekan').'/*') ? 'active' : ''}}" href="{{route('office.account.dekan.index')}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Dekan</span>
-                            </a>
-                            <!--begin:Menu link-->
-                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/account/ka-prodi*')) || request()->is((Str::lower('office/account/category-ka-prodi*'))) ? 'here show' : ''}}">
-                                <!--begin:Menu link-->
-                                <span class="menu-link">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">KA Prodi</span>
-                                    <span class="menu-arrow"></span>
-                                </span>
-                                <!--end:Menu link-->
-                                <!--begin:Menu sub-->
-                                <div class="menu-sub menu-sub-accordion">
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <!--begin:Menu link-->
-                                        <a class="menu-link {{request()->is(Str::lower('office/account/category-ka-prodi')) || request()->is(Str::lower('office/account/category-ka-prodi').'/*') ? 'active' : ''}}" href="{{route('office.account.category-ka-prodi.index')}}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Kategori</span>
-                                        </a>
-                                        <a class="menu-link {{request()->is((Str::lower('office/account/ka-prodi*'))) ? 'active' : ''}}" href="{{route('office.account.ka-prodi.index')}}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">List KA Prodi</span>
-                                        </a>
-                                        <!--end:Menu link-->
-                                    </div>
-                                    <!--end:Menu item-->
-                                </div>
-                                <!--end:Menu sub-->
-                            </div>
-                            <!--end:Menu item--> --}}
                             <!--begin:Menu link-->
                             <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/account/himpunan*')) || request()->is(Str::lower('office/account/category-himpunan*')) ? 'here show' : ''}}">
                                 <!--begin:Menu link-->
@@ -240,6 +211,97 @@
                                             <span class="menu-title">List Himpunan</span>
                                         </a>
                                         <!--end:Menu link-->
+                                    </div>
+                                    <!--end:Menu item-->
+                                </div>
+                                <!--end:Menu sub-->
+                            </div>
+                            <!--end:Menu item-->
+                            <!--begin:Menu item-->
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/civitas')) || request()->is(Str::lower('office/civitas').'/*') ? 'here show' : ''}}">
+                                <!--begin:Menu link-->
+                                <span class="menu-link">
+                                    <span class="menu-icon">
+                                        <i class="ki-outline ki-people"></i>
+                                    </span>
+                                    <span class="menu-title">Civitas</span>
+                                    <span class="menu-arrow"></span>
+                                </span>
+                                <!--end:Menu link-->
+                                <!--begin:Menu sub-->
+                                <div class="menu-sub menu-sub-accordion">
+                                    <!--begin:Menu item-->
+                                    <div class="menu-item">
+                                        <!--begin:Menu link-->
+                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/account/himpunan*')) || request()->is(Str::lower('office/account/category-himpunan*')) ? 'here show' : ''}}">
+                                            <!--begin:Menu link-->
+                                            <span class="menu-link">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Dosen</span>
+                                                <span class="menu-arrow"></span>
+                                            </span>
+                                            <!--end:Menu link-->
+                                            <!--begin:Menu sub-->
+                                            <div class="menu-sub menu-sub-accordion">
+                                                <!--begin:Menu item-->
+                                                <div class="menu-item">
+                                                    <!--begin:Menu link-->
+                                                    <a class="menu-link {{request()->is(Str::lower('office/civitas/category-dosen*')) ? 'active' : ''}}" href="{{route('office.civitas.category-dosen.index')}}">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span class="menu-title">Kategori</span>
+                                                    </a>
+                                                    <a class="menu-link {{request()->is(Str::lower('office/civitas/dosen*')) ? 'active' : ''}}" href="{{route('office.civitas.dosen.index')}}">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span class="menu-title">List Dosen</span>
+                                                    </a>
+                                                    <!--end:Menu link-->
+                                                </div>
+                                                <!--end:Menu item-->
+                                            </div>
+                                            <!--end:Menu sub-->
+                                        </div>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu link-->
+                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/civitas/staff*')) || request()->is(Str::lower('office/account/category-staff*')) ? 'here show' : ''}}">
+                                            <!--begin:Menu link-->
+                                            <span class="menu-link">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Staff</span>
+                                                <span class="menu-arrow"></span>
+                                            </span>
+                                            <!--end:Menu link-->
+                                            <!--begin:Menu sub-->
+                                            <div class="menu-sub menu-sub-accordion">
+                                                <!--begin:Menu item-->
+                                                <div class="menu-item">
+                                                    <!--begin:Menu link-->
+                                                    <a class="menu-link {{request()->is(Str::lower('office/civitas/category-staff*')) ? 'active' : ''}}" href="{{route('office.civitas.category-staff.index')}}">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span class="menu-title">Kategori</span>
+                                                    </a>
+                                                    <a class="menu-link {{request()->is(Str::lower('office/civitas/staff*')) ? 'active' : ''}}" href="{{route('office.civitas.staff.index')}}">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span class="menu-title">List Staff</span>
+                                                    </a>
+                                                    <!--end:Menu link-->
+                                                </div>
+                                                <!--end:Menu item-->
+                                            </div>
+                                            <!--end:Menu sub-->
+                                        </div>
+                                        <!--end:Menu item-->
                                     </div>
                                     <!--end:Menu item-->
                                 </div>
@@ -325,97 +387,6 @@
                         <span class="menu-title">Kegiatan</span>
                     </a>
                     <!--end:Menu link-->
-                </div>
-                <!--end:Menu item-->
-                <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/civitas')) || request()->is(Str::lower('office/civitas').'/*') ? 'here show' : ''}}">
-                    <!--begin:Menu link-->
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                            <i class="ki-outline ki-people"></i>
-                        </span>
-                        <span class="menu-title">Civitas</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <!--end:Menu link-->
-                    <!--begin:Menu sub-->
-                    <div class="menu-sub menu-sub-accordion">
-                        <!--begin:Menu item-->
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/account/himpunan*')) || request()->is(Str::lower('office/account/category-himpunan*')) ? 'here show' : ''}}">
-                                <!--begin:Menu link-->
-                                <span class="menu-link">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Dosen</span>
-                                    <span class="menu-arrow"></span>
-                                </span>
-                                <!--end:Menu link-->
-                                <!--begin:Menu sub-->
-                                <div class="menu-sub menu-sub-accordion">
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <!--begin:Menu link-->
-                                        <a class="menu-link {{request()->is(Str::lower('office/civitas/category-dosen*')) ? 'active' : ''}}" href="{{route('office.civitas.category-dosen.index')}}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Kategori</span>
-                                        </a>
-                                        <a class="menu-link {{request()->is(Str::lower('office/civitas/dosen*')) ? 'active' : ''}}" href="{{route('office.civitas.dosen.index')}}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">List Dosen</span>
-                                        </a>
-                                        <!--end:Menu link-->
-                                    </div>
-                                    <!--end:Menu item-->
-                                </div>
-                                <!--end:Menu sub-->
-                            </div>
-                            <!--end:Menu item-->
-                            <!--begin:Menu link-->
-                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is(Str::lower('office/civitas/staff*')) || request()->is(Str::lower('office/account/category-staff*')) ? 'here show' : ''}}">
-                                <!--begin:Menu link-->
-                                <span class="menu-link">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Staff</span>
-                                    <span class="menu-arrow"></span>
-                                </span>
-                                <!--end:Menu link-->
-                                <!--begin:Menu sub-->
-                                <div class="menu-sub menu-sub-accordion">
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <!--begin:Menu link-->
-                                        <a class="menu-link {{request()->is(Str::lower('office/civitas/category-staff*')) ? 'active' : ''}}" href="{{route('office.civitas.category-staff.index')}}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Kategori</span>
-                                        </a>
-                                        <a class="menu-link {{request()->is(Str::lower('office/civitas/staff*')) ? 'active' : ''}}" href="{{route('office.civitas.staff.index')}}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">List Staff</span>
-                                        </a>
-                                        <!--end:Menu link-->
-                                    </div>
-                                    <!--end:Menu item-->
-                                </div>
-                                <!--end:Menu sub-->
-                            </div>
-                            <!--end:Menu item-->
-                        </div>
-                        <!--end:Menu item-->
-                    </div>
-                    <!--end:Menu sub-->
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->

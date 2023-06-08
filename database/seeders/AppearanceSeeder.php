@@ -145,6 +145,7 @@ class AppearanceSeeder extends Seeder
                 obj_select("funding_type");
                 obj_select("tested_component_id");
                 obj_select("tester_position_id");
+                obj_select("footer_section")
 
                 load_list(1);
                 if (document.getElementById("list_teaching_frk") !== null) {

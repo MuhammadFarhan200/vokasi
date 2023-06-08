@@ -10,15 +10,13 @@ use App\Http\Controllers\Office\Timeline\ActivityController;
 use App\Http\Controllers\Office\About\OrganizationController;
 use App\Http\Controllers\Office\Account\DekanController;
 use App\Http\Controllers\Office\Dekan\DekanController as OfficeDekanController;
-use App\Http\Controllers\Office\Account\HimatekController;
-use App\Http\Controllers\Office\Account\HimateraController;
-use App\Http\Controllers\Office\Account\HimatifController;
 use App\Http\Controllers\Office\Account\HimpunanCategoryController;
 use App\Http\Controllers\Office\Account\HimpunanController;
 use App\Http\Controllers\Office\Account\KAProdiCategoryController;
 use App\Http\Controllers\Office\Account\KAProdiController;
 use App\Http\Controllers\Office\KAProdi\KAProdiController as OfficeKAProdiController;
 use App\Http\Controllers\Office\Appearance\CarouselController;
+use App\Http\Controllers\Office\Appearance\FooterController;
 use App\Http\Controllers\Office\Appearance\HomeMenuController;
 use App\Http\Controllers\Office\CategoryProdiController;
 use App\Http\Controllers\Office\Civitas\DosenCategoryController;
@@ -407,6 +405,7 @@ Route::group(['domain' => ''], function () {
                 Route::patch('study-program-section/update', [HomeMenuController::class, 'study_program_section_update'])->name('study-program-section.update');
                 Route::get('meet-our-students-section', [HomeMenuController::class, 'meet_our_students_section'])->name('meet-our-students-section.index');
                 Route::patch('meet-our-students-section/update', [HomeMenuController::class, 'meet_our_students_section_update'])->name('meet-our-students-section.update');
+                Route::resource('web-footer', FooterController::class);
             });
             Route::prefix('setting')->name('setting.')->middleware('frole:1')->group(function () {
                 // Route::resource('config', ConfigController::class);

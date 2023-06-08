@@ -1,3 +1,11 @@
+@php
+    use App\Models\Appearance\Footer;
+    $footer = Footer::where('is_active', true);
+    $about_section = Footer::where('section', 'tentang')->get();
+    $prodi_section = Footer::where('section', 'program studi')->get();
+    $aktivitas_section = Footer::where('section', 'aktivitas mahasiswa')->get();
+@endphp
+
 <footer id="footer" style="background-color :#00337C">
     <div class="container">
         <!-- Footer Widgets ============================================= -->
@@ -5,6 +13,24 @@
             <div class="row col-mb-50">
                 <div class="col-lg-8">
                     <div class="row col-mb-50">
+                        @if ($about_section->count() > 0)
+                        <div class="col-md-4">
+                            <div class="widget widget_links">
+                                <h4 class="text-white">Tentang</h4>
+                                <ul class="text-white">
+                                    @foreach ($about_section as $item)
+                                    @php
+                                        $url = $item->url;
+                                        if ((strpos($url, "route('") !== false) || (strpos($url, 'route("') !== false)) {
+                                            eval("\$url = $url;");
+                                        }
+                                    @endphp
+                                    <li><a class="text-white" href="{{ $url ?? '#' }}">{{ $item->text }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        @else
                         <div class="col-md-4">
                             <div class="widget widget_links">
                                 <h4 class="text-white">Tentang</h4>
@@ -15,6 +41,25 @@
                                 </ul>
                             </div>
                         </div>
+                        @endif
+                        @if ($prodi_section->count() > 0)
+                        <div class="col-md-4">
+                            <div class="widget widget_links">
+                                <h4 class="text-white">Program Studi</h4>
+                                <ul class="text-white">
+                                    @foreach ($prodi_section as $item)
+                                    @php
+                                        $url = $item->url;
+                                        if ((strpos($url, "route('") !== false) || (strpos($url, 'route("') !== false)) {
+                                            eval("\$url = $url;");
+                                        }
+                                    @endphp
+                                    <li><a class="text-white" href="{{ $url ?? '#' }}">{{ $item->text }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        @else
                         <div class="col-md-4">
                             <div class="widget widget_links">
                                 <h4 class="text-white">Program Studi</h4>
@@ -25,6 +70,25 @@
                                 </ul>
                             </div>
                         </div>
+                        @endif
+                        @if ($aktivitas_section->count() > 0)
+                        <div class="col-md-4">
+                            <div class="widget widget_links">
+                                <h4 class="text-white">Aktivitas Mahasiswa</h4>
+                                <ul class="text-white">
+                                    @foreach ($aktivitas_section as $item)
+                                    @php
+                                        $url = $item->url;
+                                        if ((strpos($url, "route('") !== false) || (strpos($url, 'route("') !== false)) {
+                                            eval("\$url = $url;");
+                                        }
+                                    @endphp
+                                    <li><a class="text-white" href="{{ $url ?? '#' }}">{{ $item->text }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        @else
                         <div class="col-md-4">
                             <div class="widget widget_links">
                                 <h4 class="text-white">Aktivitas Mahasiswa</h4>
@@ -35,6 +99,7 @@
                                 </ul>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-4">
