@@ -16,6 +16,7 @@ use App\Models\Profil\Education;
 use App\Models\Profil\Experience;
 use App\Models\Profil\Funding;
 use App\Models\Profil\Publication;
+use App\Models\Profil\Research;
 use App\Models\Profil\StaffActivity;
 use App\Models\Profil\Studies;
 use App\Models\Setting\Role;
@@ -107,6 +108,11 @@ class User extends Authenticatable
 
     public function pendanaan() {
         return $this->hasMany(Funding::class, 'user_id');
+    }
+
+    public function research()
+    {
+        return $this->hasMany(Research::class, 'user_id');
     }
 
     public function staff_activity() {

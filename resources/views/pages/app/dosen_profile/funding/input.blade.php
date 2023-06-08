@@ -59,6 +59,11 @@
                                     <option value="Eksternal" {{ $data->type == 'Eksternal' ? 'selected' : '' }}>Eksternal</option>
                                 </select>
                             </div>
+                            <div class="col-md-12 mt-5">
+                                <label class="fw-semibold fs-6 mb-2">Deskripsi</label>
+                                <input id="desc" type="hidden" name="desc" value="{{ $data->desc }}">
+                                <trix-editor input="desc"></trix-editor>
+                            </div>
                         </div>
                         <div class="text-center pt-15">
                             <a href="{{route('office.dosen.pendanaan.index')}}" class="menu-link btn btn-light me-3">Batal</a>

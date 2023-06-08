@@ -60,6 +60,7 @@ return new class extends Migration
             $table->longText('working_time');
             $table->longText('working_area');
             $table->longText('type');
+            $table->longText('desc')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

@@ -489,47 +489,6 @@
                                 </span>
                                 <span class="menu-title">Identitas</span>
                             </a>
-                            @if (auth()->user()->background)
-                            <a class="menu-link {{request()->is(Str::lower('office/dosen/latar-belakang')) || request()->is(Str::lower('office/dosen/latar-belakang').'/*') ? 'active' : ''}}" href="{{route('office.dosen.latar_belakang.edit')}}">
-                            @else
-                            <a class="menu-link {{request()->is(Str::lower('office/dosen/latar-belakang')) || request()->is(Str::lower('office/dosen/latar-belakang').'/*') ? 'active' : ''}}" href="{{route('office.dosen.latar_belakang.index')}}">
-                            @endif
-                                {{-- <span class="menu-icon">
-                                    {!!$child->icon!!}
-                                </span> --}}
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Latar Belakang</span>
-                            </a>
-                            {{-- <a class="menu-link {{request()->is(Str::lower('office/dosen/autobiografi')) || request()->is(Str::lower('office/dosen/autobiografi').'/*') ? 'active' : ''}}" href="{{route('office.dosen.autobiografi.index')}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Autobiografi</span>
-                            </a> --}}
-                            <a class="menu-link {{request()->is(Str::lower('office/dosen/ikhtisar')) || request()->is(Str::lower('office/dosen/ikhtisar').'/*') ? 'active' : ''}}" href="{{route('office.dosen.ikhtisar.index')}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Ikhtisar</span>
-                            </a>
-                            <a class="menu-link {{request()->is(Str::lower('office/dosen/pendidikan')) || request()->is(Str::lower('office/dosen/pendidikan').'/*') ? 'active' : ''}}" href="{{route('office.dosen.pendidikan.index')}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Riwayat Pendidikan</span>
-                            </a>
-                            @if (auth()->user()->contact)
-                            <a class="menu-link {{request()->is(Str::lower('office/dosen/contact')) || request()->is(Str::lower('office/dosen/contact').'/*') ? 'active' : ''}}" href="{{route('office.dosen.contact.edit')}}">
-                            @else
-                            <a class="menu-link {{request()->is(Str::lower('office/dosen/contact')) || request()->is(Str::lower('office/dosen/contact').'/*') ? 'active' : ''}}" href="{{route('office.dosen.contact.index')}}">
-                            @endif
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Kontak</span>
-                            </a>
                             <a class="menu-link {{request()->is(Str::lower('office/dosen/about')) || request()->is(Str::lower('office/dosen/about').'/*') ? 'active' : ''}}" href="{{route('office.dosen.about.index')}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
@@ -542,7 +501,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Lainnya</span>
+                                <span class="menu-title">Portofolio</span>
                                 <span class="menu-arrow"></span>
                             </span>
                             <!--end:Menu link-->
@@ -551,17 +510,11 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link {{request()->is(Str::lower('office/dosen/artikel')) || request()->is(Str::lower('office/dosen/artikel').'/*') ? 'active' : ''}}" href="{{route('office.dosen.artikel.index')}}">
+                                    <a class="menu-link {{request()->is(Str::lower('office/dosen/research')) || request()->is(Str::lower('office/dosen/research').'/*') ? 'active' : ''}}" href="{{ route('office.dosen.research.index') }}">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
-                                        <span class="menu-title">Artikel</span>
-                                    </a>
-                                    <a class="menu-link {{request()->is(Str::lower('office/dosen/book')) || request()->is(Str::lower('office/dosen/book').'/*') ? 'active' : ''}}" href="{{route('office.dosen.book.index')}}">
-                                        <span class="menu-bullet">
-                                            <span class="bullet bullet-dot"></span>
-                                        </span>
-                                        <span class="menu-title">Buku</span>
+                                        <span class="menu-title">Penelitian</span>
                                     </a>
                                     <a class="menu-link {{request()->is(Str::lower('office/dosen/pendanaan')) || request()->is(Str::lower('office/dosen/pendanaan').'/*') ? 'active' : ''}}" href="{{route('office.dosen.pendanaan.index')}}">
                                         <span class="menu-bullet">
@@ -569,17 +522,17 @@
                                         </span>
                                         <span class="menu-title">Pendanaan</span>
                                     </a>
-                                    <a class="menu-link {{request()->is(Str::lower('office/dosen/studies')) || request()->is(Str::lower('office/dosen/studies').'/*') ? 'active' : ''}}" href="{{route('office.dosen.studies.index')}}">
+                                    <a class="menu-link {{request()->is(Str::lower('office/dosen/pendidikan')) || request()->is(Str::lower('office/dosen/pendidikan').'/*') ? 'active' : ''}}" href="{{route('office.dosen.pendidikan.index')}}">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
-                                        <span class="menu-title">Gugus Bidang Kajian</span>
+                                        <span class="menu-title">Riwayat Pendidikan</span>
                                     </a>
-                                    <a class="menu-link {{request()->is(Str::lower('office/dosen/publication')) || request()->is(Str::lower('office/dosen/publication').'/*') ? 'active' : ''}}" href="{{route('office.dosen.publication.index')}}">
+                                    <a class="menu-link {{request()->is(Str::lower('office/dosen/publication')) || request()->is(Str::lower('office/dosen/publication').'/*') ? 'active' : ''}}" href="#">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
-                                        <span class="menu-title">Publikasi Teratas</span>
+                                        <span class="menu-title">Pengajaran dan Pembimbingan</span>
                                     </a>
                                     <!--end:Menu link-->
                                 </div>
@@ -592,31 +545,6 @@
                         <!--end:Menu item-->
                     </div>
                     <!--end:Menu sub-->
-                </div>
-                <!--end:Menu item-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a href="{{ route('office.frk.index') }}" class="menu-link {{request()->is(Str::lower('office/frk')) || request()->is(Str::lower('office/frk').'/*') ? 'active' : ''}}">
-                        <span class="menu-icon">
-                            <i class="ki-outline ki-briefcase"></i>
-                        </span>
-                        <span class="menu-title">Forum Rencana Kerja (FRK)</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--end:Menu item-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a href="{{ route('office.fed.index') }}" class="menu-link {{request()->is(Str::lower('office/fed')) || request()->is(Str::lower('office/fed').'/*') ? 'active' : ''}}">
-                        <span class="menu-icon">
-                            <i class="ki-outline ki-chart-line-up">
-                            </i>
-                        </span>
-                        <span class="menu-title">Forum Evaluasi Dosen (FED)</span>
-                    </a>
-                    <!--end:Menu link-->
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
@@ -730,45 +658,6 @@
                             <i class="ki-outline ki-picture"></i>
                         </span>
                         <span class="menu-title">List Kegiatan Himatera</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--end:Menu item-->
-                @elseif (auth()->user()->role == '2')
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a href="{{ route('office.dekan.index') }}" class="menu-link {{request()->is(Str::lower('office/dekan/request-list')) || request()->is(Str::lower('office/dekan/request-list').'/*') ? 'active' : ''}}">
-                        <span class="menu-icon">
-                            <i class="ki-outline ki-briefcase"></i>
-                        </span>
-                        <span class="menu-title">List Permintaan FRK dan FED</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--end:Menu item-->
-                @elseif (auth()->user()->role == '3')
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a href="{{ route('office.kaprodi.index') }}" class="menu-link {{request()->is(Str::lower('office/kaprodi/request-list')) || request()->is(Str::lower('office/kaprodi/request-list').'/*') ? 'active' : ''}}">
-                        <span class="menu-icon">
-                            <i class="ki-outline ki-briefcase"></i>
-                        </span>
-                        <span class="menu-title">List Permintaan FRK dan FED</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--end:Menu item-->
-                @elseif (auth()->user()->role == '2')
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a href="{{ route('office.dekan.index') }}" class="menu-link {{request()->is(Str::lower('office/dekan/request-list')) || request()->is(Str::lower('office/dekan/request-list').'/*') ? 'active' : ''}}">
-                        <span class="menu-icon">
-                            <i class="ki-outline ki-briefcase"></i>
-                        </span>
-                        <span class="menu-title">List Permintaan FRK dan FED</span>
                     </a>
                     <!--end:Menu link-->
                 </div>

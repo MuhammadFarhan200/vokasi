@@ -143,6 +143,13 @@ Route::group(['domain' => ''], function () {
                 Route::get('pendanaan/{funding}/edit', [DosenProfileController::class, 'edit_pendanaan'])->name('pendanaan.edit');
                 Route::patch('pendanaan/{funding}/update', [DosenProfileController::class, 'update_pendanaan'])->name('pendanaan.update');
                 Route::delete('pendanaan/{funding}/destroy', [DosenProfileController::class, 'destroy_pendanaan'])->name('pendanaan.destroy');
+
+                Route::get('research', [DosenProfileController::class, 'research'])->name('research.index');
+                Route::get('research/create', [DosenProfileController::class, 'create_research'])->name('research.create');
+                Route::post('research/store', [DosenProfileController::class, 'store_research'])->name('research.store');
+                Route::get('research/{research}/edit', [DosenProfileController::class, 'edit_research'])->name('research.edit');
+                Route::patch('research/{research}/update', [DosenProfileController::class, 'update_research'])->name('research.update');
+                Route::delete('research/{research}/destroy', [DosenProfileController::class, 'destroy_research'])->name('research.destroy');
             });
             Route::prefix('staff')->name('staff.')->middleware('frole:5')->group(function () {
                 Route::get('identitas', [StaffProfileController::class, 'identitas_staff'])->name('identitas.index');

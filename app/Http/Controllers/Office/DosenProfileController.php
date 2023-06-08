@@ -13,6 +13,7 @@ use App\Models\Profil\Contact;
 use App\Models\Profil\Education;
 use App\Models\Profil\Funding;
 use App\Models\Profil\Publication;
+use App\Models\Profil\Research;
 use App\Models\Profil\Studies;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -825,6 +826,7 @@ class DosenProfileController extends Controller
         $funding->working_time = $request->working_time;
         $funding->working_area = $request->working_area;
         $funding->type = $request->type;
+        $funding->desc = $request->desc;
         $funding->save();
 
         return response()->json([
@@ -883,6 +885,7 @@ class DosenProfileController extends Controller
         $funding->working_time = $request->working_time;
         $funding->working_area = $request->working_area;
         $funding->type = $request->type;
+        $funding->desc = $request->desc;
         $funding->update();
 
         return response()->json([
@@ -894,6 +897,120 @@ class DosenProfileController extends Controller
     public function destroy_pendanaan(Funding $funding)
     {
         $funding->delete();
+        return response()->json([
+            'alert' => 'success',
+            'message' => 'Data berhasil dihapus',
+        ], 200);
+    }
+
+    public function research(Request $request)
+    {
+        $dosen = Dosen::where('id', Auth::user()->id)->first();
+        if($request->ajax()){
+            $collection = Research::where('user_id', $dosen->id)->paginate(10);
+            return view('pages.app.dosen_profile.research.list', compact('collection', 'dosen'));
+        }
+        return view('pages.app.dosen_profile.research.main', compact('dosen'));
+    }
+
+    public function create_research()
+    {
+        $dosen = Dosen::where('id', Auth::user()->id)->first();
+        return view('pages.app.dosen_profile.research.input', ['data' => new Research, 'dosen' => $dosen]);
+    }
+
+    public function store_research(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'date' => 'required',
+            'published' => 'required',
+            'url' => 'required',
+        ],[
+            'title.required' => 'Judul tidak boleh kosong',
+            'date.required' => 'Tanggal tidak boleh kosong',
+            'published.required' => 'Tempat Publikasi tidak boleh kosong',
+            'url.required' => 'Url tidak boleh kosong',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'alert' => 'error',
+                'message' => $validator->errors()->first(),
+            ], 200);
+        }
+
+        $research = new Research();
+        $research->user_id = $request->user_id;
+        $research->title = $request->title;
+        $research->date = $request->date;
+        $research->published = $request->published;
+        $research->url = $request->url;
+        $research->desc = $request->desc;
+        $research->save();
+
+        return response()->json([
+            'alert' => 'success',
+            'message' => 'Data berhasil disimpan',
+        ], 200);
+    }
+
+    public function edit_research(Research $research)
+    {
+        $dosen = Dosen::where('id', Auth::user()->id)->first();
+        return view('pages.app.dosen_profile.research.input', ['data' => $research, 'dosen' => $dosen]);
+    }
+
+    public function update_research(Request $request, Research $research)
+    {
+        if ($request->is_active !== null) {
+            $research->is_active = $request->is_active;
+            $message = 'Data berhasil diaktifkan';
+            if ($request->is_active == 0) {
+                $message = 'Data berhasil dinonaktifkan';
+            }
+            $research->update();
+            return response()->json([
+                'alert' => 'success',
+                'message' => $message,
+            ]);
+        }
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'date' => 'required',
+            'published' => 'required',
+            'url' => 'required',
+        ],[
+            'title.required' => 'Judul tidak boleh kosong',
+            'date.required' => 'Tanggal tidak boleh kosong',
+            'published.required' => 'Tempat Publikasi tidak boleh kosong',
+            'url.required' => 'Url tidak boleh kosong',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'alert' => 'error',
+                'message' => $validator->errors()->first(),
+            ], 200);
+        }
+
+        $research->user_id = $request->user_id;
+        $research->title = $request->title;
+        $research->date = $request->date;
+        $research->published = $request->published;
+        $research->url = $request->url;
+        $research->desc = $request->desc;
+        $research->update();
+
+        return response()->json([
+            'alert' => 'success',
+            'message' => 'Data berhasil diperbaharui',
+        ], 200);
+    }
+
+    public function destroy_research(Research $research)
+    {
+        $research->delete();
         return response()->json([
             'alert' => 'success',
             'message' => 'Data berhasil dihapus',

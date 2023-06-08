@@ -56,6 +56,7 @@ class FundingController extends Controller
         $funding->involved_parties = $request->involved_parties;
         $funding->working_time = $request->working_time;
         $funding->working_area = $request->working_area;
+        $funding->desc = $request->desc;
         $funding->type = $request->type;
         $funding->save();
 
@@ -119,6 +120,7 @@ class FundingController extends Controller
         $funding->working_time = $request->working_time;
         $funding->working_area = $request->working_area;
         $funding->type = $request->type;
+        $funding->desc = $request->desc;
         $funding->update();
 
         return response()->json([

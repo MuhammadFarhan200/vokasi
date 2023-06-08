@@ -131,33 +131,20 @@
                                     <div class="card my-card border-0">
                                         <div class="card-body px-4">
                                             <div class="card-title text-uppercase">Hasil Penelitian</div>
-                                            @if ($article->count() > 0)
-                                                @foreach ($article as $item)
+                                            @if ($research->count() > 0)
+                                                @foreach ($research as $item)
                                                 <div class="card rounded-6 my-shadow border-0 mt-3">
                                                     <div class="card-body">
-                                                        <span class="text-uppercase fw-light" style="font-size: 12px">Artikel Jurnal</span>
-                                                        <div class="fw-semibold" style="font-size: 17px">{{ $item->title }}</div>
-                                                        <div>{{ $item->year . ' - ' . $item->published }}</div>
+                                                        <div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">{{ $item->title }}</div>
+                                                        <div class="text-muted fw-light">{{ $item->published . ', ' . date('d M Y', strtotime($item->date)) }}</div>
                                                         <div class="text-muted mt-1 fw-light">
                                                             {!! $item->desc !!}
                                                         </div>
                                                     </div>
                                                 </div>
                                                 @endforeach
-                                            @endif
-                                            @if ($books->count() > 0)
-                                                @foreach ($books as $item)
-                                                <div class="card rounded-6 my-shadow border-0 mt-3">
-                                                    <div class="card-body">
-                                                        <span class="text-uppercase fw-light" style="font-size: 12px">Buku</span>
-                                                        <div class="fw-semibold" style="font-size: 17px">{{ $item->title }}</div>
-                                                        <div>{{ $item->year . ' - ' . $item->published }}</div>
-                                                        <div class="text-muted mt-1 fw-light">
-                                                            {!! $item->desc !!}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                @endforeach
+                                            @else
+                                            <span class="text-muted fw-light">Belum ada hasil penelitian yang ditambahkan</span>
                                             @endif
                                         </div>
                                     </div>
@@ -171,7 +158,7 @@
                                                 <div class="card rounded-6 my-shadow border-0 mt-3">
                                                     <div class="card-body">
                                                         <span class="text-uppercase fw-light" style="font-size: 12px">{{ $item->type }}</span>
-                                                        <div class="fw-semibold" style="font-size: 17px !important">{{ $item->project_name }}</div>
+                                                        <div class="fw-semibold" style="font-size: 17px !important; text-transform: capitalize">{{ $item->project_name }}</div>
                                                         <div>{{ $item->organizer }}</div>
                                                         <div class="text-muted mt-1 fw-light">
                                                             {{ $item->working_area }},
