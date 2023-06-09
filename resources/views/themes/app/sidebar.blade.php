@@ -463,6 +463,18 @@
                     <!--end:Menu link-->
                 </div>
                 <!--end:Menu link-->
+                <!--begin:Menu item-->
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a href="{{ route('office.pak-simulation.index') }}" class="menu-link {{request()->is('office/pak-simulation/*') ? 'active' : ''}}">
+                        <span class="menu-icon" data-kt-element="icon">
+                            <i class="ki-outline ki-exit-right-corner"></i>
+                        </span>
+                        <span class="menu-title">Simulasi PAK</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Menu link-->
                 @elseif (auth()->user()->role == '4')
                  <!--begin:Menu item-->
                  <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is('office/dosen/*') ? 'here show' : ''}}">
@@ -671,8 +683,11 @@
     <!--end::sidebar menu-->
     <!--begin::Footer-->
     @if (auth()->user()->role == 4)
+    @php
+        $pak = \App\Models\PAKSimulation::where('is_active', true)->first();
+    @endphp
     <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer">
-        <a href="#coming-soon" class="btn btn-flex flex-center d-flex align-items-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100"
+        <a href="{{ $pak->url ?? '#coming-soon' }}" class="btn btn-flex flex-center d-flex align-items-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100"
             data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click"
             data-bs-original-title="Kunjungi link berikut untuk mengetahui ......">
             <span class="btn-label">Button Khusus</span>

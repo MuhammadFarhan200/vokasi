@@ -29,14 +29,11 @@
                                     <img src="{{ $staf->avatar ? Storage::url($staf->avatar) : asset('web/images/no-img-profile.jpg') }}" class="my-image rounded rounded-circle">
                                 </div>
                                 <div class="text-center mt-3 border-bottom-dashed">
-                                    <div class="text-muted fw-light text-uppercase" style="font-size: 12px">{{ $data->position ?? 'Staf IT Del' }}</div>
+                                    <div class="text-muted fw-light text-uppercase" style="font-size: 12px">{{ $staf->position ?? 'Staf IT Del' }}</div>
                                     <h4 class="text-center fw-500 mb-3">{{ $staf->name ?? '-' }}</h2>
                                 </div>
                                 <div class="text-center mt-2 border-bottom-dashed pb-2">
                                     ID Karyawan: {{ $staf->employee_id ?? '-' }}
-                                </div>
-                                <div class="text-start text-muted mt-2 border-bottom-dashed pb-3 pt-2 px-2">
-                                    <i class="fa-solid fa-building-columns me-3"></i>  {{ $staf->user_category ? $staf->user_category->name : '-' }}
                                 </div>
                                 <div class="text-start text-muted mt-2 border-bottom-dashed pb-3 pt-2 px-2">
                                     <i class="fa-solid fa-phone me-3"></i>  {{ $staf->phone ?? '-' }}

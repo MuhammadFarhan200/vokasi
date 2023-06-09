@@ -31,6 +31,7 @@ use App\Http\Controllers\Office\Civitas\Profile\PublicationController;
 use App\Http\Controllers\Office\Civitas\Profile\ResearchController;
 use App\Http\Controllers\Office\Civitas\Profile\StaffActivityController;
 use App\Http\Controllers\Office\Civitas\Profile\StaffEducationController;
+use App\Http\Controllers\Office\Civitas\Profile\StaffTeachingController;
 use App\Http\Controllers\Office\Civitas\Profile\StudiesController;
 use App\Http\Controllers\Office\Civitas\Profile\TeachingMentoringController;
 use App\Http\Controllers\Office\Civitas\StaffCategoryController;
@@ -50,6 +51,7 @@ use App\Http\Controllers\Office\Himatek\HimatekController as OfficeHimatekContro
 use App\Http\Controllers\Office\Himatif\HimatifController as OfficeHimatifController;
 use App\Http\Controllers\Office\Himatera\HimateraController as OfficeHimateraController;
 use App\Http\Controllers\Office\MainController;
+use App\Http\Controllers\Office\PAKSimulationController;
 use App\Http\Controllers\Office\ProgramStudiController;
 use App\Http\Controllers\Office\Setting\LogoController;
 use App\Http\Controllers\Office\Setting\RoleController;
@@ -183,6 +185,13 @@ Route::group(['domain' => ''], function () {
                 Route::patch('staff-activity/{staffActivity}/update', [StaffActivityController::class, 'update'])->name('staff_activity.update');
                 Route::delete('staff-activity/{staffActivity}/destroy', [StaffActivityController::class, 'destroy'])->name('staff_activity.destroy');
 
+                Route::get('staff-teaching', [StaffTeachingController::class, 'staff_teaching'])->name('staff_teaching.index');
+                Route::get('staff-teaching/create', [StaffTeachingController::class, 'create_teaching'])->name('staff_teaching.create');
+                Route::post('staff-teaching/store', [StaffTeachingController::class, 'store'])->name('staff_teaching.store');
+                Route::get('staff-teaching/{staff_teaching}/edit', [StaffTeachingController::class, 'edit_teaching'])->name('staff_teaching.edit');
+                Route::patch('staff-teaching/{staff_teaching}/update', [StaffTeachingController::class, 'update'])->name('staff_teaching.update');
+                Route::delete('staff-teaching/{staff_teaching}/destroy', [StaffTeachingController::class, 'destroy'])->name('staff_teaching.destroy');
+
                 Route::get('experience', [ExperienceController::class, 'experience'])->name('experience.index');
                 Route::get('experience/create', [ExperienceController::class, 'create_experience'])->name('experience.create');
                 Route::post('experience/store', [ExperienceController::class, 'store'])->name('experience.store');
@@ -228,6 +237,11 @@ Route::group(['domain' => ''], function () {
                     Route::get('{staff}/experience', [ExperienceController::class, 'index'])->name('experience.index');
                     Route::get('{staff}/experience/create', [ExperienceController::class, 'create'])->name('experience.create');
                     Route::get('{staff}/experience/{experience}/edit', [ExperienceController::class, 'edit'])->name('experience.edit');
+
+                    Route::resource('staff-teaching', StaffTeachingController::class);
+                    Route::get('{staff}/staff-teaching', [StaffTeachingController::class, 'index'])->name('staff-teaching.index');
+                    Route::get('{staff}/staff-teaching/create', [StaffTeachingController::class, 'create'])->name('staff-teaching.create');
+                    Route::get('{staff}/staff-teaching/{staff_teaching}/edit', [StaffTeachingController::class, 'edit'])->name('staff-teaching.edit');
 
                     Route::resource('staff_activity', StaffActivityController::class);
                     Route::get('{staff}/staff_activity', [StaffActivityController::class, 'index'])->name('staff_activity.index');
@@ -433,6 +447,8 @@ Route::group(['domain' => ''], function () {
                 Route::get('logo', [LogoController::class, 'index'])->name('logo.index');
                 Route::patch('logo/update', [LogoController::class, 'update'])->name('logo.update');
             });
+            Route::get('pak-simulation', [PAKSimulationController::class, 'index'])->name('pak-simulation.index');
+            Route::patch('pak-simulation/update', [PAKSimulationController::class, 'update'])->name('pak-simulation.update');
             Route::resource('subject', SubjectController::class)->middleware('frole:1');
             Route::resource('tested-component', TestedComponentController::class)->middleware('frole:1');
             Route::resource('tester-position', TesterPositionController::class)->middleware('frole:1');

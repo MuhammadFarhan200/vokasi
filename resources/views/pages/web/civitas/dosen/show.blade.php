@@ -182,7 +182,7 @@
                                         <div class="card-body px-4">
                                             <div class="card-title text-uppercase">Pengajaran & Pembimbingan</div>
                                             <div class="d-flex justify-content-start mb-4">
-                                                <span class="text-muted me-3">Urutkan Berdasarkan</span>
+                                                <span class="text-muted me-3">Urutkan Berdasarkan:</span>
                                                 <select name="category" id="filter-category"">
                                                     <option value="semua">Tampilkan Semua</option>
                                                     <option value="Pengajaran">Pengajaran</option>

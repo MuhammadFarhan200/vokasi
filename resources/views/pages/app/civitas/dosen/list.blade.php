@@ -115,14 +115,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="menu-item px-3">
-                        <a href="{{ route('office.civitas.dosen.about.index', $item->id) }}" class="menu-link px-3">
-                            <span class="menu-icon" data-kt-element="icon">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </span>
-                            <span class="menu-title">Simulasi PAK</span>
-                        </a>
-                    </div>
                 </div>
                 <a href="{{route('office.civitas.dosen.edit',$item->id)}}" class="menu-link btn btn-icon btn-warning"><i class="las la-edit text-black fs-2"></i></a>
                 @if ($item->is_active == 1)
