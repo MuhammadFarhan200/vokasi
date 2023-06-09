@@ -9,7 +9,7 @@
             <th class="min-w-125px">Nama Kegiatan</th>
             <th class="min-w-125px">Pemberi Dana    </th>
             <th class="min-w-125px">Jenis</th>
-            <th class="min-w-125px">Sponsor</th>
+            <th class="min-w-125px">Pemberi Dana</th>
             <th class="min-w-125px">Aktif/Non Aktif</th>
             <th class="min-w-125px">Dibuat Tanggal</th>
             <th class="text-end min-w-70px">Aksi</th>

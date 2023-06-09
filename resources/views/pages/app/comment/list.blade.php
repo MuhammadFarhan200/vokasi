@@ -25,11 +25,11 @@
             <td>{{$item->created_at->format('d F Y, H:i A')}}</td>
             <td class="text-end text-nowrap">
                 <a href="{{route('office.comment.show',$item->id)}}" class="menu-link btn btn-icon btn-primary"><i class="las la-eye fs-2"></i></a>
-                @if ($item->is_active == 1)
+                {{-- @if ($item->is_active == 1)
                 <button type="button" title="Non Aktifkan" id="tombol_non_aktif" data-redirect-url="{{route('office.comment.index')}}" onclick="handle_is_active('PATCH','{{route('office.comment.update',$item->id)}}','#tombol_non_aktif', 0);" class="btn btn-icon btn-danger"><i class="las la-times fs-2"></i></button>
                 @else
                 <button type="button" title="Aktifkan" id="tombol_aktif" data-redirect-url="{{route('office.comment.index')}}" onclick="handle_is_active('PATCH','{{route('office.comment.update',$item->id)}}','#tombol_aktif', 1);" class="btn btn-icon btn-success"><i class="las la-check fs-2"></i></button>
-                @endif
+                @endif --}}
             </td>
         </tr>
         @endforeach

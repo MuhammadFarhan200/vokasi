@@ -72,7 +72,7 @@
                                 <input type="tel" class="form-control form-control-solid mb-3" name="phone" id="phone" value="{{$data->phone}}">
                             </div>
                             <div class="col-12 mb-4">
-                                <label class="required fw-semibold fs-6 mb-2">Keahlian</label>
+                                <label class="fw-semibold fs-6 mb-2">Keahlian</label>
                                 <input id="skill" type="hidden" name="skill" value="{{ $data->skill }}">
                                 <trix-editor input="skill"></trix-editor>
                             </div>

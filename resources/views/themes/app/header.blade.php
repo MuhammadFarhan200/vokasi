@@ -1753,7 +1753,7 @@
                                 <span class="menu-icon" data-kt-element="icon">
                                     <i class="fa-solid fa-globe"></i>
                                 </span>
-                                <span class="menu-title">Web Page</span>
+                                <span class="menu-title">Halaman Utama</span>
                             </a>
                         </div>
                         <!--end::Menu item-->

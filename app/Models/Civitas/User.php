@@ -5,21 +5,10 @@ namespace App\Models\Civitas;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Models\Account\UserCategory;
-use App\Models\FRK\FinalProjectAdvisor;
-use App\Models\FRK\FinalProjectTester;
-use App\Models\FRK\Teaching;
-use App\Models\Profil\Article;
-use App\Models\Profil\Background;
-use App\Models\Profil\Books;
-use App\Models\Profil\Contact;
 use App\Models\Profil\Education;
-use App\Models\Profil\Experience;
 use App\Models\Profil\Funding;
-use App\Models\Profil\Publication;
 use App\Models\Profil\Research;
-use App\Models\Profil\StaffActivity;
 use App\Models\Profil\StaffTeaching;
-use App\Models\Profil\Studies;
 use App\Models\Profil\TeachingMentoring;
 use App\Models\Setting\Role;
 use Laravel\Sanctum\HasApiTokens;
@@ -73,39 +62,9 @@ class User extends Authenticatable
         return $this->belongsTo(UserCategory::class, 'user_category_id');
     }
 
-    public function article()
-    {
-        return $this->hasMany(Article::class, 'user_id');
-    }
-
-    public function book()
-    {
-        return $this->hasMany(Books::class, 'user_id');
-    }
-
-    public function publication()
-    {
-        return $this->hasMany(Publication::class, 'user_id');
-    }
-
-    public function studies()
-    {
-        return $this->hasMany(Studies::class, 'user_id');
-    }
-
-    public function background()
-    {
-        return $this->hasOne(Background::class, 'user_id');
-    }
-
     public function education()
     {
         return $this->hasMany(Education::class, 'user_id');
-    }
-
-    public function contact()
-    {
-        return $this->hasOne(Contact::class, 'user_id');
     }
 
     public function pendanaan() {
@@ -127,28 +86,15 @@ class User extends Authenticatable
         return $this->hasMany(StaffTeaching::class, 'user_id');
     }
 
-    public function staff_activity() {
-        return $this->hasMany(StaffActivity::class, 'user_id');
-    }
-
-    public function experience()
-    {
-        return $this->hasMany(Experience::class, 'user_id');
-    }
-
     public function deleteDosen()
     {
         if ($this->avatar != null) {
             Storage::delete($this->avatar);
         }
-        $this->article()->delete();
-        $this->book()->delete();
-        $this->publication()->delete();
-        $this->studies()->delete();
-        $this->background()->delete();
         $this->education()->delete();
-        $this->contact()->delete();
         $this->pendanaan()->delete();
+        $this->research()->delete();
+        $this->teaching_mentoring()->delete();
         $this->delete();
     }
 
@@ -157,11 +103,8 @@ class User extends Authenticatable
         if ($this->avatar != null) {
             Storage::delete($this->avatar);
         }
-        $this->staff_activity()->delete();
-        $this->experience()->delete();
-        $this->contact()->delete();
         $this->education()->delete();
-        $this->background()->delete();
+        $this->staff_teaching()->delete();
         $this->delete();
     }
 }

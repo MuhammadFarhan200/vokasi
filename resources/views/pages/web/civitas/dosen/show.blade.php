@@ -1,12 +1,10 @@
-<style>
-    @import url("{{ asset('web/css/show_civitas.css') }}");
-</style>
 <x-web-layout title="Dosen - {{ $dosen->name ?? '' }}">
+    @include('themes.web.styling.show_civitas_styling')
     <!-- Content ============================================= -->
     <section id="content" style="background: #ebe8e879" class="my-font">
         <div class="row align-items-center bg-white m-0">
             <div class="col-3">
-                <a href="{{ route('web.civitas.dosen') }}" class="my-link text-dark text-small fw-light">
+                <a href="{{ route('web.civitas.dosen') }}" class="menu-link my-link text-dark text-small fw-light">
                     <i class="fa-solid fa-arrow-left me-3"></i>
                     kembali<span class="d-none d-lg-inline"> ke halaman dosen</span>
                 </a>
@@ -28,7 +26,7 @@
                 </ul>
             </div>
         </div>
-        <div class="content-wrap" style="padding-top: 25 !important;">
+        <div class="content-wrap" style="padding-top: 25px !important;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3">
@@ -87,7 +85,7 @@
                                             <div class="card-title text-uppercase">Riwayat Pendidikan</div>
                                             @foreach ($education as $item)
                                             <div class="fs-6">{{ $item->university }}</div>
-                                            <div class="fw-light">{{ $item->year . ' - ' . $item->knowledge_field }}</div>
+                                            <div class="fw-light {{ $loop->last ? 'mb-2' : '' }}">{{ $item->year . ' - ' . $item->knowledge_field }}</div>
                                             @if (!$loop->last)
                                             <hr>
                                             @endif
@@ -140,7 +138,8 @@
                                                 <div class="card rounded-6 my-shadow border-0 mt-3 {{ $loop->last ? 'mb-3' : '' }}">
                                                     <div class="card-body">
                                                         <div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">{{ $item->title }}</div>
-                                                        <div class="text-muted fw-light">{{ $item->published . ', ' . date('d M Y', strtotime($item->date)) }}</div>
+                                                        <div class="text-muted fw-light">Dipublikasikan di {{ $item->published . ', ' . date('d M Y', strtotime($item->date)) }}</div>
+                                                        <a href="{{ $item->url ?? '#' }}" target="_blank" class="fw-light text-primary">{{ $item->url }}</a>
                                                         <div class="text-muted mt-1 fw-light">
                                                             {!! $item->desc ?? '' !!}
                                                         </div>
@@ -223,41 +222,41 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $('#filter-category').change(function() {
+        $(`#filter-category`).change(function() {
             category = $(this).val();
-            var dosen_id = $('#dosen_id').val();
-            var card = $('#card-teaching-mentoring');
+            var dosen_id = $(`#dosen_id`).val();
+            var card = $(`#card-teaching-mentoring`);
             card.empty();
             filterTeachingMentoring(category, dosen_id);
         });
 
         function filterTeachingMentoring(category, dosen_id) {
             $.ajax({
-                url: "{{ route('web.teaching-mentoring-filter') }}",
-                method: 'GET',
+                url: "/teaching-mentoring-filter",
+                method: `GET`,
                 data: {
                     category: category,
                     dosen_id: dosen_id
                 },
-                dataType: 'json',
+                dataType: `json`,
                 success: function(response) {
-                    if (response.status === 'success') {
-                        $('#card-teaching-mentoring .card').remove();
+                    if (response.status === `success`) {
+                        $(`#card-teaching-mentoring .card`).remove();
                         response.data.forEach(function(item, index) {
-                            var cardHtml = '<div class="card rounded-6 my-shadow border-0 mt-3 ' + (index === response.data.length - 1 ? 'mb-3' : '') + '">' +
-                                '<div class="card-body">' +
-                                '<span class="text-uppercase fw-light" style="font-size: 12px">' + item.category + '</span>' +
-                                '<div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">' + item.title + '</div>' +
-                                '<div class="text-muted">' + (item.student_name ? 'Mahasiswa: ' + item.student_name : '') + '</div>' +
-                                '<div class="text-muted mt-1 fw-light">' + item.year + '</div>' +
-                                '</div>' +
-                                '</div>';
+                            var cardHtml = `<div class="card rounded-6 my-shadow border-0 mt-3 ` + (index === response.data.length - 1 ? `mb-3` : ``) + `">` +
+                                `<div class="card-body">` +
+                                `<span class="text-uppercase fw-light" style="font-size: 12px">` + item.category + `</span>` +
+                                `<div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">` + item.title + `</div>` +
+                                `<div class="text-muted">` + (item.student_name ? `Mahasiswa: ` + item.student_name : ``) + `</div>` +
+                                `<div class="text-muted mt-1 fw-light">` + item.year + `</div>` +
+                                `</div>` +
+                                `</div>`;
 
-                            $('#card-teaching-mentoring').append(cardHtml);
+                            $(`#card-teaching-mentoring`).append(cardHtml);
                         });
                     } else {
-                        var message = '<span class="text-muted fw-light">Belum ada pengajaran dan pembimbingan yang ditambahkan</span>';
-                        $('#card-teaching-mentoring').html(message);
+                        var message = `<span class="text-muted fw-light">Belum ada pengajaran dan pembimbingan yang ditambahkan</span>`;
+                        $(`#card-teaching-mentoring`).append(message);
                     }
                 },
                 error: function(xhr, status, error) {

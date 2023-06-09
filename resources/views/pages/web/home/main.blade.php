@@ -12,11 +12,11 @@
                             <img src="{{ $n->thumbnail ? Storage::url($n->thumbnail) : asset('web/images/berita.png') }}" class="card-img-top card-img-1">
                         </a>
                         <div class="card-body">
-                            <a href="{{ route('web.berita.show', $n->slug) }}">
+                            <a href="{{ route('web.berita.show', $n->slug) }}" class="menu-link">
                                 <h4 class="card-title fw-semibold text-nowrap overflow-hidden text-white">{{ $n->title }}</h4>
                             </a>
                             <div class="card-text">{!! $n->desc !!}</div>
-                            <a href="{{ route('web.berita.show', $n->slug) }}" class="d-block text-white fw-semibold mt-3">Selengkapnya</a>
+                            <a href="{{ route('web.berita.show', $n->slug) }}" class="menu-link d-block text-white fw-semibold mt-3">Selengkapnya</a>
                         </div>
                     </div>
                     @endforeach
@@ -38,7 +38,7 @@
                     <div class="col-md-8 text-white mt-4 mt-md-0">
                         <h2 class="text-white fw-semibold">{{ $civitas_section->title ?? 'Civitas Fakultas Vokasi' }}</h2>
                         <p>{!! $civitas_section->desc ?? 'Deskripsi Belum Ditambahkan' !!}</p>
-                        <a href="{{ $civitas_section->url ?? route('web.civitas.dosen') }}" class="button button-orange">Selengkapnya</a>
+                        <a href="{{ $civitas_section->url ?? route('web.civitas.dosen') }}" class="menu-link button button-orange">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -56,11 +56,11 @@
                             }
                         @endphp
                         <div class="col-xl-3 col-lg-4 col-sm-6">
-                            <a href="{{ $url }}">
+                            <a href="{{ $url }}" class="menu-link">
                                 <div class="card shadow bg-blue-1 text-white">
                                     <img src="{{ $fi->thumbnail ? Storage::url($fi->thumbnail) : asset('web/images/blank-imagejpg.jpg') }}" class="card-img-2">
                                     <div class="card-body mx-3">
-                                        <a href="{{ $url ?? '#' }}" class="d-block text-white fw-semibold">{{ $fi->title }}</a>
+                                        <a href="{{ $url ?? '#' }}" class="menu-link d-block text-white fw-semibold">{{ $fi->title }}</a>
                                     </div>
                                 </div>
                             </a>
@@ -84,7 +84,7 @@
                         @php
                             $url = $study_program_section->url ?? route('web.civitas.dosen');
                         @endphp
-                        <a href="{{$url}}" class="button button-orange">Selengkapnya</a>
+                        <a href="{{$url}}" class="menu-link button button-orange">Selengkapnya</a>
                     </div>
                     <div class="col-md-5 p-5">
                         <div class="card-prodi bg-blue-1">
@@ -101,7 +101,7 @@
                             <div class="col-lg-4 col-md-6">
                                 <h2 class="fw-bold text-white text-shadow my-4">{{ $meet_our_student_section->title ?? 'Temui Mahasiswa Kami' }}</h2>
                                 <div class="text-white text-shadow fw-5 mt-0">{!! $meet_our_student_section->desc ?? 'Ayo berkenalan bersama siswa kami dengan melihat kegiatan-kegiatan menarik lainnya yang nspiratif dan beragam yang dilakukan oleh para siswa kami.' !!}</d>
-                                <a href="{{ $meet_our_student_section->url ?? route('web.activity', 'himatek') }}" class="button button-orange mt-4">Selengkapnya</a>
+                                <a href="{{ $meet_our_student_section->url ?? route('web.activity', 'himatek') }}" class="menu-link button button-orange mt-4">Selengkapnya</a>
                             </div>
                         </div>
                     </div>

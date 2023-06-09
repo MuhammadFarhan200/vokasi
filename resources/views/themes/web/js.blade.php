@@ -1,5 +1,5 @@
 @guest
-    @foreach ($themes->javascript->where('is_active',true)->where('is_guest',true) as $item)
+    @foreach ($themes->javascript->where("is_active",true)->where("is_guest",true) as $item)
         @if($item->is_editable == 1)
             <script type="text/javascript">
                 {!!$item->file!!}
@@ -10,7 +10,7 @@
     @endforeach
 @endguest
 @auth
-    @foreach ($themes->javascript->where('is_active',true)->where('is_auth',true) as $item)
+    @foreach ($themes->javascript->where("is_active",true)->where("is_auth",true) as $item)
         @if($item->is_editable == 1)
             <script type="text/javascript">
                 {!!$item->file!!}
@@ -21,12 +21,12 @@
     @endforeach
 @endauth
 
-<script src="{{ asset('web/js/jquery.js') }}"></script>
-{{-- <script src="{{ asset('web/js/app.js') }}"></script> --}}
-<script src="{{ asset('web/js/plugins.js') }}"></script>
-<script id="function-script" src="{{ asset('web/js/functions.js') }}"></script>
+<script src="{{ asset("web/js/jquery.js") }}"></script>
+<script src="{{ asset("web/js/plugins.js") }}"></script>
+<script src="{{ asset("web/js/functions.js") }}"></script>
+{{-- <script src="{{ asset("web/js/methods.js") }}"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
-<script src="{{ asset('owl-carousel/dist/owl.carousel.min.js') }}"></script>
+<script src="{{ asset("owl-carousel/dist/owl.carousel.min.js") }}"></script>
 <script>
     $(document).ready(function(){
         $(".owl-carousel").owlCarousel({
@@ -54,30 +54,22 @@
             "X-CSRF-TOKEN": $("meta[name=csrf-token]").attr("content")
         }
     });
-    document.getElementById('submit-comment').addEventListener('click', function(event) {
-        // var functionScript = document.getElementById('function-script');
-        // functionScript.removeAttribute('src');
+    document.getElementById("submit-comment").addEventListener("click", function(event) {
         event.preventDefault();
 
         $.ajax({
-            url: "{{ route('web.send-comment') }}",
+            url: "{{ route("web.send-comment") }}",
             type: "POST",
             data: {
-                body: $('input[name=body]').val(),
+                body: $("input[name=body]").val(),
             },
             success: function(response) {
-                // console.log(response);
-                if (response.alert == 'success') {
-                    $('#comment-form').trigger("reset");
-                    // $('#comment-form').append('<div class="alert alert-success">Comment added successfully</div>');
+                if (response.alert == "success") {
+                    $("#comment-form").trigger("reset");
                     window.location.reload();
-                    // functionScript.setAttribute('src', "{{ asset('web/js/functions.js') }}");
-                    // log(functionScript);
                 } else {
-                    $('#comment-form').trigger("reset");
-                    // $('#comment-form').append('<div class="alert alert-danger">Comment not added</div>');
+                    $("#comment-form").trigger("reset");
                     window.location.reload();
-                    // log(functionScript);
                 }
             },
         });

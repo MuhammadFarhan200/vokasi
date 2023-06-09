@@ -1,12 +1,10 @@
-<style>
-    @import url("{{ asset('web/css/show_civitas.css') }}");
-</style>
 <x-web-layout title="Staf - {{ $staf->name ?? '' }}">
+    @include('themes.web.styling.show_civitas_styling')
     <!-- Content ============================================= -->
     <section id="content" style="background: #ebe8e879" class="my-font">
         <div class="row align-items-center bg-white m-0">
             <div class="col-3">
-                <a href="{{ route('web.civitas.staf') }}" class="my-link text-dark text-small fw-light">
+                <a href="{{ route('web.civitas.staf') }}" class="menu-link my-link text-dark text-small fw-light">
                     <i class="fa-solid fa-arrow-left me-3"></i>
                     kembali<span class="d-none d-lg-inline"> ke halaman staf</span>
                 </a>
@@ -15,9 +13,6 @@
                 <ul class="nav my-tabs flex-nowrap text-nowrap border-0 mt-0 ms-5 overflow-auto">
                     <li class="nav-item">
                         <a class="nav-link active px-5 py-3 text-dark text-uppercase" data-bs-toggle="tab" href="#tentang">Tentang</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-5 py-3 text-dark text-uppercase" data-bs-toggle="tab" href="#identitas">Identitas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link px-5 py-3 text-dark text-uppercase" data-bs-toggle="tab" href="#pengajaran">Pengajaran</a>
@@ -35,7 +30,7 @@
                                     <img src="{{ $staf->avatar ? Storage::url($staf->avatar) : asset('web/images/no-img-profile.jpg') }}" class="my-image rounded rounded-circle">
                                 </div>
                                 <div class="text-center mt-3 border-bottom-dashed">
-                                    <div class="text-muted fw-light text-uppercase" style="font-size: 12px">{{ $staf->position ?? 'Staf IT Del' }}</div>
+                                    <div class="text-muted fw-light text-uppercase" style="font-size: 12px">{{ $staf->user_category->name ?? 'Staf IT Del' }}</div>
                                     <h4 class="text-center fw-500 mb-3">{{ $staf->name ?? '-' }}</h2>
                                 </div>
                                 <div class="text-center mt-2 border-bottom-dashed pb-2">
@@ -71,44 +66,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @if ($staf->skill != null)
-                                    <style>
-                                        ol {
-                                            display: block;
-                                            list-style-type: decimal;
-                                            margin-top: 0;
-                                            margin-bottom: 1em;
-                                            margin-left: 0;
-                                            margin-right: 0;
-                                            padding-left: 20px;
-                                        }
-
-                                        ul {
-                                            display: block;
-                                            list-style-type: disc;
-                                            margin-top: 0;
-                                            margin-bottom: 1em;
-                                            margin-left: 0;
-                                            margin-right: 0;
-                                            padding-left: 20px;
-                                        }
-
-                                        li {
-                                            display: list-item;
-                                        }
-                                    </style>
                                     <div class="card my-card border-0 mt-4">
-                                        <div class="card-body px-4">
-                                            <div class="card-title text-uppercase">Keahlian</div>
-                                            <div class="text-muted">
-                                            {!! $staf->skill !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-                                </div>
-                                <div class="tab-pane" id="identitas" role="tabpanel">
-                                    <div class="card my-card border-0">
                                         <div class="card-body px-4">
                                             <div class="card-title text-uppercase">Data Diri</div>
                                             <table class="table table-borderless fw-light">
@@ -149,6 +107,44 @@
                                         </div>
                                     </div>
                                     @endif
+                                    @if ($staf->skill != null)
+                                    <style>
+                                        ol {
+                                            display: block;
+                                            list-style-type: decimal;
+                                            margin-top: 0;
+                                            margin-bottom: 1em;
+                                            margin-left: 0;
+                                            margin-right: 0;
+                                            padding-left: 20px;
+                                        }
+
+                                        ul {
+                                            display: block;
+                                            list-style-type: disc;
+                                            margin-top: 0;
+                                            margin-bottom: 1em;
+                                            margin-left: 0;
+                                            margin-right: 0;
+                                            padding-left: 20px;
+                                        }
+
+                                        li {
+                                            display: list-item;
+                                        }
+                                    </style>
+                                    <div class="card my-card border-0 mt-4">
+                                        <div class="card-body px-4">
+                                            <div class="card-title text-uppercase">Keahlian</div>
+                                            <div class="text-muted">
+                                            {!! $staf->skill !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                </div>
+                                <div class="tab-pane" id="identitas" role="tabpanel">
+
                                 </div>
                                 <div class="tab-pane" id="pengajaran" role="tab-pane">
                                     <div class="card my-card border-0">
@@ -167,7 +163,7 @@
                                                 @endforeach
                                             </div>
                                             @else
-                                            <span class="text-muted fw-light">Belum ada pengajaran dan pembimbingan yang ditambahkan</span>
+                                            <span class="text-muted fw-light">Belum ada pengajaran yang ditambahkan</span>
                                             @endif
                                         </div>
                                     </div>

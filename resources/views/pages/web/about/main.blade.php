@@ -20,28 +20,8 @@
         .bg-gray-400 {
             background-color: #e2e8f0;
         }
-        ol {
-            display: block;
-            list-style-type: decimal;
-            margin-top: .5em;
-            margin-bottom: 1em;
-            margin-left: 0;
-            margin-right: 0;
-            padding-left: 30px;
-        }
-        ul {
-            display: block;
-            list-style-type: disc;
-            margin-top: .5em;
-            margin-bottom: 1em;
-            margin-left: 0;
-            margin-right: 0;
-            padding-left: 30px;
-        }
-        li {
-            display: list-item;
-        }
     </style>
+    @include('themes.web.styling.timeline_styling')
     <section id="content">
         <div class="content-wrap">
         <div class="container-fluid">
@@ -88,6 +68,9 @@
 
         <div style="padding-top: 30px; background: #003966" id="visi-misi">
             <div class="container pb-5">
+                <style>
+                    @import url('{{ asset("web/css/default-list.css") }}');
+                </style>
                 <div class="entry entry-date-section col-12 mb-3">
                     <span>Visi dan Misi</span>
                 </div>

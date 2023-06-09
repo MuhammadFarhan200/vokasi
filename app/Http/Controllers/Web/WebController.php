@@ -21,10 +21,8 @@ use App\Models\Profil\TeachingMentoring;
 use App\Models\ProgramStudi;
 use App\Models\Timeline\Activity;
 use App\Models\Timeline\News;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class WebController extends Controller
 {
@@ -82,14 +80,12 @@ class WebController extends Controller
             $q->where('slug', $slug);
         })->first();
         $category = CategoryProdi::where('is_active', 1)->where('slug', $slug)->first();
-        // dd($program);
         return view('pages.web.program.main', compact('program', 'category'));
     }
 
     public function activity($category)
     {
         $category = $category;
-        // dd(request()->jenis_aktivitas);
         $activities = Activity::where('is_active', 1)->where('category', $category);
 
         if (request()->jenis_aktivitas) {
@@ -183,7 +179,6 @@ class WebController extends Controller
         $funding = $dosen->pendanaan()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
         $research = $dosen->research()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
         $teaching_mentoring = $dosen->teaching_mentoring()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
-        // dd($studies);
         return view('pages.web.civitas.dosen.show', compact('dosen', 'education', 'funding', 'research', 'teaching_mentoring'));
     }
 
@@ -197,17 +192,17 @@ class WebController extends Controller
             $teaching_mentoring = TeachingMentoring::where('user_id', $dosen)->where('is_active', 1)->where('category', $category)->orderBy('created_at', 'desc')->get();
         }
 
-        // dd($request->all());
         if ($teaching_mentoring->count() == 0) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Data tidak ditemukan'
+                'message' => 'Data tidak ditemukan',
+                'data' =>  $teaching_mentoring,
             ]);
         }
         return response()->json([
             'status' => 'success',
+            'message' => 'Data berhasil didapatkan',
             'data' => $teaching_mentoring,
-            'message' => 'Data berhasil ditemukan'
         ]);
     }
 

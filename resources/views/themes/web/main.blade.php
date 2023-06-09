@@ -35,5 +35,6 @@ $logo = \App\Models\Setting\Config::where('key','APP_LOGO')->first();
 
 		@include('themes.web.js')
         @include('sweetalert::alert')
+        @yield('custom_js')
     </body>
 </html>

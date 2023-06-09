@@ -49,7 +49,7 @@
                                     <span>Lihat Halaman Web</span>
                                 </h5>
                             </a>
-                            <a href="{{ route('web.home') }}" class="text-hover-primary my-2"><i class="fa-solid fa-arrow-up-right-from-square text-gray-800 fs-5"></i></a>
+                            <a href="{{ route('web.home') }}" class="text-hover-primary my-2" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square text-gray-800 fs-5"></i></a>
                         </div>
                     </div>
                 </div>

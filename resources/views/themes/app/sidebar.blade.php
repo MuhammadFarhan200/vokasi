@@ -556,6 +556,19 @@
                     <!--end:Menu sub-->
                 </div>
                 <!--end:Menu link-->
+                <div class="menu-item">
+                    @php
+                        $pak = \App\Models\PAKSimulation::where('is_active', true)->first();
+                    @endphp
+                    <!--begin:Menu link-->
+                    <a href="{{ $pak->url ?? '#' }}" class="menu-link {{request()->is('office/pak-simulation/*') ? 'active' : ''}}">
+                        <span class="menu-icon" data-kt-element="icon">
+                            <i class="ki-outline ki-exit-right-corner"></i>
+                        </span>
+                        <span class="menu-title">Simulasi PAK</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
                 <!--begin:Menu item-->
                 @elseif (auth()->user()->role == '5')
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is('office/staff/identitas*') ? 'here show' : ''}}">
@@ -675,7 +688,7 @@
     @php
         $pak = \App\Models\PAKSimulation::where('is_active', true)->first();
     @endphp
-    <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer">
+    <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6 d-none" id="kt_app_sidebar_footer">
         <a href="{{ $pak->url ?? '#coming-soon' }}" class="btn btn-flex flex-center d-flex align-items-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100"
             data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click"
             data-bs-original-title="Kunjungi link berikut untuk mengetahui ......">

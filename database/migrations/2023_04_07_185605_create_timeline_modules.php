@@ -29,28 +29,6 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id')->default(0);
-            $table->longText('title');
-            $table->string('year',4);
-            $table->longText('slug');
-            $table->longText('published');
-            $table->longText('desc');
-            $table->boolean('is_active')->default(true);
-            $table->timestamps();
-        });
-        Schema::create('books', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id')->default(0);
-            $table->longText('title');
-            $table->string('year',4);
-            $table->longText('slug');
-            $table->longText('published');
-            $table->longText('desc');
-            $table->boolean('is_active')->default(true);
-            $table->timestamps();
-        });
         Schema::create('fundings', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->default(0);
@@ -75,22 +53,6 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
-        Schema::create('publications', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id')->default(0);
-            $table->longText('title');
-            $table->string('year',4);
-            $table->boolean('is_active')->default(true);
-            $table->timestamps();
-        });
-        Schema::create('studies', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id')->default(0);
-            $table->longText('code');
-            $table->longText('name');
-            $table->boolean('is_active')->default(true);
-            $table->timestamps();
-        });
     }
 
     /**
@@ -101,10 +63,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('activities');
-        Schema::dropIfExists('articles');
-        Schema::dropIfExists('books');
         Schema::dropIfExists('news');
-        Schema::dropIfExists('publications');
-        Schema::dropIfExists('studies');
     }
 };

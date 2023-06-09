@@ -25,7 +25,7 @@
                 <div class="card mb-5">
                     <div class="card-body">
                         <div class="row mb-5">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label class="required fw-semibold fs-6 mb-2">Link</label>
                                 <input type="url" class="form-control form-control-solid mb-3" name="url" id="url" value="{{$data->url}}">
                             </div>

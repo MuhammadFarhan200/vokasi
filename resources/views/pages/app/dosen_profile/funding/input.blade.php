@@ -41,7 +41,7 @@
                                 <input type="text" class="form-control form-control-solid mb-3" name="organizer" id="organizer" value="{{$data->organizer}}">
                             </div>
                             <div class="col-6">
-                                <label class="required fw-semibold fs-6 mb-2">Sponsor</label>
+                                <label class="required fw-semibold fs-6 mb-2">Pemberi Dana</label>
                                 <input type="text" class="form-control form-control-solid mb-3" name="involved_parties" id="involved_parties" value="{{$data->involved_parties}}">
                             </div>
                             <div class="col-6">

@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Account\UserCategory;
 use Illuminate\Http\Request;
 use App\Models\Civitas\User AS Staff;
-use App\Models\Profil\Background;
-use App\Models\Profil\Contact;
 use App\Models\Profil\Education;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -62,96 +60,6 @@ class StaffProfileController extends Controller
             $staff->avatar = $file;
         }
         $staff->update();
-
-        return response()->json([
-            'alert' => 'success',
-            'message' => 'Data berhasil diperbaharui',
-        ], 200);
-    }
-
-    public function latar_staff()
-    {
-        $staff = Staff::where('id', Auth::user()->id)->first();
-        return view('pages.app.staff_profile.background.input', ['staff' => $staff, 'data' => new Background]);
-    }
-
-    public function store_latar_staff(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'keyword' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return response()->json([
-                'alert' => 'error',
-                'message' => $validator->errors()->first(),
-            ], 200);
-        }
-        $staff = staff::where('id', Auth::user()->id)->first();
-        $background = new Background();
-        $background->user_id = $staff->id;
-        $background->keyword = $request->keyword;
-        $background->save();
-
-        return response()->json([
-            'alert' => 'success',
-            'message' => 'Data berhasil diperbaharui',
-        ], 200);
-    }
-
-    public function edit_latar_staff()
-    {
-        $staff = Staff::where('id', Auth::user()->id)->first();
-        $data = Background::where('user_id', $staff->id)->first();
-        return view('pages.app.staff_profile.background.input', ['staff' => $staff, 'data' => $data]);
-    }
-
-    public function update_latar_staff(Request $request)
-    {
-        $staff = Staff::where('id', Auth::user()->id)->first();
-        $background = Background::where('user_id', $staff->id)->first();
-        $background->keyword = $request->keyword;
-        $background->update();
-
-        return response()->json([
-            'alert' => 'success',
-            'message' => 'Data berhasil diperbaharui',
-        ], 200);
-    }
-
-    public function contact_staff()
-    {
-        $staff = Staff::where('id', Auth::user()->id)->first();
-        return view('pages.app.staff_profile.contact.input', ['staff' => $staff, 'data' => new Contact()]);
-    }
-
-    public function store_contact_staff(Request $request) {
-        $staff = Staff::where('id', Auth::user()->id)->first();
-        $contact = new Contact();
-        $contact->user_id = $staff->id;
-        $contact->facebook_url = $request->facebook_url;
-        $contact->instagram_url = $request->instagram_url;
-        $contact->linkedin_url = $request->linkedin_url;
-        $contact->save();
-
-        return response()->json([
-            'alert' => 'success',
-            'message' => 'Data berhasil diperbaharui',
-        ], 200);
-    }
-
-    public function edit_contact_staff()
-    {
-        $staff = staff::where('id', Auth::user()->id)->first();
-        $contact = Contact::where('user_id', $staff->id)->first();
-        return view('pages.app.staff_profile.contact.input', ['staff' => $staff, 'data' => $contact]);
-    }
-
-    public function update_contact_staff(Request $request, Contact $contact)
-    {
-        $contact->facebook_url = $request->facebook_url;
-        $contact->instagram_url = $request->instagram_url;
-        $contact->linkedin_url = $request->linkedin_url;
-        $contact->update();
 
         return response()->json([
             'alert' => 'success',

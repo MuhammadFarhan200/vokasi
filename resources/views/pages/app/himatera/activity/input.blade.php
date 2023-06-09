@@ -90,7 +90,7 @@
             $("#title").text("Link Pertemuan");
         } else {
             $("#div_show").show();
-            $("#title").text("Lokasi Acara");
+            $("#title").text("Tempat Pelaksanaan");
         }
         $("#jenis_kegiatan").change(function() {
             if ($(this).val() == "Online") {
@@ -98,7 +98,7 @@
                 $("#title").text("Link Pertemuan");
             } else if ($(this).val() == "Offline") {
                 $("#div_show").show();
-                $("#title").text("Lokasi Acara");
+                $("#title").text("Tempat Pelaksanaan");
             } else {
                 $("#div_show").hide();
             }

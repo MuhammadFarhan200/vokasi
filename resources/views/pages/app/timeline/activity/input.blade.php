@@ -55,7 +55,7 @@
                                 </select>
                             </div> --}}
                             <div class="col-4 mt-5" id="div_show">
-                                <label class="fw-semibold fs-6 mb-2" id="title">Tempat Pelaksanaan</label>
+                                <label class="fw-semibold fs-6 mb-2" id="title">Tempat Pelaksanaan  </label>
                                 <input type="text" class="form-control form-control-solid" name="lokasi" id="lokasi" value="{{$data->location}}">
                             </div>
                             {{-- <div class="col-4 mt-5">
@@ -102,7 +102,7 @@
             $("#title").text("Link Pertemuan");
         } else {
             $("#div_show").show();
-            $("#title").text("Lokasi Acara");
+            $("#title").text("Tempat Pelaksanaan");
         }
         $("#jenis_kegiatan").change(function() {
             if ($(this).val() == "Online") {
@@ -110,7 +110,7 @@
                 $("#title").text("Link Pertemuan");
             } else if ($(this).val() == "Offline") {
                 $("#div_show").show();
-                $("#title").text("Lokasi Acara");
+                $("#title").text("Tempat Pelaksanaan");
             } else {
                 $("#div_show").hide();
             }

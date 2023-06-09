@@ -66,7 +66,7 @@
                    @if ($staf != null)
                     @foreach ($staf as $item)
                     <div class="col-lg-3 col-md-6 px-xl-4">
-                        <a href="{{ route('web.civitas.staf.show', $item->id) }}" class="team">
+                        <a href="{{ route('web.civitas.staf.show', $item->id) }}" class="menu-link team">
                             <div class="team-image">
                                 <img src="{{ $item->avatar ? Storage::url($item->avatar) : asset('web/images/no-img-profile.jpg') }}" alt="{{ $item->name }}" class="card-img">
                             </div>

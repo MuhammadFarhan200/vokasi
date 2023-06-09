@@ -51,14 +51,14 @@
                                     </a>
                                 </div>
                                 <div class="entry-title">
-                                    <h4 class="text-nowrap overflow-hidden fs-6" style="text-overflow: ellipsis"><a href="{{ route('web.berita.show', $item->slug) }}">{{ $item->title }}</a></h4>
+                                    <h4 class="text-nowrap overflow-hidden fs-6" style="text-overflow: ellipsis"><a href="{{ route('web.berita.show', $item->slug) }}" class="menu-link">{{ $item->title }}</a></h4>
                                 </div>
                                 <div class="entry-meta">
                                     <ul>
                                         <li><i class="uil uil-schedule"></i> {{ $item->created_at->format(' d F Y') }}</li>
                                     </ul>
                                 </div>
-                                <a href="{{ route('web.berita.show', $item->slug) }}" class="more-link">Baca Selengkapnya</a>
+                                <a href="{{ route('web.berita.show', $item->slug) }}" class="menu-link more-link">Baca Selengkapnya</a>
                             </div>
                         </div>
                         @endforeach

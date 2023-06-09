@@ -9,12 +9,6 @@ use App\Models\Civitas\User as Dosen;
 use App\models\Civitas\User as Staff;
 use App\models\Account\User;
 use App\Models\Comment;
-use App\Models\FRK\FinalProjectAdvisor;
-use App\Models\FRK\FinalProjectTester;
-use App\Models\FRK\ResearchResults;
-use App\Models\FRK\ResultDevelopments;
-use App\Models\FRK\ScientificWorks;
-use App\Models\FRK\Teaching;
 use App\Models\ProgramStudi;
 use App\Models\Timeline\Activity;
 use App\Models\Timeline\News;
@@ -31,9 +25,6 @@ class MainController extends Controller
         {
             $civitas['dosen'] = User::where('role', 4)->count();
             $civitas['staff'] = User::where('role', 5)->count();
-
-            $account['dekan'] = User::where('role', 2)->count();
-            $account['kaprodi'] = User::where('role', 3)->count();
             $account['himpunan'] = User::where('role', 6)->count();
 
             $about['history'] = History::all()->count();
@@ -43,7 +34,6 @@ class MainController extends Controller
             $activity = Activity::all()->count();
             $comment = Comment::all()->count();
             $prodi = ProgramStudi::all()->count();
-            // dd($comment);
             return view('pages.app.dashboard.main', ['civitas' => $civitas, 'account' => $account, 'news' => $news, 'activity' => $activity, 'comment' => $comment, 'prodi' => $prodi, 'about' => $about]);
         } else if ($role == 4)
         {
