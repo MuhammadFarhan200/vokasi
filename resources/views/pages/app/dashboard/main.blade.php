@@ -25,16 +25,8 @@
                         <div class="card-body pb-4">
                             <h4 class="card-title mb-7">
                                 <i class="fa-solid fa-users text-gray-800 me-2 fs-4"></i>
-                                <span>Data Akun &nbsp; & &nbsp; Civitas</span>
+                                <span>Data Akun</span>
                             </h4>
-                            <div class="d-flex justify-content-between fw-bold">
-                                <a href="{{ route('office.account.dekan.index') }}" class="menu-link text-gray-800 text-hover-primary">Dekan</a>
-                                <p class="badge badge-primary">{{ $account['dekan'] }}</p>
-                            </div>
-                            <div class="d-flex justify-content-between fw-bold">
-                                <a href="{{ route('office.account.ka-prodi.index') }}" class="menu-link text-gray-800 text-hover-primary">KA Prodi</a>
-                                <p class="badge badge-primary">{{ $account['kaprodi'] }}</p>
-                            </div>
                             <div class="d-flex justify-content-between fw-bold">
                                 <a href="{{ route('office.account.himpunan.index') }}" class="menu-link text-gray-800 text-hover-primary">Himpunan</a>
                                 <p class="badge badge-primary">{{ $account['himpunan'] }}</p>
@@ -49,6 +41,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card shadow mb-3">
+                        <div class="card-body d-flex justify-content-between py-4">
+                            <a href="{{ route('web.home') }}" class="text-gray-800 text-hover-primary">
+                                <h5 class="card-title my-2">
+                                    <i class="fa-solid fa-globe text-gray-800 me-2 fs-4"></i>
+                                    <span>Lihat Halaman Web</span>
+                                </h5>
+                            </a>
+                            <a href="{{ route('web.home') }}" class="text-hover-primary my-2"><i class="fa-solid fa-arrow-up-right-from-square text-gray-800 fs-5"></i></a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="row g-3">
@@ -56,7 +59,7 @@
                             <div class="card shadow">
                                 <div class="card-body">
                                     <h4 class="card-title mb-7">
-                                        <i class="fa-solid fa-users text-gray-800 me-2 fs-4"></i>
+                                        <i class="fa-solid fa-circle-info text-gray-800 me-2 fs-4"></i>
                                         <span>Data Tentang</span>
                                     </h4>
                                     <div class="d-flex justify-content-between fw-bold">

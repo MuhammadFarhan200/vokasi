@@ -60,7 +60,8 @@
                             </div>
                             <div class="col-6">
                                 <label class="required fw-semibold fs-6 mb-2">Jenis</label>
-                                <select name="type" id="funding_type" class="form-select" data-hide-search="true" data-hide-search="true">
+                                <select name="type" id="funding_type" class="form-select form-select-solid" data-hide-search="true" data-hide-search="true">
+                                    <option disabled selected>Pilih Kategori</option>
                                     <option value="Internal" {{ $data->type == 'Internal' ? 'selected' : '' }}>Hibah Internal</option>
                                     <option value="Eksternal" {{ $data->type == 'Eksternal' ? 'selected' : '' }}>Hibah Eksternal</option>
                                 </select>

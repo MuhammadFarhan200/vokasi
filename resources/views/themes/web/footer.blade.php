@@ -4,6 +4,7 @@
     $about_section = Footer::where('section', 'tentang')->get();
     $prodi_section = Footer::where('section', 'program studi')->get();
     $aktivitas_section = Footer::where('section', 'aktivitas mahasiswa')->get();
+    $link = App\Models\Setting\Logo::where('is_active', true)->first();
 @endphp
 
 <footer id="footer" style="background-color :#00337C">
@@ -133,25 +134,35 @@
                     Copyrights &copy; 2023 All Rights Reserved
                     {{-- <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div> --}}
                 </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <div class="d-flex justify-content-center justify-content-md-end mb-2">
-                        <a href="#" class="social-icon border-transparent si-small h-bg-facebook text-white">
+                <div class="col-md-6 text-center">
+                    @if ($link != null)
+                    <div class="d-flex justify-content-center justify-content-md-end mb-2 me-md-5">
+                        @if ($link->facebook_url != null)
+                        <a href="{{ $link->facebook_url }}" class="social-icon border-transparent si-small h-bg-facebook text-white">
                             <i class="fa-brands fa-facebook-f"></i>
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-icon border-transparent si-small h-bg-instagram text-white">
+                        @endif
+                        @if ($link->instagram_url != null)
+                        <a href="{{ $link->instagram_url }}" class="social-icon border-transparent si-small h-bg-instagram text-white">
                             <i class="fa-brands fa-instagram"></i>
                             <i class="fa-brands fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-icon border-transparent si-small h-bg-youtube text-white">
+                        @endif
+                        @if ($link->youtube_url != null)
+                        <a href="{{ $link->youtube_url }}" class="social-icon border-transparent si-small h-bg-youtube text-white">
                             <i class="fa-brands fa-youtube"></i>
                             <i class="fa-brands fa-youtube"></i>
                         </a>
-                        <a href="#" class="social-icon border-transparent si-small me-0 h-bg-linkedin text-white">
+                        @endif
+                        @if ($link->linkedin_url != null)
+                        <a href="{{ $link->linkedin_url }}" class="social-icon border-transparent si-small me-0 h-bg-linkedin text-white">
                             <i class="fa-brands fa-linkedin"></i>
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
+                        @endif
                     </div>
+                    @endif
                     {{-- <i class="bi-envelope"></i> info@canvas.com <span class="middot">&middot;</span> <i class="fa-solid fa-phone"></i> +1-11-6541-6369 <span class="middot">&middot;</span> <i class="bi-skype"></i> CanvasOnSkype --}}
                 </div>
             </div>

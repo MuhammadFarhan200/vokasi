@@ -17,9 +17,11 @@ use App\Models\CategoryProdi;
 use App\Models\Civitas\User as Dosen;
 use App\Models\Civitas\User as Staf;
 use App\Models\Comment;
+use App\Models\Profil\TeachingMentoring;
 use App\Models\ProgramStudi;
 use App\Models\Timeline\Activity;
 use App\Models\Timeline\News;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -170,15 +172,36 @@ class WebController extends Controller
 
     public function show_dosen(Dosen $dosen)
     {
-        $article = $dosen->article()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
-        $books = $dosen->book()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
-        $publication = $dosen->publication()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
         $education = $dosen->education()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
-        $studies = $dosen->studies()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
         $funding = $dosen->pendanaan()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
         $research = $dosen->research()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
+        $teaching_mentoring = $dosen->teaching_mentoring()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
         // dd($studies);
-        return view('pages.web.civitas.dosen.show', compact('dosen', 'article', 'books', 'publication', 'education', 'studies', 'funding', 'research'));
+        return view('pages.web.civitas.dosen.show', compact('dosen', 'education', 'funding', 'research', 'teaching_mentoring'));
+    }
+
+    public function filter_teaching_mentoring(Request $request)
+    {
+        $category = $request->category;
+        $dosen = $request->dosen_id;
+        if ($category == 'semua') {
+            $teaching_mentoring = TeachingMentoring::where('user_id', $dosen)->where('is_active', 1)->orderBy('created_at', 'desc')->get();
+        } else {
+            $teaching_mentoring = TeachingMentoring::where('user_id', $dosen)->where('is_active', 1)->where('category', $category)->orderBy('created_at', 'desc')->get();
+        }
+
+        // dd($request->all());
+        if ($teaching_mentoring->count() == 0) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Data tidak ditemukan'
+            ]);
+        }
+        return response()->json([
+            'status' => 'success',
+            'data' => $teaching_mentoring,
+            'message' => 'Data berhasil ditemukan'
+        ]);
     }
 
     public function staf()

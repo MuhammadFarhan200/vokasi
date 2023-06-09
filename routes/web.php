@@ -33,6 +33,7 @@ Route::group(['domain' => ''], function () {
         Route::get('program/{category_prodi:slug}', [WebController::class, 'program'])->name('program');
         Route::get('civitas/dosen', [WebController::class, 'dosen'])->name('civitas.dosen');
         Route::get('civitas/dosen/{dosen}', [WebController::class, 'show_dosen'])->name('civitas.dosen.show');
+        Route::get('teaching-mentoring-filter', [WebController::class, 'filter_teaching_mentoring'])->name('teaching-mentoring-filter');
         Route::view('civitas/staf', 'pages.web.civitas.staf')->name('civitas.staf');
         Route::post('send-comment', [WebController::class, 'send_comment'])->name('send-comment');
         Route::get('civitas/staf', [WebController::class, 'staf'])->name('civitas.staf');

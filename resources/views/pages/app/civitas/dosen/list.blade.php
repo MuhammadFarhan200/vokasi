@@ -106,7 +106,7 @@
                                 </a>
                             </div>
                             <div class="menu-item px-3">
-                                <a href="{{ route('office.civitas.dosen.studies.index', $item->id) }}" class="menu-link px-3">
+                                <a href="{{ route('office.civitas.dosen.teaching-mentoring.index', $item->id) }}" class="menu-link px-3">
                                     <span class="menu-icon" data-kt-element="icon">
                                         <i class="fa-solid fa-school"></i>
                                     </span>

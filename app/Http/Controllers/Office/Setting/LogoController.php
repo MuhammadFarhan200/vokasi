@@ -36,16 +36,20 @@ class LogoController extends Controller
             }
             $logo->faculty = $request->faculty;
             $logo->university = $request->university;
+            $logo->facebook_url = $request->facebook_url;
+            $logo->instagram_url = $request->instagram_url;
+            $logo->youtube_url = $request->youtube_url;
+            $logo->linkedin_url = $request->linkedin_url;
             $logo->is_active = $request->is_active ? true : false;
             $logo->save();
 
             return response()->json([
                 'alert' => 'success',
-                'message' => 'Logo berhasil diubah'
+                'message' => 'Data berhasil diubah'
             ], 200);
         } else {
             $validator = Validator::make($request->all(), [
-                'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+                'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
                 'faculty' => 'required',
                 'university' => 'required',
             ]);
@@ -62,12 +66,16 @@ class LogoController extends Controller
             }
             $logo->faculty = $request->faculty;
             $logo->university = $request->university;
+            $logo->facebook_url = $request->facebook_url;
+            $logo->instagram_url = $request->instagram_url;
+            $logo->youtube_url = $request->youtube_url;
+            $logo->linkedin_url = $request->linkedin_url;
             $logo->is_active = $request->is_active ? true : false;
             $logo->save();
 
             return response()->json([
                 'alert' => 'success',
-                'message' => 'Logo berhasil ditambahkan'
+                'message' => 'Data berhasil Disimpan'
             ], 200);
         }
     }

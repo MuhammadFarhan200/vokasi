@@ -32,6 +32,7 @@ use App\Http\Controllers\Office\Civitas\Profile\ResearchController;
 use App\Http\Controllers\Office\Civitas\Profile\StaffActivityController;
 use App\Http\Controllers\Office\Civitas\Profile\StaffEducationController;
 use App\Http\Controllers\Office\Civitas\Profile\StudiesController;
+use App\Http\Controllers\Office\Civitas\Profile\TeachingMentoringController;
 use App\Http\Controllers\Office\Civitas\StaffCategoryController;
 use App\Http\Controllers\Office\Civitas\StaffController;
 use App\Http\Controllers\Office\CommentController;
@@ -245,6 +246,11 @@ Route::group(['domain' => ''], function () {
                     Route::get('{dosen}/research', [ResearchController::class, 'index'])->name('research.index');
                     Route::get('{dosen}/research/create', [ResearchController::class, 'create'])->name('research.create');
                     Route::get('{dosen}/{research}/edit-research', [ResearchController::class, 'edit'])->name('research.edit');
+
+                    Route::resource('teaching-mentoring', TeachingMentoringController::class);
+                    Route::get('{dosen}/teaching-mentoring', [TeachingMentoringController::class, 'index'])->name('teaching-mentoring.index');
+                    Route::get('{dosen}/teaching-mentoring/create', [TeachingMentoringController::class, 'create'])->name('teaching-mentoring.create');
+                    Route::get('{dosen}/{teaching_mentoring}/edit-teaching-mentoring', [TeachingMentoringController::class, 'edit'])->name('teaching-mentoring.edit');
 
                     Route::resource('article', ArticleController::class);
                     Route::get('{dosen}/article', [ArticleController::class, 'index'])->name('article.index');

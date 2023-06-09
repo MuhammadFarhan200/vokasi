@@ -41,9 +41,25 @@
                                 <label class="required fw-semibold fs-6 mb-2">Nama Fakultas</label>
                                 <input type="text" class="form-control form-control-solid" name="faculty" id="faculty" value="{{$data->faculty}}">
                             </div>
-                            <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="col-md-6 mb-4">
                                 <label class="required fw-semibold fs-6 mb-2">Nama Universitas</label>
                                 <input type="text" class="form-control form-control-solid" name="university" id="university" value="{{$data->university}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="required fw-semibold fs-6 mb-2">Link Facebook</label>
+                                <input type="url" class="form-control form-control-solid mb-3" name="facebook_url" id="facebook_url" value="{{$data->facebook_url}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="required fw-semibold fs-6 mb-2">Link Instagram</label>
+                                <input type="url" class="form-control form-control-solid mb-3" name="instagram_url" id="instagram_url" value="{{$data->instagram_url}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="required fw-semibold fs-6 mb-2">Link Youtube</label>
+                                <input type="url" class="form-control form-control-solid mb-3" name="youtube_url" id="youtube_url" value="{{$data->youtube_url}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="required fw-semibold fs-6 mb-2">Link Linkedin</label>
+                                <input type="url" class="form-control form-control-solid mb-3" name="linkedin_url" id="linkedin_url" value="{{$data->linkedin_url}}">
                             </div>
                             <div class="col-md-2">
                                 <label class="fw-semibold fs-6 mb-2">Tampilkan ?</label>

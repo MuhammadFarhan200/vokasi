@@ -19,6 +19,7 @@ use App\Models\Profil\Publication;
 use App\Models\Profil\Research;
 use App\Models\Profil\StaffActivity;
 use App\Models\Profil\Studies;
+use App\Models\Profil\TeachingMentoring;
 use App\Models\Setting\Role;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -113,6 +114,11 @@ class User extends Authenticatable
     public function research()
     {
         return $this->hasMany(Research::class, 'user_id');
+    }
+
+    public function teaching_mentoring()
+    {
+        return $this->hasMany(TeachingMentoring::class, 'user_id');
     }
 
     public function staff_activity() {
