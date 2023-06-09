@@ -146,7 +146,8 @@ class WebController extends Controller
         if (request()->search) {
             $dosen = $dosen->where(function ($q) {
                 $q->where('name', 'like', '%' . request()->search . '%')
-                    ->orWhere('nip', 'like', '%' . request()->search . '%')
+                    ->orWhere('nidn', 'like', '%' . request()->search . '%')
+                    ->orWhere('sinta_id', 'like', '%' . request()->search . '%')
                     ->orWhere('position', 'like', '%' . request()->search . '%')
                     ->orWhere('email', 'like', '%' . request()->search . '%');
             });
@@ -155,13 +156,19 @@ class WebController extends Controller
         if (request()->urutkan) {
             if (request()->urutkan == 'dosen_d3_tk') {
                 $urutkan = 'D-III Teknologi Komputer';
-                $dosen = $dosen->where('position', $urutkan);
+                $dosen = $dosen->whereHas('user_category', function ($q) use ($urutkan) {
+                    $q->where('name', $urutkan);
+                });
             } else if (request()->urutkan == 'dosen_d3_ti') {
                 $urutkan = 'D-III Teknologi Informasi';
-                $dosen = $dosen->where('position', $urutkan);
+                $dosen = $dosen->whereHas('user_category', function ($q) use ($urutkan) {
+                    $q->where('name', $urutkan);
+                });
             } else if (request()->urutkan == 'dosen_trpl') {
                 $urutkan = 'Sarjana Terapan Teknologi Rekayasa Perangkat Lunak';
-                $dosen = $dosen->where('position', $urutkan);
+                $dosen = $dosen->whereHas('user_category', function ($q) use ($urutkan) {
+                    $q->where('name', $urutkan);
+                });
             }
         }
 
@@ -213,7 +220,7 @@ class WebController extends Controller
         if (request()->search) {
             $staf = $staf->where(function ($q) {
                 $q->where('name', 'like', '%' . request()->search . '%')
-                    ->orWhere('nip', 'like', '%' . request()->search . '%')
+                    ->orWhere('employee_id', 'like', '%' . request()->search . '%')
                     ->orWhere('position', 'like', '%' . request()->search . '%')
                     ->orWhere('email', 'like', '%' . request()->search . '%');
             });
@@ -235,10 +242,8 @@ class WebController extends Controller
 
     public function show_staf(Staf $staf)
     {
-        $contact = $staf->contact()->where('is_active', 1)->first();
         $education = $staf->education()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
-        $activity = $staf->staff_activity()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
-        $experience = $staf->experience()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
-        return view('pages.web.civitas.staf.show', compact('staf', 'contact', 'education', 'activity', 'experience'));
+        $staff_teaching = $staf->staff_teaching()->where('is_active', 1)->orderBy('created_at', 'desc')->get();
+        return view('pages.web.civitas.staf.show', compact('staf', 'education', 'staff_teaching'));
     }
 }

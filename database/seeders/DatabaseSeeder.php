@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AppearanceSeeder::class,
             ConfigSeeder::class,
-            SubjectSeeder::class,
             CarouselSeeder::class,
             HomeMenuSeeder::class,
             UserSeeder::class,

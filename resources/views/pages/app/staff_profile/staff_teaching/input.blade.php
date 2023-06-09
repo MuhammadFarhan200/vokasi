@@ -23,26 +23,26 @@
     </div>
     <div id="kt_app_content" class="app-content flex-column-fluid transition-fade">
         <div id="kt_app_content_container" class="app-container container-fluid">
-            <form id="form_input" class="form" data-redirect-url="{{route('office.staff.staff-teaching.index', $staff->id)}}" action="{{$data->id ? route('office.staff.staff-teaching.update', $data->id) : route('office.staff.staff-teaching.store')}}" method="{{$data->id ? 'PATCH' : 'POST'}}">
+            <form id="form_input" class="form" data-redirect-url="{{route('office.staff.staff_teaching.index')}}" action="{{$data->id ? route('office.staff.staff_teaching.update', $data->id) : route('office.staff.staff_teaching.store')}}" method="{{$data->id ? 'PATCH' : 'POST'}}">
                 <div class="card mb-5">
                     <div class="card-body">
                         <div class="row mb-10">
                             <input type="hidden" name="user_id" id="user_id" value="{{ $staff->id }}">
                             <div class="col-sm-6">
-                                <label class="required fw-semibold fs-6 mb-2">Tahun</label>
+                                <label class="fw-semibold fs-6 mb-2">Tahun</label>
                                 <input type="text" class="form-control form-control-solid number_only mb-3" name="year" id="year" value="{{$data->year}}">
                             </div>
                             <div class="col-sm-6">
-                                <label class="required fw-semibold fs-6 mb-2">Mata Kuliah</label>
+                                <label class="fw-semibold fs-6 mb-2">Mata Kuliah</label>
                                 <input type="text" class="form-control form-control-solid mb-3" name="subject" id="subject" value="{{$data->subject}}">
                             </div>
                             <div class="col-sm-6">
-                                <label class="required fw-semibold fs-6 mb-2">Program Studi</label>
+                                <label class="fw-semibold fs-6 mb-2">Program Studi</label>
                                 <input type="text" class="form-control form-control-solid mb-3" name="prodi" id="prodi" value="{{$data->prodi}}">
                             </div>
                         </div>
                         <div class="text-center pt-15">
-                            <a href="{{route('office.staff.staff-teaching.index')}}" class="menu-link btn btn-light me-3">Batal</a>
+                            <a href="{{route('office.staff.staff_teaching.index')}}" class="menu-link btn btn-light me-3">Batal</a>
                             <button id="tombol_simpan" onclick="handle_post('#tombol_simpan','#form_input');" class="btn btn-primary">
                                 <span class="indicator-label">Simpan</span>
                                 <span class="indicator-progress">Harap tunggu...

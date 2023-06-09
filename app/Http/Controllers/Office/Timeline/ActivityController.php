@@ -36,7 +36,6 @@ class ActivityController extends Controller
             'category' => 'required',
             'gambar' => 'required',
             'tanggal' => 'required',
-            'jenis_kegiatan' => 'required',
             'description' => 'required',
             'lokasi' => 'required',
         ]);
@@ -51,7 +50,6 @@ class ActivityController extends Controller
         $activity->category = $request->category;
         $activity->slug = Str::slug($request->judul);
         if(request()->file('gambar')){
-            // Storage::delete($organization->thumbnail);
             $file = request()->file('gambar')->store("public/activity");
             $activity->thumbnail = $file;
         }
@@ -98,7 +96,6 @@ class ActivityController extends Controller
             'judul' => 'required',
             'category' => 'required',
             'tanggal' => 'required',
-            'jenis_kegiatan' => 'required',
             'lokasi' => 'required',
         ]);
         if ($validator->fails()) {

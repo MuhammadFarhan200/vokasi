@@ -39,9 +39,9 @@
                                         <option disabled selected>Urutkan Berdasarkan</option>
                                         <option value="tanggal_terbaru">Tanggal Terbaru</option>
                                         <option value="tanggal_terdahulu">Tanggal Terdahulu</option>
-                                        <option value="event_virtual">Event Virtual</option>
+                                        {{-- <option value="event_virtual">Event Virtual</option>
                                         <option value="event_offline">Event Offline</option>
-                                        <option value="all">Tampilkan Semua</option>
+                                        <option value="all">Tampilkan Semua</option> --}}
                                     </select>
                                 </div>
                             </form>

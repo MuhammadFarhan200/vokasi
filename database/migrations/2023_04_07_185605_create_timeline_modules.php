@@ -21,7 +21,7 @@ return new class extends Migration
             $table->longText('category');
             $table->longText('slug');
             $table->string('thumbnail');
-            $table->string('type');
+            $table->string('type')->nullable();
             $table->longText('description');
             $table->longText('location');
             $table->longText('url')->nullable();

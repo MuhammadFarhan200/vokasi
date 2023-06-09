@@ -10,12 +10,6 @@
                     <li class="breadcrumb-item">
                         <span class="bullet bg-gray-800 w-5px h-2px"></span>
                     </li>
-                    <li class="breadcrumb-item">
-                        <a href="{{route('office.civitas.dosen.index')}}" class="menu-link text-gray-800 text-hover-primary">Dosen</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <span class="bullet bg-gray-800 w-5px h-2px"></span>
-                    </li>
                     <li class="breadcrumb-item text-gray-800">{{ $dosen->name }}</li>
                     <li class="breadcrumb-item">
                         <span class="bullet bg-gray-800 w-5px h-2px"></span>
@@ -33,7 +27,7 @@
     </div>
     <div id="kt_app_content" class="app-content flex-column-fluid transition-fade">
         <div id="kt_app_content_container" class="app-container container-fluid">
-            <form id="form_input" class="form" data-redirect-url="{{route('office.civitas.dosen.teaching-mentoring.index', $dosen->id)}}" action="{{$data->id ? route('office.civitas.dosen.teaching-mentoring.update', $data->id) : route('office.civitas.dosen.teaching-mentoring.store', $dosen->id)}}" method="{{$data->id ? 'PATCH' : 'POST'}}">
+            <form id="form_input" class="form" data-redirect-url="{{route('office.dosen.teaching_mentoring.index')}}" action="{{$data->id ? route('office.dosen.teaching_mentoring.update', $data->id) : route('office.dosen.teaching_mentoring.store')}}" method="{{$data->id ? 'PATCH' : 'POST'}}">
                 <div class="card mb-5">
                     <div class="card-body">
                         <div class="row mb-10">
@@ -60,7 +54,7 @@
                             </div>
                         </div>
                         <div class="text-center pt-15">
-                            <a href="{{route('office.civitas.dosen.teaching-mentoring.index', $dosen->id)}}" class="menu-link btn btn-light me-3">Batal</a>
+                            <a href="{{route('office.dosen.teaching_mentoring.index')}}" class="menu-link btn btn-light me-3">Batal</a>
                             <button id="tombol_simpan" onclick="handle_post('#tombol_simpan','#form_input');" class="btn btn-primary">
                                 <span class="indicator-label">Simpan</span>
                                 <span class="indicator-progress">Harap tunggu...

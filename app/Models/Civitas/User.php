@@ -18,6 +18,7 @@ use App\Models\Profil\Funding;
 use App\Models\Profil\Publication;
 use App\Models\Profil\Research;
 use App\Models\Profil\StaffActivity;
+use App\Models\Profil\StaffTeaching;
 use App\Models\Profil\Studies;
 use App\Models\Profil\TeachingMentoring;
 use App\Models\Setting\Role;
@@ -119,6 +120,11 @@ class User extends Authenticatable
     public function teaching_mentoring()
     {
         return $this->hasMany(TeachingMentoring::class, 'user_id');
+    }
+
+    public function staff_teaching()
+    {
+        return $this->hasMany(StaffTeaching::class, 'user_id');
     }
 
     public function staff_activity() {

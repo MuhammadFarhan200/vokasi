@@ -43,7 +43,7 @@
                                     <option value="Online" {{$data->type == "Online" ? 'selected' : ''}}>Online</option>
                                 </select>
                             </div> --}}
-                            <div class="col-md-4 mt-5" id="div_show">
+                            <div class="col-md-6 mt-5" id="div_show">
                                 <label class="fw-semibold fs-6 mb-2" id="title">Tempat Pelaksanaan</label>
                                 <input type="text" class="form-control form-control-solid" name="lokasi" id="lokasi" value="{{$data->location}}">
                             </div>

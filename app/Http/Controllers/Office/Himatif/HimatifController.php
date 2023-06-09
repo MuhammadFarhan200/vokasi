@@ -33,7 +33,6 @@ class HimatifController extends Controller
             'judul' => 'required',
             'gambar' => 'required',
             'tanggal' => 'required',
-            'jenis_kegiatan' => 'required',
             'description' => 'required',
             'lokasi' => 'required',
         ]);
@@ -93,7 +92,6 @@ class HimatifController extends Controller
         $validator = Validator::make($request->all(), [
             'judul' => 'required',
             'tanggal' => 'required',
-            'jenis_kegiatan' => 'required',
             'lokasi' => 'required',
         ]);
         if ($validator->fails()) {

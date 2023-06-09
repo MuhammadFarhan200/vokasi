@@ -9,8 +9,8 @@
             </th>
             <th class="min-w-125px">Gambar</th>
             <th class="min-w-125px">Judul</th>
+            <th class="min-w-125px">Kategori</th>
             <th class="min-w-125px">Waktu Pelaksanaan</th>
-            {{-- <th class="min-w-125px">Jenis Kegiatan</th> --}}
             <th class="min-w-125px">Tempat Pelaksanaan</th>
             <th class="min-w-125px">Aktif/Non Aktif</th>
             <th class="min-w-125px">Dibuat Tanggal</th>
@@ -35,8 +35,8 @@
                     <a href="{{ route('office.timeline.activity.edit', $item->id) }}"
                         class="menu-link text-gray-600 text-hover-primary mb-1">{{ $item->title }}</a>
                 </td>
+                <td class="text-capitalize">{{ $item->category }}</td>
                 <td>{{ $item->date->format('d F Y') }}</td>
-                <td>{{ $item->type }}</td>
                 <td>{{ $item->location }}</td>
                 <td>
                     @if ($item->is_active == 1)

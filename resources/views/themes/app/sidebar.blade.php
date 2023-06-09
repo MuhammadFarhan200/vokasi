@@ -477,7 +477,7 @@
                 <!--end:Menu link-->
                 @elseif (auth()->user()->role == '4')
                  <!--begin:Menu item-->
-                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is('office/dosen/*') ? 'here show' : ''}}">
+                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is('office/dosen/identitas*') ? 'here show' : ''}}">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -493,75 +493,72 @@
                         <div class="menu-item">
                             <!--begin:Menu link-->
                             <a class="menu-link {{request()->is(Str::lower('office/dosen/identitas')) || request()->is(Str::lower('office/dosen/identitas').'/*') ? 'active' : ''}}" href="{{route('office.dosen.identitas.index')}}">
-                                {{-- <span class="menu-icon">
-                                    {!!$child->icon!!}
-                                </span> --}}
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">Identitas</span>
                             </a>
-                            <a class="menu-link {{request()->is(Str::lower('office/dosen/about')) || request()->is(Str::lower('office/dosen/about').'/*') ? 'active' : ''}}" href="{{route('office.dosen.about.index')}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Tentang</span>
-                            </a>
-                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                            <!--begin:Menu link-->
-                            <span class="menu-link">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Portofolio</span>
-                                <span class="menu-arrow"></span>
-                            </span>
-                            <!--end:Menu link-->
-                            <!--begin:Menu sub-->
-                            <div class="menu-sub menu-sub-accordion">
-                                <!--begin:Menu item-->
-                                <div class="menu-item">
-                                    <!--begin:Menu link-->
-                                    <a class="menu-link {{request()->is(Str::lower('office/dosen/research')) || request()->is(Str::lower('office/dosen/research').'/*') ? 'active' : ''}}" href="{{ route('office.dosen.research.index') }}">
-                                        <span class="menu-bullet">
-                                            <span class="bullet bullet-dot"></span>
-                                        </span>
-                                        <span class="menu-title">Penelitian</span>
-                                    </a>
-                                    <a class="menu-link {{request()->is(Str::lower('office/dosen/pendanaan')) || request()->is(Str::lower('office/dosen/pendanaan').'/*') ? 'active' : ''}}" href="{{route('office.dosen.pendanaan.index')}}">
-                                        <span class="menu-bullet">
-                                            <span class="bullet bullet-dot"></span>
-                                        </span>
-                                        <span class="menu-title">Pendanaan</span>
-                                    </a>
-                                    <a class="menu-link {{request()->is(Str::lower('office/dosen/pendidikan')) || request()->is(Str::lower('office/dosen/pendidikan').'/*') ? 'active' : ''}}" href="{{route('office.dosen.pendidikan.index')}}">
-                                        <span class="menu-bullet">
-                                            <span class="bullet bullet-dot"></span>
-                                        </span>
-                                        <span class="menu-title">Riwayat Pendidikan</span>
-                                    </a>
-                                    <a class="menu-link {{request()->is(Str::lower('office/dosen/publication')) || request()->is(Str::lower('office/dosen/publication').'/*') ? 'active' : ''}}" href="#">
-                                        <span class="menu-bullet">
-                                            <span class="bullet bullet-dot"></span>
-                                        </span>
-                                        <span class="menu-title">Pengajaran dan Pembimbingan</span>
-                                    </a>
-                                    <!--end:Menu link-->
-                                </div>
-                                <!--end:Menu item-->
-                            </div>
-                            <!--end:Menu sub-->
-                        </div>
-                            <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
                     </div>
                     <!--end:Menu sub-->
                 </div>
                 <!--end:Menu item-->
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{!request()->is('office/dosen/identitas*') && request()->is('office/dosen*') ? 'here show' : ''}} ? 'here show' : ''}}">
+                    <!--begin:Menu link-->
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="ki-outline ki-star"></i>
+                        </span>
+                        <span class="menu-title">Portofolio</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <!--end:Menu link-->
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link {{request()->is(Str::lower('office/dosen/about')) || request()->is(Str::lower('office/dosen/about').'/*') ? 'active' : ''}}" href="{{route('office.dosen.about.index')}}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Tentang</span>
+                            </a>
+                            <a class="menu-link {{request()->is(Str::lower('office/dosen/research')) || request()->is(Str::lower('office/dosen/research').'/*') ? 'active' : ''}}" href="{{ route('office.dosen.research.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Penelitian</span>
+                            </a>
+                            <a class="menu-link {{request()->is(Str::lower('office/dosen/pendanaan')) || request()->is(Str::lower('office/dosen/pendanaan').'/*') ? 'active' : ''}}" href="{{route('office.dosen.pendanaan.index')}}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Pendanaan</span>
+                            </a>
+                            <a class="menu-link {{request()->is(Str::lower('office/dosen/pendidikan')) || request()->is(Str::lower('office/dosen/pendidikan').'/*') ? 'active' : ''}}" href="{{route('office.dosen.pendidikan.index')}}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Riwayat Pendidikan</span>
+                            </a>
+                            <a class="menu-link {{request()->is(Str::lower('office/dosen/teaching-mentoring')) || request()->is(Str::lower('office/dosen/teaching-mentoring').'/*') ? 'active' : ''}}" href="{{ route('office.dosen.teaching_mentoring.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Pengajaran dan Pembimbingan</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
+                </div>
+                <!--end:Menu link-->
                 <!--begin:Menu item-->
                 @elseif (auth()->user()->role == '5')
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is('office/staff/*') ? 'here show' : ''}}">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is('office/staff/identitas*') ? 'here show' : ''}}">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -585,51 +582,43 @@
                                 </span>
                                 <span class="menu-title">Identitas</span>
                             </a>
-                            @if (auth()->user()->background)
-                            <a class="menu-link {{request()->is(Str::lower('office/staff/latar-belakang')) || request()->is(Str::lower('office/staff/latar-belakang').'/*') ? 'active' : ''}}" href="{{route('office.staff.latar_belakang.edit')}}">
-                            @else
-                            <a class="menu-link {{request()->is(Str::lower('office/staff/latar-belakang')) || request()->is(Str::lower('office/staff/latar-belakang').'/*') ? 'active' : ''}}" href="{{route('office.staff.latar_belakang.index')}}">
-                            @endif
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Latar Belakang</span>
-                            </a>
-                            <a class="menu-link {{request()->is(Str::lower('office/staff/pendidikan')) || request()->is(Str::lower('office/staff/pendidikan').'/*') ? 'active' : ''}}" href="{{route('office.staff.pendidikan.index')}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Riwayat Pendidikan</span>
-                            </a>
-                            <a class="menu-link {{request()->is(Str::lower('office/staff/staff-activity')) || request()->is(Str::lower('office/staff/staff-activity').'/*') ? 'active' : ''}}" href="{{route('office.staff.staff_activity.index')}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Kegiatan Staf Sekarang</span>
-                            </a>
-                            <a class="menu-link {{request()->is(Str::lower('office/staff/experience')) || request()->is(Str::lower('office/staff/experience').'/*') ? 'active' : ''}}" href="{{route('office.staff.experience.index')}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Pengalaman</span>
-                            </a>
-                            @if (auth()->user()->contact)
-                            <a class="menu-link {{request()->is(Str::lower('office/staff/contact')) || request()->is(Str::lower('office/staff/contact').'/*') ? 'active' : ''}}" href="{{route('office.staff.contact.edit')}}">
-                            @else
-                            <a class="menu-link {{request()->is(Str::lower('office/staff/contact')) || request()->is(Str::lower('office/staff/contact').'/*') ? 'active' : ''}}" href="{{route('office.staff.contact.index')}}">
-                            @endif
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Kontak</span>
-                            </a>
-                            <a class="menu-link {{request()->is(Str::lower('office/staff/tentang')) || request()->is(Str::lower('office/staff/tentang').'/*') ? 'active' : ''}}" href="{{route('office.staff.tentang.index')}}">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Tentang</span>
-                            </a>
                         </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
+                </div>
+                <!--end:Menu item-->
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{request()->is('office/staff/*') && !request()->is('office/identitas*') ? 'here show' : ''}}">
+                    <!--begin:Menu link-->
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="ki-outline ki-star"></i>
+                        </span>
+                        <span class="menu-title">Postofolio</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <!--end:Menu link-->
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <a class="menu-link {{request()->is(Str::lower('office/staff/tentang')) || request()->is(Str::lower('office/staff/tentang').'/*') ? 'active' : ''}}" href="{{route('office.staff.tentang.index')}}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Tentang</span>
+                        </a>
+                        <a class="menu-link {{request()->is(Str::lower('office/staff/pendidikan')) || request()->is(Str::lower('office/staff/pendidikan').'/*') ? 'active' : ''}}" href="{{route('office.staff.pendidikan.index')}}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Riwayat Pendidikan</span>
+                        </a>
+                        <a class="menu-link {{request()->is(Str::lower('office/staff/pengajaran')) || request()->is(Str::lower('office/staff/pengajaran').'/*') ? 'active' : ''}}" href="{{route('office.staff.staff_teaching.index')}}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Pengajaran</span>
+                        </a>
                         <!--end:Menu item-->
                     </div>
                     <!--end:Menu sub-->

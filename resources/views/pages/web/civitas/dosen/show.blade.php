@@ -6,7 +6,10 @@
     <section id="content" style="background: #ebe8e879" class="my-font">
         <div class="row align-items-center bg-white m-0">
             <div class="col-3">
-                <a href="{{ route('web.civitas.dosen') }}" class="my-link text-dark text-small fw-light"><i class="fa-solid fa-arrow-left me-3"></i>kembali ke halaman dosen</a>
+                <a href="{{ route('web.civitas.dosen') }}" class="my-link text-dark text-small fw-light">
+                    <i class="fa-solid fa-arrow-left me-3"></i>
+                    kembali<span class="d-none d-lg-inline"> ke halaman dosen</span>
+                </a>
             </div>
             <div class="col-9">
                 <ul class="nav my-tabs flex-nowrap text-nowrap border-0 mt-0 ms-5 overflow-auto">
@@ -38,8 +41,9 @@
                                     <div class="text-muted fw-light text-uppercase" style="font-size: 12px">{{ $dosen->position ?? '' }}</div>
                                     <h4 class="text-center fw-500 mb-3">{{ $dosen->name ?? '-' }}</h2>
                                 </div>
-                                <div class="text-center mt-2 border-bottom-dashed pb-2">
-                                    NIDN : {{ $dosen->nidn ?? '-' }}
+                                <div class="text-center text-muted mt-2 border-bottom-dashed pb-2">
+                                    <div>NIDN : {{ $dosen->nidn ?? '-' }}</div>
+                                    <div>SINTA ID : {{ $dosen->sinta_id ?? '-' }}</div>
                                 </div>
                                 <div class="text-start text-muted mt-2 border-bottom-dashed pb-3 pt-2 px-2">
                                     <i class="fa-solid fa-building-columns me-3"></i>  {{ $dosen->user_category->name ?? '-' }}
@@ -65,7 +69,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-9 mt-5 mt-lg-0">
+                    <div class="col-lg-9 mt-4 mt-lg-0">
                         <div class="tab-container">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane active" id="tentang" role="tabpanel">
@@ -133,7 +137,7 @@
                                             <div class="card-title text-uppercase">Hasil Penelitian</div>
                                             @if ($research->count() > 0)
                                                 @foreach ($research as $item)
-                                                <div class="card rounded-6 my-shadow border-0 mt-3">
+                                                <div class="card rounded-6 my-shadow border-0 mt-3 {{ $loop->last ? 'mb-3' : '' }}">
                                                     <div class="card-body">
                                                         <div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">{{ $item->title }}</div>
                                                         <div class="text-muted fw-light">{{ $item->published . ', ' . date('d M Y', strtotime($item->date)) }}</div>
@@ -155,7 +159,7 @@
                                             <div class="card-title text-uppercase">Pendanaan</div>
                                             @if ($funding->count() > 0)
                                                 @foreach ($funding as $item)
-                                                <div class="card rounded-6 my-shadow border-0 mt-3">
+                                                <div class="card rounded-6 my-shadow border-0 mt-3 {{ $loop->last ? 'mb-3' : '' }}">
                                                     <div class="card-body">
                                                         <span class="text-uppercase fw-light" style="font-size: 12px">{{ $item->type }}</span>
                                                         <div class="fw-semibold" style="font-size: 17px !important; text-transform: capitalize">{{ $item->project_name }}</div>
@@ -183,7 +187,7 @@
                                             <div class="card-title text-uppercase">Pengajaran & Pembimbingan</div>
                                             <div class="d-flex justify-content-start mb-4">
                                                 <span class="text-muted me-3">Urutkan Berdasarkan:</span>
-                                                <select name="category" id="filter-category"">
+                                                <select name="category" id="filter-category" class="text-muted">
                                                     <option value="semua">Tampilkan Semua</option>
                                                     <option value="Pengajaran">Pengajaran</option>
                                                     <option value="Pembimbingan">Pembimbingan</option>
@@ -193,7 +197,7 @@
                                             @if ($teaching_mentoring->count() > 0)
                                             <div id="card-teaching-mentoring">
                                                 @foreach ($teaching_mentoring as $item)
-                                                <div class="card rounded-6 my-shadow border-0 mt-3">
+                                                <div class="card rounded-6 my-shadow border-0 mt-3 {{ $loop->last ? 'mb-3' : '' }}">
                                                     <div class="card-body">
                                                         <span class="text-uppercase fw-light" style="font-size: 12px">{{ $item->category }}</span>
                                                         <div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">{{ $item->title }}</div>
@@ -239,8 +243,8 @@
                 success: function(response) {
                     if (response.status === 'success') {
                         $('#card-teaching-mentoring .card').remove();
-                        response.data.forEach(function(item) {
-                            var cardHtml = '<div class="card rounded-6 my-shadow border-0 mt-3">' +
+                        response.data.forEach(function(item, index) {
+                            var cardHtml = '<div class="card rounded-6 my-shadow border-0 mt-3 ' + (index === response.data.length - 1 ? 'mb-3' : '') + '">' +
                                 '<div class="card-body">' +
                                 '<span class="text-uppercase fw-light" style="font-size: 12px">' + item.category + '</span>' +
                                 '<div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">' + item.title + '</div>' +

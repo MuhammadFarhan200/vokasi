@@ -1,11 +1,23 @@
 <x-web-layout title="Dosen">
     <style>
         .card-img {
-            width: 95% !important;
-            height: 16rem;
+            width: 80% !important;
+            height: 14rem;
             object-fit: cover;
             object-position: top center;
             border-radius: 20px
+        }
+        @media (max-width: 1400px) {
+            .card-img {
+                width: 95% !important;
+                height: 14rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .card-img {
+                width: 100% !important;
+                height: 18rem;
+            }
         }
     </style>
     <!-- Content ============================================= -->
@@ -55,13 +67,13 @@
 
                    @if ($dosen != null)
                        @foreach ($dosen as $item)
-                       <div class="col-lg-3 col-md-6 px-xl-4">
+                       <div class="col-lg-3 col-sm-6 px-xl-4">
                            <a href="{{ route('web.civitas.dosen.show', $item->id) }}" class="team">
                                <div class="team-image">
                                    <img src="{{ $item->avatar ? Storage::url($item->avatar) : asset('web/images/no-img-profile.jpg') }}" alt="{{ $item->name }}" class="card-img">
                                    <div class="team-title">
                                        <h5 class="mb-0">{{ $item->name }}</h5>
-                                       <span>{{ $item->position }}</span>
+                                       <span>{{ $item->user_category ? $item->user_category->name : '' }}</span>
                                    </div>
                                </div>
                            </a>

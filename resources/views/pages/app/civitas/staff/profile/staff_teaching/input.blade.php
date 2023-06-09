@@ -35,15 +35,15 @@
                         <div class="row mb-10">
                             <input type="hidden" name="user_id" id="user_id" value="{{ $staff->id }}">
                             <div class="col-sm-6">
-                                <label class="required fw-semibold fs-6 mb-2">Tahun</label>
+                                <label class="fw-semibold fs-6 mb-2">Tahun</label>
                                 <input type="text" class="form-control form-control-solid number_only mb-3" name="year" id="year" value="{{$data->year}}">
                             </div>
                             <div class="col-sm-6">
-                                <label class="required fw-semibold fs-6 mb-2">Mata Kuliah</label>
+                                <label class="fw-semibold fs-6 mb-2">Mata Kuliah</label>
                                 <input type="text" class="form-control form-control-solid mb-3" name="subject" id="subject" value="{{$data->subject}}">
                             </div>
                             <div class="col-sm-6">
-                                <label class="required fw-semibold fs-6 mb-2">Program Studi</label>
+                                <label class="fw-semibold fs-6 mb-2">Program Studi</label>
                                 <input type="text" class="form-control form-control-solid mb-3" name="prodi" id="prodi" value="{{$data->prodi}}">
                             </div>
                         </div>

@@ -153,6 +153,13 @@ Route::group(['domain' => ''], function () {
                 Route::get('research/{research}/edit', [DosenProfileController::class, 'edit_research'])->name('research.edit');
                 Route::patch('research/{research}/update', [DosenProfileController::class, 'update_research'])->name('research.update');
                 Route::delete('research/{research}/destroy', [DosenProfileController::class, 'destroy_research'])->name('research.destroy');
+
+                Route::get('teaching-mentoring', [TeachingMentoringController::class, 'teaching_mentoring'])->name('teaching_mentoring.index');
+                Route::get('teaching-mentoring/create', [TeachingMentoringController::class, 'create_teaching_mentoring'])->name('teaching_mentoring.create');
+                Route::post('teaching-mentoring/store', [TeachingMentoringController::class, 'store_teaching_mentoring'])->name('teaching_mentoring.store');
+                Route::get('teaching-mentoring/{teaching_mentoring}/edit', [TeachingMentoringController::class, 'edit_teaching_mentoring'])->name('teaching_mentoring.edit');
+                Route::patch('teaching-mentoring/{teaching_mentoring}/update', [TeachingMentoringController::class, 'update_teaching_mentoring'])->name('teaching_mentoring.update');
+                Route::delete('teaching-mentoring/{teaching_mentoring}/destroy', [TeachingMentoringController::class, 'destroy_teaching_mentoring'])->name('teaching_mentoring.destroy');
             });
             Route::prefix('staff')->name('staff.')->middleware('frole:5')->group(function () {
                 Route::get('identitas', [StaffProfileController::class, 'identitas_staff'])->name('identitas.index');
@@ -185,12 +192,12 @@ Route::group(['domain' => ''], function () {
                 Route::patch('staff-activity/{staffActivity}/update', [StaffActivityController::class, 'update'])->name('staff_activity.update');
                 Route::delete('staff-activity/{staffActivity}/destroy', [StaffActivityController::class, 'destroy'])->name('staff_activity.destroy');
 
-                Route::get('staff-teaching', [StaffTeachingController::class, 'staff_teaching'])->name('staff_teaching.index');
-                Route::get('staff-teaching/create', [StaffTeachingController::class, 'create_teaching'])->name('staff_teaching.create');
-                Route::post('staff-teaching/store', [StaffTeachingController::class, 'store'])->name('staff_teaching.store');
-                Route::get('staff-teaching/{staff_teaching}/edit', [StaffTeachingController::class, 'edit_teaching'])->name('staff_teaching.edit');
-                Route::patch('staff-teaching/{staff_teaching}/update', [StaffTeachingController::class, 'update'])->name('staff_teaching.update');
-                Route::delete('staff-teaching/{staff_teaching}/destroy', [StaffTeachingController::class, 'destroy'])->name('staff_teaching.destroy');
+                Route::get('pengajaran', [StaffTeachingController::class, 'staff_teaching'])->name('staff_teaching.index');
+                Route::get('pengajaran/create', [StaffTeachingController::class, 'create_teaching'])->name('staff_teaching.create');
+                Route::post('pengajaran/store', [StaffTeachingController::class, 'store'])->name('staff_teaching.store');
+                Route::get('pengajaran/{staff_teaching}/edit', [StaffTeachingController::class, 'edit_teaching'])->name('staff_teaching.edit');
+                Route::patch('pengajaran/{staff_teaching}/update', [StaffTeachingController::class, 'update'])->name('staff_teaching.update');
+                Route::delete('pengajaran/{staff_teaching}/destroy', [StaffTeachingController::class, 'destroy'])->name('staff_teaching.destroy');
 
                 Route::get('experience', [ExperienceController::class, 'experience'])->name('experience.index');
                 Route::get('experience/create', [ExperienceController::class, 'create_experience'])->name('experience.create');

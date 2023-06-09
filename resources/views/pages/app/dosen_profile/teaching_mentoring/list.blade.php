@@ -6,10 +6,12 @@
                     <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_customers_table .form-check-input" value="1" />
                 </div>
             </th>
+            <th class="min-w-125px">Kategori</th>
+            <th class="min-w-125px">Judul</th>
+            <th class="min-w-125px">Nama Mahasiswa</th>
             <th class="min-w-125px">Tahun</th>
-            <th class="min-w-125px">Mata Kuliah</th>
-            <th class="min-w-125px">Program Studi</th>
-            <th class="min-w-125px">Aktif/Non Aktif</th>
+            <th class="min-w-125px">Status</th>
+            <th class="min-w-125px">Dibuat Tanggal</th>
             <th class="text-end min-w-70px">Aksi</th>
         </tr>
     </thead>
@@ -21,9 +23,10 @@
                     <input class="form-check-input" type="checkbox" value="1" />
                 </div>
             </td>
+            <td class="text-capitalize">{{ $item->category }}</td>
+            <td class="text-capitalize">{{ $item->title }}</td>
+            <td>{{ $item->student_name }}</td>
             <td>{{ $item->year }}</td>
-            <td>{{ $item->subject }}</td>
-            <td>{{ $item->prodi }}</td>
             <td>
                 @if ($item->is_active == 1)
                 <span class="badge badge-light-success py-3 px-4 fs-7">Aktif</span>
@@ -31,12 +34,13 @@
                 <span class="badge badge-light-danger py-3 px-4 fs-7">Tidak Aktif</span>
                 @endif
             </td>
+            <td>{{$item->created_at->format('d F Y, H:i A')}}</td>
             <td class="text-end text-nowrap">
-                <a href="{{route('office.staff.staff_teaching.edit', $item->id)}}" class="menu-link btn btn-icon btn-warning"><i class="las la-edit text-black fs-2"></i></a>
+                <a href="{{route('office.dosen.teaching_mentoring.edit', $item->id)}}" class="menu-link btn btn-icon btn-warning"><i class="las la-edit text-black fs-2"></i></a>
                 @if ($item->is_active == 1)
-                <button type="button" title="Non Aktifkan" id="tombol_non_aktif" data-redirect-url="{{route('office.staff.staff_teaching.index')}}" onclick="handle_is_active('PATCH','{{route('office.staff.staff_teaching.update',$item->id)}}','#tombol_non_aktif', 0);" class="btn btn-icon btn-danger"><i class="las la-times fs-2"></i></button>
+                <button type="button" title="Non Aktifkan" id="tombol_non_aktif" data-redirect-url="{{route('office.dosen.teaching_mentoring.index')}}" onclick="handle_is_active('PATCH','{{route('office.dosen.teaching_mentoring.update',$item->id)}}','#tombol_non_aktif', 0);" class="btn btn-icon btn-danger"><i class="las la-times fs-2"></i></button>
                 @else
-                <button type="button" title="Aktifkan" id="tombol_aktif" data-redirect-url="{{route('office.staff.staff_teaching.index')}}" onclick="handle_is_active('PATCH','{{route('office.staff.staff_teaching.update',$item->id)}}','#tombol_aktif', 1);" class="btn btn-icon btn-success"><i class="las la-check fs-2"></i></button>
+                <button type="button" title="Aktifkan" id="tombol_aktif" data-redirect-url="{{route('office.dosen.teaching_mentoring.index')}}" onclick="handle_is_active('PATCH','{{route('office.dosen.teaching_mentoring.update',$item->id)}}','#tombol_aktif', 1);" class="btn btn-icon btn-success"><i class="las la-check fs-2"></i></button>
                 @endif
             </td>
         </tr>

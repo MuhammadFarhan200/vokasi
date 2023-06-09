@@ -131,15 +131,11 @@
                         <li class="menu-item">
                             <a class="menu-link" href="javascript:;"><div>Aktivitas Mahasiswa <i class="bi-chevron-down"></i></div></a>
                             <ul class="sub-menu-container">
+                                @foreach (\App\Models\Account\UserCategory::where('role', 6)->where('is_active', true)->get() as $himpunan)
                                 <li class="menu-item">
-                                    <a class="menu-link" href="{{ route('web.activity', 'himatek') }}"><div>HIMATEK</div></a>
+                                    <a class="menu-link" href="{{ route('web.activity', $himpunan->slug) }}"><div>{{ $himpunan->name }}</div></a>
                                 </li>
-                                <li class="menu-item">
-                                    <a class="menu-link" href="{{ route('web.activity', 'himatif') }}"><div>HIMATIF</div></a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="menu-link" href="{{ route('web.activity','himatera') }}"><div>HIMATERA</div></a>
-                                </li>
+                                @endforeach
                             </ul>
                         </li>
                         @guest

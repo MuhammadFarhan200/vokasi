@@ -1,11 +1,23 @@
 <x-web-layout title="Staf">
     <style>
         .card-img {
-            width: 95% !important;
-            height: 16rem;
+            width: 80% !important;
+            height: 14rem;
             object-fit: cover;
             object-position: top center;
             border-radius: 20px
+        }
+        @media (max-width: 1400px) {
+            .card-img {
+                width: 95% !important;
+                height: 14rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .card-img {
+                width: 100% !important;
+                height: 18rem;
+            }
         }
     </style>
     <!-- Content ============================================= -->

@@ -6,7 +6,10 @@
     <section id="content" style="background: #ebe8e879" class="my-font">
         <div class="row align-items-center bg-white m-0">
             <div class="col-3">
-                <a href="{{ route('web.civitas.staf') }}" class="my-link text-dark text-small fw-light"><i class="fa-solid fa-arrow-left me-3"></i>kembali ke halaman staf</a>
+                <a href="{{ route('web.civitas.staf') }}" class="my-link text-dark text-small fw-light">
+                    <i class="fa-solid fa-arrow-left me-3"></i>
+                    kembali<span class="d-none d-lg-inline"> ke halaman staf</span>
+                </a>
             </div>
             <div class="col-9">
                 <ul class="nav my-tabs flex-nowrap text-nowrap border-0 mt-0 ms-5 overflow-auto">
@@ -16,13 +19,16 @@
                     <li class="nav-item">
                         <a class="nav-link px-5 py-3 text-dark text-uppercase" data-bs-toggle="tab" href="#identitas">Identitas</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-5 py-3 text-dark text-uppercase" data-bs-toggle="tab" href="#pengajaran">Pengajaran</a>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="content-wrap" style="padding-top: 25 !important;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-lg-3">
                         <div class="card my-card border-0">
                             <div class="card-body py-4">
                                 <div class="d-flex justify-content-center align-items-cemter mt-2">
@@ -53,7 +59,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-lg-9 mt-4 mt-lg-0">
                         <div class="tab-container">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane active" id="tentang" role="tabpanel">
@@ -143,6 +149,28 @@
                                         </div>
                                     </div>
                                     @endif
+                                </div>
+                                <div class="tab-pane" id="pengajaran" role="tab-pane">
+                                    <div class="card my-card border-0">
+                                        <div class="card-body px-4">
+                                            <div class="card-title text-uppercase">Pengajaran</div>
+                                        @if ($staff_teaching->count() > 0)
+                                            <div id="card-teaching-mentoring">
+                                            @foreach ($staff_teaching as $item)
+                                                <div class="card rounded-6 my-shadow border-0 mt-3 {{ $loop->last ? 'mb-3' : '' }}">
+                                                    <div class="card-body">
+                                                        <div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">{{ $item->subject }}</div>
+                                                        <div class="text-muted">{{ $item->prodi }}</div>
+                                                        <div class="text-muted mt-1 fw-light">{{ $item->year }}</div>
+                                                    </div>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                            @else
+                                            <span class="text-muted fw-light">Belum ada pengajaran dan pembimbingan yang ditambahkan</span>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
