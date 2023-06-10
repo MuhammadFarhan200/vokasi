@@ -21,7 +21,7 @@ $logo = \App\Models\Setting\Config::where('key','APP_LOGO')->first();
             @endif
 
             <!-- Content ============================================= -->
-            <div class="cms_app">
+            <div>
                 {{$slot}}
             </div>
             <!-- #content end -->
@@ -34,6 +34,121 @@ $logo = \App\Models\Setting\Config::where('key','APP_LOGO')->first();
         <div id="gotoTop" class="uil uil-angle-up"></div>
 
 		@include('themes.web.js')
+        <script>
+             const options = {
+                containers: [".cms_web"],
+                doScrollingRightAway: true,
+                animateHistoryBrowsing: true,
+                animationSelector: "[class=cms_web]",
+                linkSelector: ".menu-link:not([data-no-swup]), .menu-item:not([data-no-swup]), .nav-link:not([data-no-swup])",
+            };
+            const swup = new Swup(options);
+            document.addEventListener("swup:contentReplaced", () => {
+                const previousFunction = document.querySelector('script[src="{{ asset("web/js/functions.js") }}"]');
+                if (previousFunction) {
+                    previousFunction.remove();
+                }
+                const perviousPlugin = document.createElement('script');
+                perviousPlugin.src = "{{ asset('web/js/functions.js') }}";
+                document.body.appendChild(perviousPlugin);
+                if (perviousPlugin) {
+                    perviousPlugin.remove();
+                }
+                const pluginScript = document.createElement('script');
+                pluginScript.src = "{{ asset('web/js/plugins.js') }}";
+                document.body.appendChild(pluginScript);
+
+                $(document).ready(function(){
+                    $(".owl-carousel").owlCarousel({
+                        items: 3,
+                        loop: false,
+                        autoplay: true,
+                        autoplayTimeout: 10000,
+                        autoplaySpeed: 800,
+                        autoplayHoverPause: true,
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            700: {
+                                items: 2
+                            },
+                            1000: {
+                                items: 3
+                            }
+                        }
+                    });
+                });
+                $.ajaxSetup({
+                    headers: {
+                        "X-CSRF-TOKEN": $("meta[name=csrf-token]").attr("content")
+                    }
+                });
+                document.getElementById("submit-comment").addEventListener("click", function(event) {
+                    event.preventDefault();
+
+                    $.ajax({
+                        url: "/send-comment",
+                        type: "POST",
+                        data: {
+                            body: $("input[name=body]").val(),
+                        },
+                        success: function(response) {
+                            if (response.alert == "success") {
+                                $("#comment-form").trigger("reset");
+                                window.location.reload();
+                            } else {
+                                $("#comment-form").trigger("reset");
+                                window.location.reload();
+                            }
+                        },
+                    });
+                });
+
+                $(`#filter-category`).change(function() {
+                    category = $(this).val();
+                    var dosen_id = $(`#dosen_id`).val();
+                    var card = $(`#card-teaching-mentoring`);
+                    card.empty();
+                    filterTeachingMentoring(category, dosen_id);
+                });
+
+                function filterTeachingMentoring(category, dosen_id) {
+                    $.ajax({
+                        url: "/teaching-mentoring-filter",
+                        method: `GET`,
+                        data: {
+                            category: category,
+                            dosen_id: dosen_id
+                        },
+                        dataType: `json`,
+                        success: function(response) {
+                            if (response.status === `success`) {
+                                $(`#card-teaching-mentoring .card`).remove();
+                                response.data.forEach(function(item, index) {
+                                    var cardHtml = `<div class="card rounded-6 my-shadow border-0 mt-3 ` + (index === response.data.length - 1 ? `mb-3` : ``) + `">` +
+                                        `<div class="card-body">` +
+                                        `<span class="text-uppercase fw-light" style="font-size: 12px">` + item.category + `</span>` +
+                                        `<div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">` + item.title + `</div>` +
+                                        `<div class="text-muted fw-light">` + item.year + `</div>` +
+                                        `<div class="text-muted">` + (item.student_name ? `Mahasiswa: ` + item.student_name : ``) + `</div>` +
+                                        `</div>` +
+                                        `</div>`;
+
+                                    $(`#card-teaching-mentoring`).append(cardHtml);
+                                });
+                            } else {
+                                var message = `<span class="text-muted fw-light">Belum ada pengajaran dan pembimbingan yang ditambahkan</span>`;
+                                $(`#card-teaching-mentoring`).append(message);
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(xhr.responseText);
+                        }
+                    });
+                }
+            });
+        </script>
         @include('sweetalert::alert')
         @yield('custom_js')
     </body>

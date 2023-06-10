@@ -38,7 +38,7 @@
                                     <tr>
                                         <td>ID Karyawan</td>
                                         <td>:</td>
-                                        <td>{{ $data->nip ?? '-' }}</td>
+                                        <td>{{ $data->employee_id ?? '-' }}</td>
                                     </tr>
                                     <tr>
                                         <td>Kategori</td>

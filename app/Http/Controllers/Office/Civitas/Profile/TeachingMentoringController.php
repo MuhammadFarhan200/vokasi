@@ -30,12 +30,10 @@ class TeachingMentoringController extends Controller
         $validator = Validator::make($request->all(), [
             'category' => 'required',
             'title' => 'required',
-            'student_name' => 'required',
             'year' => 'required',
         ],[
             'category.required' => 'Kategori harus diisi',
             'title.required' => 'Judul harus diisi',
-            'student_name.required' => 'Nama mahasiswa harus diisi',
             'year.required' => 'Tahun harus diisi',
         ]);
 
@@ -87,12 +85,10 @@ class TeachingMentoringController extends Controller
         $validator = Validator::make($request->all(), [
             'category' => 'required',
             'title' => 'required',
-            'student_name' => 'required',
             'year' => 'required',
         ],[
             'category.required' => 'Kategori harus diisi',
             'title.required' => 'Judul harus diisi',
-            'student_name.required' => 'Nama mahasiswa harus diisi',
             'year.required' => 'Tahun harus diisi',
         ]);
 
@@ -146,12 +142,10 @@ class TeachingMentoringController extends Controller
         $validator = Validator::make($request->all(), [
             'category' => 'required',
             'title' => 'required',
-            'student_name' => 'required',
             'year' => 'required',
         ],[
             'category.required' => 'Kategori harus diisi',
             'title.required' => 'Judul harus diisi',
-            'student_name.required' => 'Nama mahasiswa harus diisi',
             'year.required' => 'Tahun harus diisi',
         ]);
 
@@ -200,12 +194,10 @@ class TeachingMentoringController extends Controller
         $validator = Validator::make($request->all(), [
             'category' => 'required',
             'title' => 'required',
-            'student_name' => 'required',
             'year' => 'required',
         ],[
             'category.required' => 'Kategori harus diisi',
             'title.required' => 'Judul harus diisi',
-            'student_name.required' => 'Nama mahasiswa harus diisi',
             'year.required' => 'Tahun harus diisi',
         ]);
 

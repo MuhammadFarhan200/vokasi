@@ -51,12 +51,13 @@
                                 <input type="text" class="form-control form-control-solid mb-3" name="title" id="title" value="{{$data->title}}">
                             </div>
                             <div class="col-md-6">
-                                <label class="fw-semibold fs-6 mb-2">Nama Mahasiswa</label>
-                                <input type="text" class="form-control form-control-solid mb-3" name="student_name" id="student_name" value="{{$data->student_name}}">
-                            </div>
-                            <div class="col-md-6">
                                 <label class="required fw-semibold fs-6 mb-2">Tahun</label>
                                 <input type="text" class="form-control form-control-solid number_only mb-3" name="year" id="year" value="{{$data->year}}">
+                            </div>
+                            <div class="col-md-12">
+                                <label class="fw-semibold fs-6 mb-2">Nama Mahasiswa</label>
+                                <input id="student_name" type="hidden" name="student_name" value="{{ $data->student_name }}">
+                                <trix-editor input="student_name"></trix-editor>
                             </div>
                         </div>
                         <div class="text-center pt-15">

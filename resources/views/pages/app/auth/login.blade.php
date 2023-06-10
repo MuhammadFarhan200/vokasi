@@ -11,10 +11,10 @@
             <div class="w-lg-450px w-sm-75 w-md-50 w-100 p-10">
                 <form class="form w-100" novalidate="novalidate" id="form_login" data-redirect-url="{{route('office.dashboard.index')}}" action="{{route('office.auth.login')}}">
                     <div class="fv-row mb-8">
-                        <input type="email" placeholder="Email" id="email" name="email" autocomplete="email" class="form-control bg-transparent" data-login="1" data-validation="The email field is required" data-format="The email must be a valid email address" autofocus />
+                        <input type="email" placeholder="Email" id="email" name="email" autocomplete="email" class="form-control bg-transparent" data-login="1" data-validation="Email tidak boleh kosong" data-format="The email must be a valid email address" autofocus />
                     </div>
                     <div class="fv-row mb-3">
-                        <input type="password" placeholder="Password" id="password" name="password" autocomplete="off" class="form-control bg-transparent" data-cms-translate="input-password" data-login="2"  data-validation="The password field is required" data-format="The password must be at least 8 characters" />
+                        <input type="password" placeholder="Password" id="password" name="password" autocomplete="off" class="form-control bg-transparent" data-cms-translate="input-password" data-login="2"  data-validation="Password tidak boleh kosong" data-format="The password must be at least 8 characters" />
                     </div>
                     {{-- <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                         <div></div>

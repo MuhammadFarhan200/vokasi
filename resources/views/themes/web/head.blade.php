@@ -18,6 +18,13 @@
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
         }
+        .cms_web {
+            opacity: 1;
+            transition-duration: 0.3s;
+        }
+        html.is-animating .cms_web {
+            opacity: 0;
+        }
     </style>
     @if (request()->is('tentang-kami'))
     <link rel="stylesheet" href="{{ asset('web/css/timline-custom.css') }}">

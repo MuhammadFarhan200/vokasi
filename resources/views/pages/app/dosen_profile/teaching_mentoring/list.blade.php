@@ -25,7 +25,7 @@
             </td>
             <td class="text-capitalize">{{ $item->category }}</td>
             <td class="text-capitalize">{{ $item->title }}</td>
-            <td>{{ $item->student_name }}</td>
+            <td>{!! $item->student_name !!}</td>
             <td>{{ $item->year }}</td>
             <td>
                 @if ($item->is_active == 1)

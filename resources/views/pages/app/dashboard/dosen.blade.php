@@ -38,7 +38,7 @@
                                     <tr>
                                         <td>NIDN</td>
                                         <td>:</td>
-                                        <td>{{ $data->nip ?? '-' }}</td>
+                                        <td>{{ $data->nidn ?? '-' }}</td>
                                     </tr>
                                     <tr>
                                         <td>Program Studi</td>
