@@ -44,20 +44,23 @@ $logo = \App\Models\Setting\Config::where('key','APP_LOGO')->first();
             };
             const swup = new Swup(options);
             document.addEventListener("swup:contentReplaced", () => {
-                const previousFunction = document.querySelector('script[src="{{ asset("web/js/functions.js") }}"]');
-                if (previousFunction) {
-                    previousFunction.remove();
-                }
-                const perviousPlugin = document.createElement('script');
-                perviousPlugin.src = "{{ asset('web/js/functions.js') }}";
-                document.body.appendChild(perviousPlugin);
-                if (perviousPlugin) {
-                    perviousPlugin.remove();
-                }
-                const pluginScript = document.createElement('script');
-                pluginScript.src = "{{ asset('web/js/plugins.js') }}";
-                document.body.appendChild(pluginScript);
-
+                window.scrollTo(0, 0);
+                // const previousFunction = document.querySelector('script[src="{{ asset("web/js/functions.js") }}"]');
+                // if (previousFunction) {
+                //     previousFunction.remove();
+                // } else {
+                //     const functionScript = document.createElement('script');
+                //     functionScript.src = "{{ asset('web/js/functions.js') }}";
+                //     document.body.appendChild(functionScript);
+                // }
+                // const previousPlugin = document.querySelector('script[src="{{ asset("web/js/plugins.js") }}"]');
+                // if (previousPlugin) {
+                //     previousPlugin.remove();
+                // } else {
+                //     const pluginScript = document.createElement('script');
+                //     pluginScript.src = "{{ asset('web/js/plugins.js') }}";
+                //     document.body.appendChild(pluginScript);
+                // }
                 $(document).ready(function(){
                     $(".owl-carousel").owlCarousel({
                         items: 3,
@@ -148,6 +151,24 @@ $logo = \App\Models\Setting\Config::where('key','APP_LOGO')->first();
                     });
                 }
             });
+            swup.on("animationInDone", function() {
+                const previousFunction = document.querySelector('script[src="{{ asset("web/js/functions.js") }}"]');
+                if (previousFunction) {
+                    previousFunction.remove();
+                } else {
+                    const functionScript = document.createElement('script');
+                    functionScript.src = "{{ asset('web/js/functions.js') }}";
+                    document.body.appendChild(functionScript);
+                }
+                const previousPlugin = document.querySelector('script[src="{{ asset("web/js/plugins.js") }}"]');
+                if (previousPlugin) {
+                    previousPlugin.remove();
+                } else {
+                    const pluginScript = document.createElement('script');
+                    pluginScript.src = "{{ asset('web/js/plugins.js') }}";
+                    document.body.appendChild(pluginScript);
+                }
+            })
         </script>
         @include('sweetalert::alert')
         @yield('custom_js')

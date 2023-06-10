@@ -200,7 +200,7 @@
                                                     <div class="card-body">
                                                         <span class="text-uppercase fw-light" style="font-size: 12px">{{ $item->category }}</span>
                                                         <div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">{{ $item->title }}</div>
-                                                        <div class="text-muted fw-light">{{ $item->year }}</div>
+                                                        <div class="text-muted">{{ $item->year }}</div>
                                                         <div class="text-muted">{!! $item->student_name ? 'Mahasiswa: ' . $item->student_name : '' !!}</div>
                                                     </div>
                                                 </div>
@@ -220,7 +220,7 @@
         </div>
     </section><!-- #content end -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @section('custom_js')
     <script>
         $(`#filter-category`).change(function() {
             category = $(this).val();
@@ -265,4 +265,5 @@
             });
         }
     </script>
+    @endsection
 </x-web-layout>

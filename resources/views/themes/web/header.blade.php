@@ -6,9 +6,9 @@
     }
 @endphp
 
-<header id="header" data-sticky-shrink="false">
-    <div id="header-wrap" class="shadow">
-        <div class="header-row">
+<header id="header" data-sticky-shrink="false" style="height:85px">
+    <div id="header-wrap" class="shadow" style="height:85px">
+        <div class="header-row" style="height:85px">
 
             <!-- Logo
             ============================================= -->
@@ -94,7 +94,7 @@
 
             <!-- Primary Navigation
             ============================================= -->
-            <nav class="primary-menu me-lg-auto">
+            <nav class="primary-menu mx-lg-auto ms-xxl-auto" style="height:85px">
 
                 <ul class="menu-container">
                     <li class="menu-item">

@@ -55,8 +55,8 @@
                                 eval("\$url = $url;");
                             }
                         @endphp
-                        <div class="col-xl-3 col-lg-4 col-sm-6">
-                            <a href="{{ $url }}" class="menu-link">
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <a href="{{ $url }}" class="menu-link p-0 m-0">
                                 <div class="card shadow bg-blue-1 text-white">
                                     <img src="{{ $fi->thumbnail ? Storage::url($fi->thumbnail) : asset('web/images/blank-imagejpg.jpg') }}" class="card-img-2">
                                     <div class="card-body mx-3">

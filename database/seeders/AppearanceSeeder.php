@@ -154,7 +154,7 @@ class AppearanceSeeder extends Seeder
                 }
             });
             swup.on("animationInDone", function() {
-            });','is_active' => true, 'is_editable' => true, 'is_guest' => true, 'is_auth' => true],
+            });','is_active' => false, 'is_editable' => true, 'is_guest' => true, 'is_auth' => true],
             ['theme_id' => 2, 'file' => '
             var defaultThemeMode = "light";
             var themeMode;
