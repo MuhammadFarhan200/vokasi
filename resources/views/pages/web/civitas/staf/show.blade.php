@@ -108,9 +108,6 @@
                                     </div>
                                     @endif
                                     @if ($staf->skill != null)
-                                    <style>
-                                        @import url('{{ asset("web/css/default-list.css") }}');
-                                    </style>
                                     <div class="card my-card border-0 mt-4">
                                         <div class="card-body px-4">
                                             <div class="card-title text-uppercase">Keahlian</div>
