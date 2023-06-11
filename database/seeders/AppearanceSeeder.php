@@ -47,7 +47,7 @@ class AppearanceSeeder extends Seeder
                 document.querySelector(".change-cursor-style").onclick = e => {e.preventDefault();document.querySelector(".cnvs-cursor").classList.toggle("cnvs-cursor-border");};
             }
             ', 'is_active' => true, 'is_editable' => true, 'is_guest' => true, 'is_auth' => false],
-            ['theme_id' => 1, 'file' => '<script src="https://cdn.yadaekidanta.com/plugins/swup/swup.min.js"></script>', 'is_active' => false, 'is_editable' => false, 'is_guest' => true, 'is_auth' => true],
+            ['theme_id' => 1, 'file' => '<script src="https://cdn.yadaekidanta.com/plugins/swup/swup.min.js"></script>', 'is_active' => true, 'is_editable' => false, 'is_guest' => true, 'is_auth' => true],
             ['theme_id' => 1, 'file' => 'var plugin','is_active' => true, 'is_editable' => true, 'is_guest' => true, 'is_auth' => true],
             ['theme_id' => 1, 'file' => 'var method','is_active' => true, 'is_editable' => true, 'is_guest' => true, 'is_auth' => true],
             ['theme_id' => 1, 'file' => '
