@@ -23,8 +23,8 @@ class MainController extends Controller
         $user_category = Auth::user()->user_category ?  Auth::user()->user_category->slug : null;
         if ($role == 1)
         {
-            $civitas['dosen'] = User::where('role', 4)->count();
-            $civitas['staff'] = User::where('role', 5)->count();
+            $civitas['dosen'] = Dosen::where('role', 4)->count();
+            $civitas['staff'] = Staff::where('role', 5)->count();
             $account['himpunan'] = User::where('role', 6)->count();
 
             $about['history'] = History::all()->count();

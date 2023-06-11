@@ -33,7 +33,13 @@
             <div class="container-fluid bg-blue-1 py-5 px-5 mt-5">
                 <div class="row d-flex align-items-center">
                     <div class="col-md-6 col-lg-4">
-                        <img src="{{ $civitas_section->thumbnail ? Storage::url($civitas_section->thumbnail) : asset('web/images/civitas.png') }}" alt="" class="civitas-section-img rounded">
+                        @php
+                            $thumbnail = asset('web/images/civitas.png');
+                            if ($civitas_section !== null) {
+                                $thumbnail = $civitas_section->thumbnail ? Storage::url($civitas_section->thumbnail) : asset('web/images/civitas.png');
+                            }
+                        @endphp
+                        <img src="{{ $thumbnail }}" alt="" class="civitas-section-img rounded">
                     </div>
                     <div class="col-md-6 col-lg-8 text-white mt-4 mt-md-0">
                         <h2 class="text-white fw-semibold">{{ $civitas_section->title ?? 'Civitas Fakultas Vokasi' }}</h2>
