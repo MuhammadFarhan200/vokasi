@@ -67,6 +67,8 @@ document.addEventListener("swup:contentReplaced", () => {
     });
 
     function filterTeachingMentoring(category, dosen_id) {
+        var x = $("#card-pengajaran");
+        var xHieght = x.outerHeight();
         $.ajax({
             url: "/teaching-mentoring-filter",
             method: `GET`,
@@ -83,16 +85,30 @@ document.addEventListener("swup:contentReplaced", () => {
                             `<div class="card-body">` +
                             `<span class="text-uppercase fw-light" style="font-size: 12px">` + item.category + `</span>` +
                             `<div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">` + item.title + `</div>` +
-                            `<div class="text-muted fw-light">` + item.year + `</div>` +
+                            `<div class="text-muted">` + item.year + `</div>` +
                             `<div class="text-muted">` + (item.student_name ? `Mahasiswa: ` + item.student_name : ``) + `</div>` +
                             `</div>` +
                             `</div>`;
 
                         $(`#card-teaching-mentoring`).append(cardHtml);
                     });
+                    var xNewHeight = x.outerHeight();
+                    x.css(`height`, xHieght);
+                    x.animate({
+                        height: xNewHeight
+                    }, 300, function() {
+                        x.css(`height`, `auto`);
+                    });
                 } else {
                     var message = `<span class="text-muted fw-light">Belum ada pengajaran dan pembimbingan yang ditambahkan</span>`;
                     $(`#card-teaching-mentoring`).append(message);
+                    var xNewHeight = x.outerHeight();
+                    x.css(`height`, xHieght);
+                    x.animate({
+                        height: xNewHeight
+                    }, 300, function() {
+                        x.css(`height`, `auto`);
+                    });
                 }
             },
             error: function(xhr, status, error) {

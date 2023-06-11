@@ -33,7 +33,7 @@
                 <div id="posts" class="post-grid grid-container row post-timeline" data-basewidth=".entry:not(.entry-date-section):eq(0)">
 
                     <div class="entry entry-date-section col-12 mb-0" id="sejarah">
-                        <span>SEJARAH KAMI</span>
+                        <span class="border-0">SEJARAH KAMI</span>
                     </div>
                     @if ($history->count())
                     <section class="timeline">
@@ -66,7 +66,7 @@
             </div>
         </div></div>
 
-        <div style="padding-top: 30px; background: #003966" id="visi-misi">
+        <div class="pt-5 mt-4" style="background: #003966" id="visi-misi">
             <div class="container pb-5">
                 <style>
                     ol:not(header ol):not(footer ol) {
@@ -93,16 +93,16 @@
                         display: list-item;
                     }
                 </style>
-                <div class="entry entry-date-section col-12 mb-3">
+                <div class="text-center text-uppercase text-white fw-bold mb-4" style="font-size: 18px">
                     <span>Visi dan Misi</span>
                 </div>
                 <div class="row g-5">
                     <div class="col-md-6">
-                        <h4 class="text-white fw-bold mb-3">Visi</h4>
+                        <h4 class="text-white text-uppercase fw-bold mb-3">Visi</h4>
                         <div id="color-white-important" class="text-white">{!! $vision->visi ?? '<p class="text-white">Visi belum ditambahkan</p>' !!}</div>
                     </div>
                     <div class="col-md-6">
-                        <h4 class="text-white fw-bold mb-3">Misi</h4>
+                        <h4 class="text-white text-uppercase fw-bold mb-3">Misi</h4>
                         <div id="color-white-important" class="text-white">
                             {!! $vision->misi ?? '<p class="text-white">Misi belum ditambahkan</p>'!!}
                         </div>

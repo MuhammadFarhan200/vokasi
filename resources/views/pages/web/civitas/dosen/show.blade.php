@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="pengajaran" role="tabpanel">
-                                    <div class="card my-card border-0">
+                                    <div class="card my-card border-0" id="card-pengajaran">
                                         <div class="card-body px-4">
                                             <div class="card-title text-uppercase">Pengajaran & Pembimbingan</div>
                                             <div class="d-flex justify-content-start mb-4">
@@ -206,6 +206,8 @@
         });
 
         function filterTeachingMentoring(category, dosen_id) {
+            var x = $("#card-pengajaran");
+            var xHieght = x.outerHeight();
             $.ajax({
                 url: "/teaching-mentoring-filter",
                 method: `GET`,
@@ -229,9 +231,23 @@
 
                             $(`#card-teaching-mentoring`).append(cardHtml);
                         });
+                        var xNewHeight = x.outerHeight();
+                        x.css(`height`, xHieght);
+                        x.animate({
+                            height: xNewHeight
+                        }, 300, function() {
+                            x.css(`height`, `auto`);
+                        });
                     } else {
                         var message = `<span class="text-muted fw-light">Belum ada pengajaran dan pembimbingan yang ditambahkan</span>`;
                         $(`#card-teaching-mentoring`).append(message);
+                        var xNewHeight = x.outerHeight();
+                        x.css(`height`, xHieght);
+                        x.animate({
+                            height: xNewHeight
+                        }, 300, function() {
+                            x.css(`height`, `auto`);
+                        });
                     }
                 },
                 error: function(xhr, status, error) {

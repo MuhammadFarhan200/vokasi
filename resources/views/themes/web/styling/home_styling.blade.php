@@ -10,7 +10,7 @@
         overflow: hidden;
     }
     .card-img-1 {
-        height: 250px !important;
+        height: 270px !important;
         object-fit: cover;
         object-position: top center;
     }
@@ -19,6 +19,12 @@
         margin: 0;
         height: 220px;
         object-fit: cover;
+    }
+    .civitas-section-img {
+        width: 295px;
+        height: 350px;
+        object-fit: cover;
+        object-position: top center;
     }
     .card-title {
         text-overflow: ellipsis;
@@ -46,7 +52,8 @@
         border-radius: 15px;
         width: 310px;
         height: 65%;
-        left: 12%;
+        /* left: 12%; */
+        margin: 0 auto;
         top: 80px;
         padding: 30px;
     }
@@ -78,6 +85,6 @@
         height: 100%;
     }
     .text-shadow {
-        text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+        text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
     }
 </style>

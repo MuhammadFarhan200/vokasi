@@ -29,6 +29,19 @@
 <script src="{{ asset("owl-carousel/dist/owl.carousel.min.js") }}"></script>
 <script>
     document.addEventListener("swup:contentReplaced", () => {
+        $(".menu-item").each(function() {
+            let menuLink = $(this).children("a").attr("href");
+            let currentUrl = window.location.href;
+            let regex = new RegExp(menuLink);
+            let menuLink2 = $(this).children("a").attr("href");
+            let regex2 = new RegExp(menuLink2);
+
+            if (regex.test(currentUrl) || regex2.test(currentUrl)) {
+                $(this).addClass("current");
+            } else {
+                $(this).removeClass("current");
+            }
+        });
         const previousFunction = document.querySelector('script[src="{{ asset("web/js/functions.js") }}"]');
         previousFunction.remove();
         const functionScript = document.createElement('script');

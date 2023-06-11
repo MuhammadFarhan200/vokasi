@@ -12,11 +12,11 @@
                             <img src="{{ $n->thumbnail ? Storage::url($n->thumbnail) : asset('web/images/berita.png') }}" class="card-img-top card-img-1">
                         </a>
                         <div class="card-body">
-                            <a href="{{ route('web.berita.show', $n->slug) }}" class="menu-link">
+                            <a href="{{ route('web.berita.show', $n->slug) }}" class="menu-link py-0">
                                 <h4 class="card-title fw-semibold text-nowrap overflow-hidden text-white">{{ $n->title }}</h4>
                             </a>
                             <div class="card-text">{!! $n->desc !!}</div>
-                            <a href="{{ route('web.berita.show', $n->slug) }}" class="menu-link d-block text-white fw-semibold mt-3">Selengkapnya</a>
+                            <a href="{{ route('web.berita.show', $n->slug) }}" class="menu-link py-0 d-block text-white fw-semibold mt-3">Selengkapnya</a>
                         </div>
                     </div>
                     @endforeach
@@ -32,10 +32,10 @@
 
             <div class="container-fluid bg-blue-1 py-5 px-5 mt-5">
                 <div class="row d-flex align-items-center">
-                    <div class="col-md-4">
-                        <img src="{{ $civitas_section->thumbnail ? Storage::url($civitas_section->thumbnail) : asset('web/images/civitas.png') }}" alt="" class="rounded" style="height: 350px">
+                    <div class="col-md-6 col-lg-4">
+                        <img src="{{ $civitas_section->thumbnail ? Storage::url($civitas_section->thumbnail) : asset('web/images/civitas.png') }}" alt="" class="civitas-section-img rounded">
                     </div>
-                    <div class="col-md-8 text-white mt-4 mt-md-0">
+                    <div class="col-md-6 col-lg-8 text-white mt-4 mt-md-0">
                         <h2 class="text-white fw-semibold">{{ $civitas_section->title ?? 'Civitas Fakultas Vokasi' }}</h2>
                         <p>{!! $civitas_section->desc ?? 'Deskripsi Belum Ditambahkan' !!}</p>
                         <a href="{{ $civitas_section->url ?? route('web.civitas.dosen') }}" class="menu-link button button-orange">Selengkapnya</a>
@@ -60,7 +60,7 @@
                                 <div class="card shadow bg-blue-1 text-white">
                                     <img src="{{ $fi->thumbnail ? Storage::url($fi->thumbnail) : asset('web/images/blank-imagejpg.jpg') }}" class="card-img-2">
                                     <div class="card-body mx-3">
-                                        <a href="{{ $url ?? '#' }}" class="menu-link d-block text-white fw-semibold">{{ $fi->title }}</a>
+                                        <a href="{{ $url ?? '#' }}" class="menu-link py-0 d-block text-white fw-semibold">{{ $fi->title }}</a>
                                     </div>
                                 </div>
                             </a>
@@ -78,7 +78,7 @@
 
             <div class="container mt-5">
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-lg-7">
                         <h2 class="fw-bold color-blue-1 my-3">{{ $study_program_section->title ?? 'Temukan Program Studi Anda' }}</h2>
                         <div class="my-3">{!! $study_program_section->desc ?? 'Deskripsi Belum ditambahkan' !!}</div>
                         @php
@@ -86,7 +86,7 @@
                         @endphp
                         <a href="{{$url}}" class="menu-link button button-orange">Selengkapnya</a>
                     </div>
-                    <div class="col-md-5 p-5">
+                    <div class="col-lg-5 p-5">
                         <div class="card-prodi bg-blue-1">
                             <img src="{{ $study_program_section->thumbnail ? Storage::url($study_program_section->thumbnail) : asset('web/images/prodi.png') }}" alt="" class="img-overlay">
                         </div>

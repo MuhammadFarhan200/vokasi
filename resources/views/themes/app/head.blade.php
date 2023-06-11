@@ -38,6 +38,9 @@
             transform: translateY(-10px);
         }
 
+        .active {
+            color: #83b341 !important;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">

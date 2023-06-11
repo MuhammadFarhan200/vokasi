@@ -22,6 +22,9 @@
         margin-bottom: 0.75rem !important;
         font-size: var(--cnvs-slider-caption-p-size) !important;
     }
+    .slider-caption * {
+        text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+    }
 </style>
 
 <section id="slider" class="slider-element slider-parallax swiper_wrapper min-vh-60 min-vh-md-100">
@@ -29,7 +32,7 @@
         <div class="swiper-container swiper-parent">
             <div class="swiper-wrapper">
                 <div class="swiper-slide dark">
-                    <div class="container-fluid p-0" style="background: rgba(0, 0, 0, 0.1); width: 100%; height: 100%;">
+                    <div class="container-fluid p-0" style="background: rgba(0, 0, 0, 0.2); width: 100%; height: 100%;">
                         <div class="slider-caption slider-caption-center">
                             @if (request()->is('program*'))
                             <h2 class="text-white fw-bold h2" data-animate="fadeInUp">{!! $program_carousel->title ?? '' !!}</h2>
