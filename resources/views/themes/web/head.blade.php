@@ -26,8 +26,5 @@
             opacity: 0;
         }
     </style>
-    @if (request()->is('tentang-kami'))
-    <link rel="stylesheet" href="{{ asset('web/css/timline-custom.css') }}">
-    @endif
     <title>{{config('app.name') . ': ' .$title ?? config('app.name')}}</title>
 </head>

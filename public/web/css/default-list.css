@@ -1,4 +1,4 @@
-ol {
+ol:not(header ol):not(footer ol) {
     display: block;
     list-style-type: decimal;
     margin-top: .5em;
@@ -8,7 +8,7 @@ ol {
     padding-left: 30px;
 }
 
-ul {
+ul:not(header ul):not(footer ul) {
     display: block;
     list-style-type: disc;
     margin-top: .5em;
@@ -18,6 +18,6 @@ ul {
     padding-left: 30px;
 }
 
-li {
+li:not(header li):not(footer li) {
     display: list-item;
 }

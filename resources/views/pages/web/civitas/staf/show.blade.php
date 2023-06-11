@@ -109,29 +109,7 @@
                                     @endif
                                     @if ($staf->skill != null)
                                     <style>
-                                        ol {
-                                            display: block;
-                                            list-style-type: decimal;
-                                            margin-top: 0;
-                                            margin-bottom: 1em;
-                                            margin-left: 0;
-                                            margin-right: 0;
-                                            padding-left: 20px;
-                                        }
-
-                                        ul {
-                                            display: block;
-                                            list-style-type: disc;
-                                            margin-top: 0;
-                                            margin-bottom: 1em;
-                                            margin-left: 0;
-                                            margin-right: 0;
-                                            padding-left: 20px;
-                                        }
-
-                                        li {
-                                            display: list-item;
-                                        }
+                                        @import url('{{ asset("web/css/default-list.css") }}');
                                     </style>
                                     <div class="card my-card border-0 mt-4">
                                         <div class="card-body px-4">
@@ -142,9 +120,6 @@
                                         </div>
                                     </div>
                                     @endif
-                                </div>
-                                <div class="tab-pane" id="identitas" role="tabpanel">
-
                                 </div>
                                 <div class="tab-pane" id="pengajaran" role="tab-pane">
                                     <div class="card my-card border-0">
@@ -157,7 +132,7 @@
                                                     <div class="card-body">
                                                         <div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">{{ $item->subject }}</div>
                                                         <div class="text-muted">{{ $item->prodi }}</div>
-                                                        <div class="text-muted mt-1 fw-light">{{ $item->year }}</div>
+                                                        <div class="text-muted mt-1">{{ $item->year }}</div>
                                                     </div>
                                                 </div>
                                                 @endforeach

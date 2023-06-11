@@ -69,7 +69,29 @@
         <div style="padding-top: 30px; background: #003966" id="visi-misi">
             <div class="container pb-5">
                 <style>
-                    @import url('{{ asset("web/css/default-list.css") }}');
+                    ol:not(header ol):not(footer ol) {
+                        display: block;
+                        list-style-type: decimal;
+                        margin-top: .5em;
+                        margin-bottom: 1em;
+                        margin-left: 0;
+                        margin-right: 0;
+                        padding-left: 30px;
+                    }
+
+                    ul:not(header ul):not(footer ul) {
+                        display: block;
+                        list-style-type: disc;
+                        margin-top: .5em;
+                        margin-bottom: 1em;
+                        margin-left: 0;
+                        margin-right: 0;
+                        padding-left: 30px;
+                    }
+
+                    li:not(header li):not(footer li) {
+                        display: list-item;
+                    }
                 </style>
                 <div class="entry entry-date-section col-12 mb-3">
                     <span>Visi dan Misi</span>
@@ -140,7 +162,6 @@
                 listItem.style.height = contentHeight + 'px';
             }
         }
-
 
         window.onload = function() {
             adjustListHeight();

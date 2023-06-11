@@ -24,10 +24,31 @@
 <script src="{{ asset("web/js/jquery.js") }}"></script>
 <script src="{{ asset("web/js/plugins.js") }}"></script>
 <script src="{{ asset("web/js/functions.js") }}"></script>
-{{-- <script src="{{ asset("web/js/methods.js") }}"></script> --}}
+<script src="{{ asset("web/js/methods.js") }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 <script src="{{ asset("owl-carousel/dist/owl.carousel.min.js") }}"></script>
 <script>
+    document.addEventListener("swup:contentReplaced", () => {
+        const previousFunction = document.querySelector('script[src="{{ asset("web/js/functions.js") }}"]');
+        previousFunction.remove();
+        const functionScript = document.createElement('script');
+        functionScript.src = "{{ asset('web/js/functions.js') }}";
+        document.body.appendChild(functionScript);
+
+        const previousPlugin = document.querySelector('script[src="{{ asset("web/js/plugins.js") }}"]');
+        previousPlugin.remove();
+        const pluginScript = document.createElement('script');
+        pluginScript.src = "{{ asset('web/js/plugins.js') }}";
+        document.body.appendChild(pluginScript);
+    });
+
+    document.querySelectorAll('#color-white-important *').forEach(function(node) {
+        node.style.color = 'white';
+    });
+    document.querySelectorAll('#color-black-important *').forEach(function(node) {
+        node.style.color = 'black';
+    });
+
     $(document).ready(function(){
         $(".owl-carousel").owlCarousel({
             items: 3,

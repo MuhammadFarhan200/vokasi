@@ -163,17 +163,17 @@ Route::group(['domain' => ''], function () {
                     Route::resource('research', ResearchController::class);
                     Route::get('{dosen}/research', [ResearchController::class, 'index'])->name('research.index');
                     Route::get('{dosen}/research/create', [ResearchController::class, 'create'])->name('research.create');
-                    Route::get('{dosen}/{research}/edit-research', [ResearchController::class, 'edit'])->name('research.edit');
+                    Route::get('{dosen}/research/{research}/edit', [ResearchController::class, 'edit'])->name('research.edit');
 
                     Route::resource('teaching-mentoring', TeachingMentoringController::class);
                     Route::get('{dosen}/teaching-mentoring', [TeachingMentoringController::class, 'index'])->name('teaching-mentoring.index');
                     Route::get('{dosen}/teaching-mentoring/create', [TeachingMentoringController::class, 'create'])->name('teaching-mentoring.create');
-                    Route::get('{dosen}/{teaching_mentoring}/edit-teaching-mentoring', [TeachingMentoringController::class, 'edit'])->name('teaching-mentoring.edit');
+                    Route::get('{dosen}/teaching-mentoring/{teaching_mentoring}/edit', [TeachingMentoringController::class, 'edit'])->name('teaching-mentoring.edit');
 
                     Route::resource('funding', FundingController::class);
                     Route::get('{dosen}/funding', [FundingController::class, 'index'])->name('funding.index');
                     Route::get('{dosen}/funding/create', [FundingController::class, 'create'])->name('funding.create');
-                    Route::get('{dosen}/{funding}/edit-funding', [FundingController::class, 'edit'])->name('funding.edit');
+                    Route::get('{dosen}/funding/{funding}/edit', [FundingController::class, 'edit'])->name('funding.edit');
 
                     Route::get('{dosen}/about', [DosenController::class, 'about'])->name('about.index');
                     Route::patch('{dosen}/about', [DosenController::class, 'edit_about'])->name('about.update');

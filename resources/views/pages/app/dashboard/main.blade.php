@@ -43,7 +43,7 @@
                     </div>
                     <div class="card shadow mb-3">
                         <div class="card-body d-flex justify-content-between py-4">
-                            <a href="{{ route('web.home') }}" class="text-gray-800 text-hover-primary">
+                            <a href="{{ route('web.home') }}" class="text-gray-800 text-hover-primary" target="_blank">
                                 <h5 class="card-title my-2">
                                     <i class="fa-solid fa-globe text-gray-800 me-2 fs-4"></i>
                                     <span>Lihat Halaman Web</span>

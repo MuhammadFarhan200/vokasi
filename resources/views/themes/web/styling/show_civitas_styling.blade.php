@@ -28,6 +28,7 @@
     .my-tabs .nav-link {
         height: auto;
         padding: 0;
+        user-select: inherit
     }
 
     .my-tabs .nav-link {
@@ -69,7 +70,7 @@
         border-bottom: 1px dashed #d1cbcbbc;
     }
 
-    ol {
+    ol:not(header ol):not(footer ol) {
         display: block;
         list-style-type: decimal;
         margin-top: 0;
@@ -79,7 +80,7 @@
         padding-left: 20px;
     }
 
-    ul {
+    ul:not(header ul):not(footer ul) {
         display: block;
         list-style-type: disc;
         margin-top: 0;
@@ -89,10 +90,10 @@
         padding-left: 20px;
     }
 
-    li {
+    li:not(header li):not(footer li) {
         display: list-item;
-        padding-block: 0.25em;
     }
+
 
     .rounded-6 {
         border-radius: 10px !important;

@@ -94,31 +94,6 @@
                                     </div>
                                     @endif
                                     @if ($dosen->skill != null)
-                                    <style>
-                                        ol {
-                                            display: block;
-                                            list-style-type: decimal;
-                                            margin-top: 0;
-                                            margin-bottom: 1em;
-                                            margin-left: 0;
-                                            margin-right: 0;
-                                            padding-left: 20px;
-                                        }
-
-                                        ul {
-                                            display: block;
-                                            list-style-type: disc;
-                                            margin-top: 0;
-                                            margin-bottom: 1em;
-                                            margin-left: 0;
-                                            margin-right: 0;
-                                            padding-left: 20px;
-                                        }
-
-                                        li {
-                                            display: list-item;
-                                        }
-                                    </style>
                                     <div class="card my-card border-0 mt-4">
                                         <div class="card-body px-4">
                                             <div class="card-title text-uppercase">Keahlian</div>
@@ -247,7 +222,7 @@
                                 `<div class="card-body">` +
                                 `<span class="text-uppercase fw-light" style="font-size: 12px">` + item.category + `</span>` +
                                 `<div class="fw-semibold" style="font-size: 17px; text-transform: capitalize">` + item.title + `</div>` +
-                                `<div class="text-muted fw-light">` + item.year + `</div>` +
+                                `<div class="text-muted">` + item.year + `</div>` +
                                 `<div class="text-muted">` + (item.student_name ? `Mahasiswa: ` + item.student_name : ``) + `</div>` +
                                 `</div>` +
                                 `</div>`;

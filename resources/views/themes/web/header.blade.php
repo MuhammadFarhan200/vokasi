@@ -6,9 +6,9 @@
     }
 @endphp
 
-<header id="header" data-sticky-shrink="false" style="height:85px">
-    <div id="header-wrap" class="shadow" style="height:85px">
-        <div class="header-row" style="height:85px">
+<header id="header" data-sticky-shrink="false">
+    <div id="header-wrap" class="shadow">
+        <div class="header-row">
 
             <!-- Logo
             ============================================= -->
@@ -94,7 +94,7 @@
 
             <!-- Primary Navigation
             ============================================= -->
-            <nav class="primary-menu mx-lg-auto ms-xxl-auto" style="height:85px">
+            <nav class="primary-menu mx-lg-auto ms-xxl-auto">
 
                 <ul class="menu-container">
                     <li class="menu-item">
@@ -146,14 +146,14 @@
                             {{-- <form action="{{ route('web.auth.logout') }}" method="post" class="d-inline m-0 p-0">
                                 @csrf --}}
                                 <li class="menu-item">
-                                    <a class="menu-link" href="{{ route('office.dashboard.index') }}">
+                                    <a class="menu-link" data-no-swup href="{{ route('office.dashboard.index') }}">
                                         <div><i class="fa-solid fa-table-columns"></i>{{ auth()->user()->name }}</div>
                                     </a>
                                 </li>
                                 <hr class="p-0 m-0">
                                 <li class="menu-item">
                                     {{-- <a class="menu-link" href="javascript:;" onclick="this.closest('form').submit()"> --}}
-                                    <a class="menu-link" href="{{ route('web.auth.logout') }}">
+                                    <a class="menu-link" data-no-swup href="{{ route('web.auth.logout') }}">
                                         <div><i class="fa-solid fa-right-from-bracket fa-rotate-180"></i>Keluar</div>
                                     </a>
                                 </li>
