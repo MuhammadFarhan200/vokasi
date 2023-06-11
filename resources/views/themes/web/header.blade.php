@@ -6,8 +6,8 @@
     }
 @endphp
 
-<header id="header" data-sticky-shrink="false">
-    <div id="header-wrap" class="shadow">
+<header id="header" class="header-size-sm">
+    <div id="header-wrap" class="header-size-sm shadow">
         <div class="header-row">
 
             <!-- Logo
@@ -94,7 +94,7 @@
 
             <!-- Primary Navigation
             ============================================= -->
-            <nav class="primary-menu mx-lg-auto ms-xxl-auto">
+            <nav class="primary-menu mx-lg-auto ms-xxl-auto header-size-sm">
 
                 <ul class="menu-container">
                     <li class="menu-item">
@@ -174,5 +174,5 @@
 
         </div>
     </div>
-    <div class="header-wrap-clone"></div>
+    <div class="header-size-sm header-wrap-clone"></div>
 </header>
