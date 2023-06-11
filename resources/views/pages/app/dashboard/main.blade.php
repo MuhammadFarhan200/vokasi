@@ -46,7 +46,7 @@
                             <a href="{{ route('web.home') }}" class="text-gray-800 text-hover-primary" target="_blank">
                                 <h5 class="card-title my-2">
                                     <i class="fa-solid fa-globe text-gray-800 me-2 fs-4"></i>
-                                    <span>Lihat Halaman Web</span>
+                                    <span>Lihat Halaman Utama</span>
                                 </h5>
                             </a>
                             <a href="{{ route('web.home') }}" class="text-hover-primary my-2" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square text-gray-800 fs-5"></i></a>

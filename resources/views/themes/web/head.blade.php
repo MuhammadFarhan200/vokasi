@@ -5,26 +5,6 @@
     @endforeach
     <link rel="stylesheet" href="{{ asset('owl-carousel/dist/assets/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('owl-carousel/dist/assets/owl.theme.default.min.css') }}">
-    <style>
-        .photos{
-            width:100%;
-            aspect-ratio:8/2;
-            object-fit:contain;
-            /* mix-blend-mode: color-burn; */
-        }
-        .truncate {
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-        }
-        .cms_web {
-            opacity: 1;
-            transition-duration: 0.3s;
-        }
-        html.is-animating .cms_web {
-            opacity: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('web/css/myCss.css') }}">
     <title>{{config('app.name') . ': ' .$title ?? config('app.name')}}</title>
 </head>

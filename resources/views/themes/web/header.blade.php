@@ -97,41 +97,41 @@
             <nav class="primary-menu mx-lg-auto ms-xxl-auto header-size-sm">
 
                 <ul class="menu-container">
-                    <li class="menu-item">
+                    <li class="menu-item {{ request()->is('home') ? 'current' : '' }}">
                         <a class="menu-link" href="{{ route('web.home') }}"><div>Beranda</div></a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item {{ request()->is('tentang-kami') ? 'current' : '' }}">
                         <a class="menu-link" href="{{ route('web.tentang') }}"><div>Tentang</div></a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item {{ request()->is('program*') ? 'current' : '' }}">
                         <a class="menu-link" href="javascript:;"><div>Program Studi <i class="bi-chevron-down"></i></div></a>
                         <ul class="sub-menu-container">
                             @foreach (\App\Models\CategoryProdi::all() as $category)
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->is('program/'.$category->slug.'*') ? 'current' : '' }}">
                                 <a class="menu-link" href="{{ route('web.program', $category->slug) }}"><div>{{ $category->name }}</div></a>
                             </li>
                             @endforeach
                         </ul>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item {{ request()->is('civitas*') ? 'current' : '' }}">
                         <a class="menu-link" href="javascript:;"><div>Civitas <i class="bi-chevron-down"></i></div></a>
                         <ul class="sub-menu-container">
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->is('civitas/dosen*') ? 'current' : '' }}">
                                 <a class="menu-link" href="{{ route('web.civitas.dosen') }}"><div>Dosen</div></a>
                             </li>
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->is('civitas/staf*') ? 'current' : '' }}">
                                 <a class="menu-link" href="{{ route('web.civitas.staf') }}"><div>Staff</div></a>
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item {{ request()->is('berita*') ? 'current' : '' }}">
                         <a class="menu-link" href="{{ route('web.berita') }}"><div>Berita</div></a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item {{ request()->is('aktivitas*') ? 'current' : '' }}">
                         <a class="menu-link" href="javascript:;"><div>Aktivitas Mahasiswa <i class="bi-chevron-down"></i></div></a>
                         <ul class="sub-menu-container">
                             @foreach (\App\Models\Account\UserCategory::where('role', 6)->where('is_active', true)->get() as $himpunan)
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->is('aktivitas/'.$himpunan->slug) ? 'current' : '' }}">
                                 <a class="menu-link" href="{{ route('web.activity', $himpunan->slug) }}"><div>{{ $himpunan->name }}</div></a>
                             </li>
                             @endforeach

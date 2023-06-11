@@ -240,44 +240,6 @@ class AppearanceSeeder extends Seeder
                 obj_select("footer_section")
 
                 load_list(1);
-                if (document.getElementById("list_teaching_frk") !== null) {
-                    load_teaching_frk(1);
-                    load_fpa_frk(1);
-                    load_fpt_frk(1);
-                    load_clp_frk(1);
-                }
-                if (document.getElementById("list_teaching") !== null) {
-                    load_teaching(1);
-                    load_fpa(1);
-                    load_fpt(1);
-                    load_research(1);
-                    load_sf(1);
-                    load_rd(1);
-                }
-                if (document.getElementById("list_teaching_dekan") !== null) {
-                    load_teaching_dekan(1);
-                    load_fpa_dekan(1);
-                    load_fpt_dekan(1);
-                    load_research_dekan(1);
-                    load_sf_dekan(1);
-                    load_rd_dekan(1);
-                }
-                if (document.getElementById("list_teaching_kaprodi") !== null) {
-                    load_teaching_kaprodi(1);
-                    load_fpa_kaprodi(1);
-                    load_fpt_kaprodi(1);
-                    load_research_kaprodi(1);
-                    load_sf_kaprodi(1);
-                    load_rd_kaprodi(1);
-                }
-                if (document.getElementById("list_teaching_history") !== null) {
-                    load_teaching_history(1);
-                    load_fpa_history(1);
-                    load_fpt_history(1);
-                    load_research_history(1);
-                    load_sf_history(1);
-                    load_rd_history(1);
-                }
 
                 $("body").on("contextmenu", "img", function(e) {
                     return false;
