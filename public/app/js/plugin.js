@@ -718,34 +718,3 @@ function get_regional_data
         }, 1200);
     }, 500);
 }
-
-function load_teaching(page){
-    $.get('/office/fed/teaching?page=' + page, function(result) {
-        $('#list_teaching').html(result);
-    }, "html");
-}
-function load_fpa(page){
-    $.get('/office/fed/final-project-advisor?page=' + page, function(result) {
-        $('#list_fpa').html(result);
-    }, "html");
-}
-function load_fpt(page){
-    $.get('/office/fed/final-project-tester?page=' + page, function(result) {
-        $('#list_fpt').html(result);
-    }, "html");
-}
-function load_sf(page){
-    $.get('/office/fed/scientific-work?page=' + page, function(result) {
-        $('#list_sf').html(result);
-    }, "html");
-}
-function load_research(page){
-    $.get('/office/fed/research-result?page=' + page, function(result) {
-        $('#list_research').html(result);
-    }, "html");
-}
-function load_rd(page){
-    $.get('/office/fed/result-dev?page=' + page, function(result) {
-        $('#list_rd').html(result);
-    }, "html");
-}

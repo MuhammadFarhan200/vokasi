@@ -1,3 +1,19 @@
+$("img").attr("draggable", false);
+$.ajaxSetup({
+    headers: {
+        "X-CSRF-TOKEN": $("meta[name=csrf-token]").attr("content")
+    }
+});
+$(document).ready(() => {
+    $(document).on("click", ".page-link.default", (event) => {
+        event.preventDefault();
+        $(".page-link.default").removeClass("active");
+        $(event.currentTarget).parent(".page-link.default").addClass("active");
+        const page = $(event.currentTarget).data("halaman").split("page=")[1];
+        load_list(page);
+    });
+});
+const load_list = (page) => {$.get(`?page=${page}`,$("#content_filter").serialize() , (result) => {$("#list_result").html(result);}, "html");}
 const options = {
     containers: [".cms_web"],
     doScrollingRightAway: true,
@@ -31,11 +47,6 @@ document.addEventListener("swup:contentReplaced", () => {
                 }
             }
         });
-    });
-    $.ajaxSetup({
-        headers: {
-            "X-CSRF-TOKEN": $("meta[name=csrf-token]").attr("content")
-        }
     });
     document.getElementById("submit-comment").addEventListener("click", function(event) {
         event.preventDefault();

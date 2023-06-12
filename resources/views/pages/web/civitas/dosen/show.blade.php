@@ -46,15 +46,21 @@
                                 <div class="text-start text-muted mt-2 border-bottom-dashed pb-3 pt-2 px-2">
                                     <i class="fa-solid fa-building-columns me-3"></i>  {{ $dosen->user_category->name ?? '-' }}
                                 </div>
+                                @if ($dosen->phone != null)
                                 <div class="text-start text-muted mt-2 border-bottom-dashed pb-3 pt-2 px-2">
-                                    <i class="fa-solid fa-phone me-3"></i>  {{ $dosen->phone ?? '-' }}
+                                    <i class="fa-solid fa-phone me-3"></i> {{ $dosen->phone ?? '-' }}
                                 </div>
+                                @endif
+                                @if ($dosen->email != null)
                                 <div class="text-start text-muted mt-2 border-bottom-dashed pb-3 pt-2 px-2">
-                                    <i class="fa-solid fa-envelope me-3"></i>  {{ $dosen->email ?? '-' }}
+                                    <i class="fa-solid fa-envelope me-3"></i> <a href="mailto:{{ $dosen->email }}" class="text-muted">{{ $dosen->email ?? '-' }}</a>
                                 </div>
+                                @endif
+                                @if ($dosen->url != null)
                                 <div class="text-start text-muted mt-2 border-bottom-dashed pb-3 pt-2 px-2">
-                                    <i class="fa-solid fa-link me-3"></i>  {{ $dosen->url ?? '-' }}
+                                    <i class="fa-solid fa-link me-3"></i> <a href="{{ $dosen->url ?? '#' }}" target="_blank" class="text-primary">{{ $dosen->url ?? '-' }}</a>
                                 </div>
+                                @endif
                             </div>
                             <a href="{{ route('office.auth.index') }}" class="are-you-is">
                                 <div class="d-flex justify-content-center align-items-center">

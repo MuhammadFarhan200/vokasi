@@ -187,6 +187,10 @@ class AppearanceSeeder extends Seeder
             ['theme_id' => 2, 'file' => '
             var app_name = "Del: ";
             document.addEventListener("swup:contentReplaced", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
                 if (document.getElementById("div_show") !== null) {
                     $("#div_show").hide();
                     if($("#jenis_kegiatan").val() == "Online") {

@@ -36,12 +36,16 @@
                                 <div class="text-center mt-2 border-bottom-dashed pb-2">
                                     ID Karyawan: {{ $staf->employee_id ?? '-' }}
                                 </div>
+                                @if ($staf->phone != null)
                                 <div class="text-start text-muted mt-2 border-bottom-dashed pb-3 pt-2 px-2">
                                     <i class="fa-solid fa-phone me-3"></i>  {{ $staf->phone ?? '-' }}
                                 </div>
+                                @endif
+                                @if ($staf->email != null)
                                 <div class="text-start text-muted mt-2 border-bottom-dashed pb-3 pt-2 px-2">
                                     <i class="fa-solid fa-envelope me-3"></i>  {{ $staf->email ?? '-' }}
                                 </div>
+                                @endif
                             </div>
                             <a href="{{ route('office.auth.index') }}" class="are-you-is">
                                 <div class="d-flex justify-content-center align-items-center">
