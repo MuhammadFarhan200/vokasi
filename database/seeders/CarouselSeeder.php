@@ -12,8 +12,8 @@ class CarouselSeeder extends Seeder
     public function run()
     {
         $carousel1 = new Carousel();
-        $carousel1->title = 'Fakultas Vokasi <br>Institut Teknologi Del';
-        $carousel1->desc = '';
+        $carousel1->title = 'Fakultas Vokasi Institut Teknologi Del';
+        $carousel1->desc = '"Inspirasi, Inovasi, dan Implementasi untuk Masa Depan yang Gemilang!"';
         $carousel1->url = 'home';
         $thumbnail = public_path('web/images/home-page.png');
         $carousel1->thumbnail = Storage::putFile('public/carousel', $thumbnail);

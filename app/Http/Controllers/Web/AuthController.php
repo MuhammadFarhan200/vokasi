@@ -50,6 +50,6 @@ class AuthController extends Controller
     public function do_logout()
     {
         Auth::logout();
-        return redirect()->route('web.auth.index');
+        return redirect()->route('web.home');
     }
 }

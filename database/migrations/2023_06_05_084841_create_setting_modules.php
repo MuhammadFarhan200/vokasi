@@ -35,9 +35,9 @@ return new class extends Migration
             $table->timestamps();
         });
         DB::table('web_footers')->insert([
-            ['section' => 'tentang', 'text' => 'Sejarah', 'url' => 'route("web.tentang")', 'created_at' => now(), 'updated_at' => now()],
-            ['section' => 'tentang', 'text' => 'Visi dan Misi', 'url' => 'route("web.tentang")', 'created_at' => now(), 'updated_at' => now()],
-            ['section' => 'tentang', 'text' => 'Struktur Organisasi', 'url' => 'route("web.tentang")', 'created_at' => now(), 'updated_at' => now()],
+            ['section' => 'tentang', 'text' => 'Sejarah', 'url' => '/tentang-kami#sejarah', 'created_at' => now(), 'updated_at' => now()],
+            ['section' => 'tentang', 'text' => 'Visi dan Misi', 'url' => '/tentang-kami#visi-misi', 'created_at' => now(), 'updated_at' => now()],
+            ['section' => 'tentang', 'text' => 'Struktur Organisasi', 'url' => '/tentang-kami#struktur', 'created_at' => now(), 'updated_at' => now()],
             ['section' => 'program studi', 'text' => 'D-III Teknologi Informasi', 'url' => '/program/d-iii-teknologi-informasi', 'created_at' => now(), 'updated_at' => now()],
             ['section' => 'program studi', 'text' => 'D-III Teknologi Komputer', 'url' => '/program/d-iii-teknologi-komputer', 'created_at' => now(), 'updated_at' => now()],
             ['section' => 'program studi', 'text' => 'Sarjana Terapan Teknologi Rekayasa Perangkat Lunak', 'url' => '/program/sarjana-terapan-teknologi-rekayasa-perangkat-lunak', 'created_at' => now(), 'updated_at' => now()],

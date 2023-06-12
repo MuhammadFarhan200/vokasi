@@ -33,9 +33,9 @@
                                 <label class="required fw-semibold fs-6 mb-2">Section</label>
                                 <select name="section" id="footer_section" class="form-select form-select-solid mb-3">
                                     <option disabled selected>Pilih Section</option>
-                                    <option value="tentang" {{ $data->url == 'tentang' ? 'selected' : '' }}>Tentang</option>
-                                    <option value="program studi" {{ $data->url == 'program' ? 'selected' : '' }}>Program Studi</option>
-                                    <option value="aktivitas mahasiswa" {{ $data->url == 'aktivitas' ? 'selected' : '' }}>Aktivitas Mahasiswa</option>
+                                    <option value="tentang" {{ $data->section == 'tentang' ? 'selected' : '' }}>Tentang</option>
+                                    <option value="program studi" {{ $data->section == 'program' ? 'selected' : '' }}>Program Studi</option>
+                                    <option value="aktivitas mahasiswa" {{ $data->section == 'aktivitas' ? 'selected' : '' }}>Aktivitas Mahasiswa</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-4">
