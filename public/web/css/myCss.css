@@ -11,16 +11,6 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
-
-.cms_web {
-    opacity: 1;
-    transition-duration: 0.3s;
-}
-
-html.is-animating .cms_web {
-    opacity: 0.5;
-}
-
 scrollbar {
     width: 10px !important;
     height: 10px !important;
